@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                        SELECT
+                            CATGROUP.CATGROUP_ID
+                        FROM
+                            (SELECT CATGROUP_ID, MEMBER_ID, IDENTIFIER, MARKFORDELETE FROM CATGROUP WHERE
+                            MARKFORDELETE = 0 AND MEMBER_ID IN
+                            (
+                                SELECT MEMBER_ID FROM CATALOG WHERE IDENTIFIER IN (${storeIdentifier})
+                            )) CATGROUP
+                        LEFT JOIN
+                            CATGRPDESC CGD ON (CGD.CATGROUP_ID = CATGROUP.CATGROUP_ID AND CGD.LANGUAGE_ID = ?)
+                        LEFT JOIN
+                            SEOURL ON (SEOURL.TOKENNAME = 'CategoryToken' AND SEOURL.TOKENVALUE = CATGROUP.CATGROUP_ID || '')
+                        LEFT JOIN
+                            SEOURLKEYWORD CGSEOURL ON (CGSEOURL.SEOURL_ID = SEOURL.SEOURL_ID AND
+                            CGSEOURL.LANGUAGE_ID = CGD.LANGUAGE_ID AND CGSEOURL.STATUS = 1)
+                        LEFT JOIN
+                            SEOPAGEDEF ON (SEOPAGEDEF.PAGENAME = 'CATEGORY_PAGE_' || CATGROUP.CATGROUP_ID)
+                        LEFT JOIN
+                            SEOPAGEDEFDESC CGSEOPD ON (CGSEOPD.SEOPAGEDEF_ID = SEOPAGEDEF.SEOPAGEDEF_ID
+                            AND CGSEOPD.LANGUAGE_ID = CGD.LANGUAGE_ID)
+                        WHERE
+                            CATGROUP.MARKFORDELETE = 0 AND (CGD.NAME IS NOT NULL OR CGD.SHORTDESCRIPTION IS NOT NULL OR
+                            CGD.LONGDESCRIPTION IS NOT NULL OR CGD.THUMBNAIL IS NOT NULL OR CGD.FULLIMAGE IS NOT NULL OR
+                            CGD.PUBLISHED IS NOT NULL OR CGD.KEYWORD IS NOT NULL OR CGD.NOTE IS NOT NULL OR
+                            CGSEOURL.URLKEYWORD IS NOT NULL OR CGSEOPD.TITLE IS NOT NULL OR
+                            CGSEOPD.META_DESC IS NOT NULL OR CGSEOPD.IMAGE_ALT_DESC IS NOT NULL)
+                        ORDER BY
+                            CATGROUP.CATGROUP_ID
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="langId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+				                        SELECT
+                                            CG.IDENTIFIER, CGD.LANGUAGE_ID, CGD.NAME, CGD.SHORTDESCRIPTION, CGD.LONGDESCRIPTION,
+                                            CGD.THUMBNAIL, CGD.FULLIMAGE, CGD.PUBLISHED, CGD.KEYWORD, CGD.NOTE, CGSEOURL.URLKEYWORD,
+                                            CGSEOPD.TITLE, CGSEOPD.META_DESC, CGSEOPD.IMAGE_ALT_DESC
+                                        FROM
+                                            CATGROUP CG
+                                        LEFT OUTER JOIN
+                                            CATGRPDESC CGD ON (CGD.CATGROUP_ID = CG.CATGROUP_ID AND CGD.LANGUAGE_ID = ?)
+                                        LEFT OUTER JOIN
+                                            SEOURL ON (SEOURL.TOKENNAME = 'CategoryToken' AND SEOURL.TOKENVALUE = CG.CATGROUP_ID || '')
+                                        LEFT OUTER JOIN
+                                            SEOURLKEYWORD CGSEOURL ON (CGSEOURL.SEOURL_ID = SEOURL.SEOURL_ID AND
+                                            CGSEOURL.LANGUAGE_ID = CGD.LANGUAGE_ID AND CGSEOURL.STATUS = 1)
+                                        LEFT OUTER JOIN
+                                            SEOPAGEDEF ON (SEOPAGEDEF.PAGENAME = 'CATEGORY_PAGE_' || CG.CATGROUP_ID)
+                                        LEFT OUTER JOIN
+                                            SEOPAGEDEFDESC CGSEOPD ON (CGSEOPD.SEOPAGEDEF_ID = SEOPAGEDEF.SEOPAGEDEF_ID
+                                            AND CGSEOPD.LANGUAGE_ID = CGD.LANGUAGE_ID)
+                                        WHERE
+                                            CG.CATGROUP_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="langId" valueFrom="BusinessContext" />
+                <_config:Param name="CATGROUP_ID" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="GroupIdentifier" />
+                                <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                                <_config:ColumnMapping name="NAME" value="Name" />
+                                <_config:ColumnMapping name="SHORTDESCRIPTION" value="ShortDescription" />
+                                <_config:ColumnMapping name="LONGDESCRIPTION" value="LongDescription" />
+                                <_config:ColumnMapping name="THUMBNAIL" value="Thumbnail" />
+                                <_config:ColumnMapping name="FULLIMAGE" value="FullImage" />
+                                <_config:ColumnMapping name="PUBLISHED" value="Published" />
+                                <_config:ColumnMapping name="KEYWORD" value="Keyword" />
+                                <_config:ColumnMapping name="NOTE" value="Note" />
+                                <_config:ColumnMapping name="URLKEYWORD" value="URLKeyword" />
+                                <_config:ColumnMapping name="TITLE" value="PageTitle" />
+                                <_config:ColumnMapping name="META_DESC" value="MetaDescription" />
+                                <_config:ColumnMapping name="IMAGE_ALT_DESC" value="ImageAltText" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="GroupIdentifier" number="1"/>
+                                        <_config:column name="LanguageId" number="2"/>
+                                        <_config:column name="Name" number="3"/>
+                                        <_config:column name="ShortDescription" number="4"/>
+                                        <_config:column name="LongDescription" number="5"/>
+                                        <_config:column name="Thumbnail" number="6"/>
+                                        <_config:column name="FullImage" number="7"/>
+                                        <_config:column name="Published" number="8"/>
+                                        <_config:column name="Keyword" number="9"/>
+                                        <_config:column name="Note" number="10"/>
+                                        <_config:column name="URLKeyword" number="11"/>
+                                        <_config:column name="PageTitle" number="12"/>
+                                        <_config:column name="MetaDescription" number="13"/>
+                                        <_config:column name="ImageAltText" number="14"/>
+                                        <_config:column name="Delete" number="15" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

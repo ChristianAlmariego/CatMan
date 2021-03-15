@@ -1,0 +1,22 @@
+{
+  "name": "advcatmgmt",
+  "version": "1.0.0",
+  "description": "WebSphere Commerce Advanced Catalog Management",
+  "main": "app.js",
+  "dependencies": {
+    "csv": "^1.1.1",
+    "dotenv": "^8.2.0",
+    "html-entities": "^1.2.1",
+    "nodemailer": "^4.1.1",
+    "properties-reader": "^0.3.1",
+    "shelljs": "0.7.8",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shelljs:^0.7.8",
+  "license": "ISC"
+}

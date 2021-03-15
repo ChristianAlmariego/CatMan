@@ -1,0 +1,8 @@
+{
+	"storePath":"CatManTest/WSV/",
+	"outputPath":"WSV/",
+	"storeID": "10153",
+	"supportedStores" : [
+	    { "name": "WSV" , "wcStoreIdentifier" : "WSV"}
+	]
+}

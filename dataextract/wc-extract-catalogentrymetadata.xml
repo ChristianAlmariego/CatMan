@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								CATENTRY.CATENTRY_ID, SEOPAGEDEFDESC.LANGUAGE_ID
+				FROM
+								CATENTRY
+				JOIN 
+								SEOPAGEDEF ON (SEOPAGEDEF.PAGENAME = 'PRODUCT_PAGE_' || CATENTRY.CATENTRY_ID)
+				JOIN 
+								SEOPAGEDEFDESC ON (SEOPAGEDEFDESC.SEOPAGEDEF_ID = SEOPAGEDEF.SEOPAGEDEF_ID)
+				WHERE
+								CATENTRY.MARKFORDELETE = 0
+									AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+									AND (SEOPAGEDEFDESC.TITLE IS NOT NULL OR SEOPAGEDEFDESC.META_DESC IS NOT NULL OR SEOPAGEDEFDESC.IMAGE_ALT_DESC IS NOT NULL)
+									AND SEOPAGEDEFDESC.LANGUAGE_ID = ?
+				ORDER BY
+								CATENTRY.PARTNUMBER, SEOPAGEDEFDESC.LANGUAGE_ID DESC
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+              <_config:Param name="languageId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+                SELECT
+                                CATENTRY.PARTNUMBER, SEOPAGEDEFDESC.TITLE, SEOPAGEDEFDESC.META_DESC, SEOPAGEDEFDESC.IMAGE_ALT_DESC
+                FROM
+                                CATENTRY
+                LEFT OUTER JOIN
+                                SEOPAGEDEF ON (SEOPAGEDEF.PAGENAME = 'PRODUCT_PAGE_' || CATENTRY.CATENTRY_ID)
+                LEFT OUTER JOIN
+                                SEOPAGEDEFDESC ON (SEOPAGEDEFDESC.SEOPAGEDEF_ID = SEOPAGEDEF.SEOPAGEDEF_ID)
+                WHERE
+                                CATENTRY.CATENTRY_ID = ? AND SEOPAGEDEFDESC.LANGUAGE_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="CATENTRY_ID" />
+                <_config:Param name="LANGUAGE_ID" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="TITLE" value="PageTitle" />
+                                <_config:ColumnMapping name="META_DESC" value="MetaDescription" />
+                                <_config:ColumnMapping name="IMAGE_ALT_DESC" value="ImageAltText" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                        <_config:column name="PageTitle" number="2"/>
+                                        <_config:column name="MetaDescription" number="3"/>
+                                        <_config:column name="ImageAltText" number="4"/>
+                                        <_config:column name="Delete" number="5" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

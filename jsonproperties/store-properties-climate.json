@@ -1,0 +1,9 @@
+{
+	"storePath":"CatMan/",
+	"wcStoreIdentifier" : "Climate",
+	"outputPath":"CLIMATE/",
+	"storeID": "10155",
+	"supportedStores" : [
+	    { "name": "Climate" , "wcStoreIdentifier" : "Climate"}
+	]
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2010 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader"
+          firstLineIsHeader="true" useHeaderAsColumnName="true" >
+          <_config:property name="keyColumns" value="CATGROUP_IDENTIFIER,FACET_IDENTIFIER" />
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.TableObjectBuilder" >
+      
+      <_config:Table name="FACETCATGRP" deleteKey="Delete" deleteValue="1" excludeUnListedColumns="true">
+      	<_config:Column name="FACETCATGRP_ID" value="FACETCATGRP_ID" valueFrom="IDResolve">
+ 		  <_config:IDResolve tableName="FACETCATGRP" generateNewKey="true" >
+  		  </_config:IDResolve>
+		</_config:Column>
+ 		<_config:Column name="FACET_ID" value="FACET_ID" valueFrom="IDResolve" >
+ 		  <_config:IDResolve tableName="FACETDESC" generateNewKey="false" primaryKeyColumnName="FACET_ID">
+    	  	<_config:UniqueIndexColumn name="NAME" value="FACET_IDENTIFIER" />
+    	  	<_config:UniqueIndexColumn name="LANGUAGE_ID" value="langId" valueFrom="BusinessContext" />
+  		  </_config:IDResolve>
+    	</_config:Column>
+  		<_config:Column name="SEQUENCE" value="SEQUENCE" valueFrom="InputData" />
+    	<_config:Column name="CATGROUP_ID" value="CATGROUP_ID" valueFrom="IDResolve">
+    	  <_config:IDResolve tableName="CATGROUP" generateNewKey="false" >
+    	  	<_config:UniqueIndexColumn name="IDENTIFIER" value="CATGROUP_IDENTIFIER" />
+  		  </_config:IDResolve>
+    	</_config:Column>
+    	<_config:Column name="STOREENT_ID" value="STOREENT_ID" valueFrom="InputData" />
+    	<_config:Column name="DISPLAYABLE" value="DISPLAYABLE" valueFrom="InputData" />
+	  </_config:Table>
+    
+      
+    <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.TableObjectMediator" >
+    </_config:BusinessObjectMediator>
+ 
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>  
+
+</_config:DataloadBusinessObjectConfiguration>
+ 

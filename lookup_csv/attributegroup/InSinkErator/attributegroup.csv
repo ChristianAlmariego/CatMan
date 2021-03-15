@@ -1,0 +1,17 @@
+GroupIdentifier,ParentGroupIdentifier,ParentStoreIdentifier,Sequence,LanguageId,Name,ShortDescription,Delete
+InSinkErator-CallToActionGroup,,InSinkErator,3,-1,CallToActionGroup,Call To Action Group,0
+InSinkErator-CarouselBadgeGroup,,InSinkErator,3,-1,CarouselBadgeGroup,Carousel Overlay Action Group,0
+InSinkErator-CertificationBadgeGroup,,InSinkErator,3,-1,CertificationBadgeGroup,Certification Action Group,0
+InSinkErator-DocumentsDrawingsGroup,,InSinkErator,5,-1,DocumentsDrawingsGroup,Documents And Drawings Group,0
+InSinkErator-FeaturesGroup,,InSinkErator,3,-1,FeaturesGroup,Features Action Group,0
+InSinkErator-MobileAppsGroup,,InSinkErator,7,-1,MobileAppsGroup,Mobile Apps Group,0
+InSinkErator-ProductFamilyGroup,,InSinkErator,3,-1,ProductFamilyGroup,Product Family Group,0
+InSinkErator-RatingsReviewsGroup,,InSinkErator,8,-1,RatingsReviewsGroup,Ratings And Reviews Group,0
+InSinkErator-RelatedProductsGroup,,InSinkErator,9,-1,RelatedProductsGroup,Related Products Group,0
+InSinkErator-SpecificationGroup,,InSinkErator,4,-1,SpecificationGroup,Specification Action Group,0
+InSinkErator-SpecificationGroup2,,InSinkErator,4,-1,SpecificationGroup2,Specification Group 2,0
+InSinkErator-SpecificationGroup3,,InSinkErator,4,-1,SpecificationGroup3,Specification Group 3,0
+InSinkErator-SpecificationGroup4,,InSinkErator,4,-1,SpecificationGroup4,Specification Group 4,0
+InSinkErator-TabAndContentGroup,,InSinkErator,3,-1,TabAndContentGroup,Tab And Content Action Group,0
+InSinkErator-TrainingServicesGroup,,InSinkErator,6,-1,TrainingServicesGroup,Training And Services Group,0
+InSinkErator-UtilityBeltGroup,,InSinkErator,10,-1,UtilityBeltGroup,Utility Belt Action Group,0

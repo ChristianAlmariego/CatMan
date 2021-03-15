@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataextract-env.xml" />
+
+        <_config:LoadOrder commitCount="0" batchSize="0">
+        <_config:property name="firstTwoLinesAreHeader" value="false" />
+        <_config:property name="firstLineIsHeader" value="true" />
+
+        <!-- Extract all Catalog Entries  -->
+        <!--
+		-->
+        <_config:LoadItem name="AttributeName" businessObjectConfigFile="wc-extract-attrname.xml">
+          <_config:DataOutputLocation location="${outputLocation}extract-output.csv" />
+        </_config:LoadItem>
+        
+    	</_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

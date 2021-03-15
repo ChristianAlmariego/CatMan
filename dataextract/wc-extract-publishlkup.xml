@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								ATTRVAL.ATTR_ID, ATTRVAL.ATTRVAL_ID, ATTRVALDESC.LANGUAGE_ID
+				FROM
+								ATTRVAL
+				JOIN 
+								ATTRVALDESC ON (ATTRVALDESC.ATTRVAL_ID = ATTRVAL.ATTRVAL_ID)
+				WHERE
+								ATTRVAL.STOREENT_ID = ?
+									AND ATTRVALDESC.LANGUAGE_ID IN (${langId})
+									AND ATTRVAL.ATTR_ID IN (SELECT ATTR_ID FROM ATTR WHERE ATTR.IDENTIFIER IN (${AttrIdentifier}))
+									
+									AND
+					                    ATTRVAL.IDENTIFIER NOT IN (SELECT ATTRVAL.IDENTIFIER 
+					                    FROM
+					                        ATTRVAL JOIN ATTRVALDESC ON (ATTRVALDESC.ATTRVAL_ID = ATTRVAL.ATTRVAL_ID) 
+					                    WHERE
+					                        ATTRVAL.IDENTIFIER LIKE '%_CTA_%' 
+					                    AND
+					                        ATTRVALDESC.LANGUAGE_ID IN (${langId}))
+					                  
+					                AND
+					                    ATTRVAL.IDENTIFIER NOT IN (SELECT ATTRVAL.IDENTIFIER 
+					                    FROM
+					                        ATTRVAL JOIN ATTRVALDESC ON (ATTRVALDESC.ATTRVAL_ID = ATTRVAL.ATTRVAL_ID) 
+					                    WHERE
+					                        ATTRVAL.IDENTIFIER LIKE '%ValueID_1' 
+					                    AND 
+					                    	ATTRVAL.IDENTIFIER LIKE '%Utility_Belt%' 
+					                    AND
+					                        ATTRVALDESC.LANGUAGE_ID IN (${langId}))
+				ORDER BY
+								ATTRVAL.ATTR_ID, ATTRVAL.IDENTIFIER, ATTRVALDESC.LANGUAGE_ID DESC
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+				SELECT ATTR.IDENTIFIER, ATTRVALDESC.LANGUAGE_ID, ATTRVAL.IDENTIFIER AS VALUEIDENTIFIER, ATTRVALDESC.SEQUENCE, ATTRVALDESC.STRINGVALUE, ATTRVAL.VALUSAGE,
+						ATTRVAL.FIELD1 ATTRVALFIELD1, ATTRVAL.FIELD2 ATTRVALFIELD2, ATTRVAL.FIELD3 ATTRVALFIELD3,
+						ATTRVALDESC.IMAGE1, ATTRVALDESC.IMAGE2, ATTRVALDESC.FIELD1, ATTRVALDESC.FIELD2, ATTRVALDESC.FIELD3
+				FROM ATTR
+				JOIN ATTRVAL ON (ATTR.ATTR_ID = ATTRVAL.ATTR_ID)
+				LEFT OUTER JOIN ATTRVALDESC ON (ATTRVAL.ATTRVAL_ID = ATTRVALDESC.ATTRVAL_ID)
+				WHERE ATTR.ATTR_ID = ? AND ATTRVAL.ATTRVAL_ID = ? AND ATTRVALDESC.LANGUAGE_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="ATTR_ID" />
+                <_config:Param name="ATTRVAL_ID" />
+                <_config:Param name="LANGUAGE_ID" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="Identifier" />
+                                <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                                <_config:ColumnMapping name="VALUEIDENTIFIER" value="ValueIdentifier" />
+                                <_config:ColumnMapping name="SEQUENCE" value="Sequence" />
+                                <_config:ColumnMapping name="STRINGVALUE" value="Value" />
+                                <_config:ColumnMapping name="VALUSAGE" value="ValueUsage" />
+                                <_config:ColumnMapping name="ATTRVALFIELD1" value="AttributeValueField1" />
+                                <_config:ColumnMapping name="ATTRVALFIELD2" value="AttributeValueField2" />
+                                <_config:ColumnMapping name="ATTRVALFIELD3" value="AttributeValueField3" />
+                                <_config:ColumnMapping name="IMAGE1" value="Image1" />
+                                <_config:ColumnMapping name="IMAGE2" value="Image2" />
+                                <_config:ColumnMapping name="FIELD1" value="Field1" />
+                                <_config:ColumnMapping name="FIELD2" value="Field2" />
+                                <_config:ColumnMapping name="FIELD3" value="Field3" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="Identifier" number="1"/>
+                                        <_config:column name="LanguageId" number="2"/>
+                                        <_config:column name="ValueIdentifier" number="3"/>
+                                        <_config:column name="Sequence" number="4"/>
+                                        <_config:column name="Value" number="5"/>
+                                        <_config:column name="ValueUsage" number="6"/>
+                                        <_config:column name="AttributeValueField1" number="7"/>
+                                        <_config:column name="AttributeValueField2" number="8"/>
+                                        <_config:column name="AttributeValueField3" number="9"/>
+                                        <_config:column name="Image1" number="10"/>
+                                        <_config:column name="Image2" number="11"/>
+                                        <_config:column name="Field1" number="12"/>
+                                        <_config:column name="Field2" number="13"/>
+                                        <_config:column name="Field3" number="14"/>
+                                        <_config:column name="Delete" number="15" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

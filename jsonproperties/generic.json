@@ -1,0 +1,19 @@
+{
+	"processingDirectory": "Processing/",
+	"errorProcessingDirectory" : "ErrorProcessing/",
+	"reportDirectory" : "Report/",
+	"archiveDirectory" : "Archive/",
+	"masterSalesCategoryFile": "mastersalescategory_lookup.csv",
+	"literatureCategoryFile": "literaturecategory_lookup.csv",
+	"lookupFolder": "/lookup_csv/",
+	"supportedCatalogEntryTypes" : ["Product", "SKU", "Bundle", "Static Kit", "Dynamic Kit"],
+	"supportedComponentTypes" : ["Bundle Type", "Static Type", "Dynamic Type", "Parts List", "Replacement", "Related Products", "Up-Sell", "Accessories", "Training", "Services"],
+	"dataloadDirectory" : "./dataload/",
+	"attributeDictionary_Categories":"CatMan/Export/Categories/",
+	"attributeDictionary_Attribute":"CatMan/Export/AttributeDictionary/",
+	"transformDefaultRunRequest" : "CatalogEntryProductTransform",
+	"transformValidRunRequests" : ["CatalogEntryProductTransform", "CatalogEntryComponent", "CatalogEntryParentCatalogGroupRelationship", "CatalogEntryAttributeRelationshipDeletion"],
+	"validLocales" : {"fr_FR":"-2","de_DE":"-3","it_IT":"-4","es_ES":"-5","pt_BR":"-6","zh_CN":"-7","zh_TW":"-8","ko_KR":"-9","ja_JP":"-10","ru_RU":"-20","ro_RO":"-21","pl_PL":"-22","ar_EG":"-23","en_CN":"-1000","en_GB":"-1001","en_SG":"-1002","es_MX":"-1003","en_AE":"-1004","nl_NL":"-1005","en_IN":"-1006","sv_SE":"-1007","no_NO":"-1008","fi_FI":"-1009","da_DK":"-1010","hu_HU":"-1011","cs_CZ":"-1012","sk_SK":"-1013","tr_TR":"-1014","en_AU":"-1015","fr_CA":"-1016","en_CA":"-1017","de_CH":"-1018","de_AT":"-1019","nl_BE":"-1020","fr_CH":"-1021","fr_BE":"-1022","es_US":"-1023"},
+	"deprecatedLocales" : ["de_AT", "de_CH", "es_US", "nl_BE", "en_AU", "tr_TR", "sk_SK", "cs_CZ", "hu_HU", "da_DK", "fi_FI", "no_NO", "sv_SE", "en_IN", "en_CN", "fr_BE", "fr_CH"],
+	"standardCoreFields" : ["Code", "Store", "Full Path", "Catalog Entry Type", "Manufacturer Part Number", "Manufacturer", "Country", "Locale"]
+}

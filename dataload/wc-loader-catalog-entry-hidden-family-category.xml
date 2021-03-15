@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+   <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:ColumnExclusionList>
+        <_config:table name="CATENTRY" columns="PARTNUMBER, MFPARTNUMBER, MFNAME, URL, ONSPECIAL, ONAUCTION, FIELD1, FIELD2, FIELD3, FIELD5, BUYABLE, OID, BASEITEM_ID, STATE, STARTDATE, ENDDATE, RANK, OPTCOUNTER, AVAILABILITYDATE, LASTORDERDATE, ENDOFSERVICEDATE, DISCONTINUEDATE" />
+    </_config:ColumnExclusionList>
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader" firstLineIsHeader="true" useHeaderAsColumnName="true" >
+        <_config:property name="keyColumns" value="PartNumber" />
+    </_config:DataReader>
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+      <_config:DataMapping>
+
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        <_config:mapping xpath="catalogEntryTypeCode" value="Type" />
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[4]/Name" value="field4" valueFrom="Fixed"/>          
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[4]/StringValue/value" value="Category"  /> 
+        
+        <!-- <_config:mapping xpath="" value="Delete"   deleteValue="1"/> -->
+        
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntryMediator"
+      	componentId="com.ibm.commerce.catalog" >
+      	<_config:property name="validateCatalog" value="true" />
+      	<_config:property name="syncSalesCatalogs" value="false" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+    
+    <!--  Catalog Entry Search Index -->
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+ 
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+ 
+        <!-- The Delete indicator -->
+        <_config:mapping xpath="" value="Delete" deleteValue="1" />
+        
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntrySearchIndexMediator" componentId="com.ibm.commerce.catalog" >
+        <_config:property name="actionOnError" value="1" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+    
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

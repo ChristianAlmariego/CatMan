@@ -1,0 +1,8 @@
+{
+	"storePath":"ACMTest/ProTeam/",
+	"outputPath":"PROTEAM/",
+	"storeID": "10154",
+	"supportedStores" : [
+	    { "name": "ProTeam" , "wcStoreIdentifier" : "ProTeam"}
+	]
+}

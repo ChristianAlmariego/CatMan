@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+        <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+                <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+                                                SELECT
+                                                        CATENTRY.CATENTRY_ID, CATENTRYATTR.ATTR_ID, CATENTRYATTR.ATTRVAL_ID, ATTRVALDESC.LANGUAGE_ID
+                                                FROM
+                                                        CATENTRY
+                                                        JOIN CATENTRYATTR ON (CATENTRYATTR.CATENTRY_ID = CATENTRY.CATENTRY_ID)
+                                                        JOIN ATTRVALDESC ON (ATTRVALDESC.ATTRVAL_ID = CATENTRYATTR.ATTRVAL_ID)
+                                                WHERE
+                                                        CATENTRY.MARKFORDELETE = 0
+                                                        AND CATENTRY.PARTNUMBER IN (${partNumber})
+                                                        AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+                                                        AND ATTRVALDESC.LANGUAGE_ID IN (?)
+                                                        AND (ATTRVALDESC.INTEGERVALUE IS NOT NULL OR ATTRVALDESC.FLOATVALUE IS NOT NULL OR ATTRVALDESC.STRINGVALUE IS NOT NULL)
+                                                ORDER BY
+                                                        CATENTRY.PARTNUMBER, CATENTRYATTR.ATTR_ID, CATENTRYATTR.ATTRVAL_ID, ATTRVALDESC.LANGUAGE_ID DESC                    
+			                ]]>
+                                </_config:SQL>
+                                <_config:Param name="storeId" valueFrom="BusinessContext" />
+                                <_config:Param name="langId" valueFrom="BusinessContext" />
+                        </_config:Query>
+                </_config:DataReader>
+                <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                        <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+                                <_config:Query>
+                                        <_config:SQL>
+                                                <![CDATA[
+				                        SELECT
+                                                                CATENTRY.PARTNUMBER, ATTR.IDENTIFIER ATTRIDENTIFIER, ATTRVALDESC.LANGUAGE_ID,
+                                                                ATTRVAL.IDENTIFIER ATTRVALIDENTIFIER, 
+								DECODE(ATTR.ATTRTYPE_ID, 'INTEGER', ATTRVALDESC.INTEGERVALUE || '',
+									'FLOAT', ATTRVALDESC.FLOATVALUE || '',
+									ATTRVALDESC.STRINGVALUE) VALUE,
+								CATENTRYATTR.USAGE, CATENTRYATTR.SEQUENCE, STOREENT.IDENTIFIER STOREIDENTIFIER,
+								CATENTRYATTR.FIELD1, CATENTRYATTR.FIELD2, CATENTRYATTR.FIELD3
+				                        FROM
+								CATENTRY
+				                                JOIN CATENTRYATTR ON (CATENTRYATTR.CATENTRY_ID = CATENTRY.CATENTRY_ID)
+				                                JOIN ATTR ON (ATTR.ATTR_ID = CATENTRYATTR.ATTR_ID)
+				                                JOIN ATTRVAL ON (ATTRVAL.ATTRVAL_ID = CATENTRYATTR.ATTRVAL_ID)
+				                                JOIN ATTRVALDESC ON (ATTRVALDESC.ATTRVAL_ID = CATENTRYATTR.ATTRVAL_ID)
+				                                JOIN STOREENT ON (STOREENT.STOREENT_ID = ATTR.STOREENT_ID)
+				                        WHERE
+								CATENTRY.CATENTRY_ID = ? AND CATENTRYATTR.ATTR_ID = ?
+								AND CATENTRYATTR.ATTRVAL_ID = ? AND ATTRVALDESC.LANGUAGE_ID = ?
+                                                ]]>
+                                        </_config:SQL>
+                                        <_config:Param name="CATENTRY_ID" />
+                                        <_config:Param name="ATTR_ID" />
+                                        <_config:Param name="ATTRVAL_ID" />
+                                        <_config:Param name="LANGUAGE_ID" />
+                                        <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                        <_config:ColumnMapping name="ATTRIDENTIFIER" value="AttributeIdentifier" />
+                                        <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                                        <_config:ColumnMapping name="ATTRVALIDENTIFIER" value="ValueIdentifier" />
+                                        <_config:ColumnMapping name="VALUE" value="Value" />
+                                        <_config:ColumnMapping name="USAGE" value="Usage" />
+                                        <_config:ColumnMapping name="SEQUENCE" value="Sequence" />
+                                        <_config:ColumnMapping name="STOREIDENTIFIER" value="AttributeStoreIdentifier" />
+                                        <_config:ColumnMapping name="FIELD1" value="Field1" />
+                                        <_config:ColumnMapping name="FIELD2" value="Field2" />
+                                        <_config:ColumnMapping name="FIELD3" value="Field3" />
+                                </_config:Query>
+                                <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                        <_config:Data>
+                                                <_config:column name="PartNumber" number="1"/>
+                                                <_config:column name="AttributeIdentifier" number="2"/>
+                                                <_config:column name="LanguageId" number="3"/>
+                                                <_config:column name="ValueIdentifier" number="4"/>
+                                                <_config:column name="Value" number="5"/>
+                                                <_config:column name="Usage" number="6"/>
+                                                <_config:column name="Sequence" number="7"/>
+                                                <_config:column name="AttributeStoreIdentifier" number="8"/>
+                                                <_config:column name="Field1" number="9"/>
+                                                <_config:column name="Field2" number="10"/>
+                                                <_config:column name="Field3" number="11"/>
+                                                <_config:column name="Delete" number="12" value="" />
+                                        </_config:Data>
+                                </_config:DataWriter>
+                        </_config:BusinessObjectMediator>
+                </_config:BusinessObjectBuilder>
+        </_config:DataLoader>
+</_config:DataloadBusinessObjectConfiguration>

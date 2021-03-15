@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader" >
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+    				SELECT EMSPOT_ID
+    				FROM EMSPOT  
+    				WHERE STOREENT_ID = ? AND USAGETYPE IN ('MARKETING', 'CONTENT', 'LAYOUTMARKETINGSPOT', 'SEARCH')
+    				ORDER BY EMSPOT_ID
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator" >
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+					SELECT NAME, DESCRIPTION, SUPPORTEDTYPES, USAGETYPE, UIDISPLAYABLE, MANAGINGTOOL
+					FROM EMSPOT
+					WHERE EMSPOT_ID IN (?)
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="EMSPOT_ID" />
+
+    	      <_config:ColumnMapping name="NAME" value="spotName" />
+    	      <_config:ColumnMapping name="DESCRIPTION" value="description" />
+    	      <_config:ColumnMapping name="SUPPORTEDTYPES" value="supportedTypes" />
+    	      <_config:ColumnMapping name="USAGETYPE" value="usageType" />
+    	      <_config:ColumnMapping name="UIDISPLAYABLE" value="uiDisplable" />
+    	      <_config:ColumnMapping name="MANAGINGTOOL" value="managingTool" />
+    	    </_config:Query>
+        
+   		<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+      		<_config:Data>
+	     		<_config:column number="1" name="spotName" />
+	      		<_config:column number="2" name="description" />
+	      		<_config:column number="3" name="supportedTypes" />
+	      		<_config:column number="4" name="usageType" />
+	      		<_config:column number="5" name="uiDisplable" />
+	      		<_config:column number="6" name="managingTool" />
+	      		<_config:column number="7" name="delete" value="0" />
+	    	</_config:Data>
+    	</_config:DataWriter>
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

@@ -1,0 +1,18 @@
+scripts\fanTransformDataload.sh			backup only
+scripts\proteamTransformDataload.sh		backup only
+jsonproperties\store-properties-fan.json	modified, backup
+jsonproperties\store-properties-proteam.json	modified, backup
+ACMTest\FAN...					backup only
+ACMTest\ProTeam...				backup only
+cm_modules\loadOutputStreams-fan.js		backup only
+cm_modules\loadOutputStreams-proteam.js		backup only
+cm_modules\recordValidator-fan.js		backup only
+cm_modules\recordValidator-proteam.js		backup only
+cm_modules\recordWriter-fan.js			backup only
+cm_modules\recordWriter-proteam.js		backup only
+
+
+1, 2: these shell scripts will not be called anymore
+3, 4: removal is not yet possible because there are existing properties used in other process. mostly, category transform
+5, 6: just for reference of old directory for ACMTest
+7, 8, 9, 10, 11, 12: unused resources

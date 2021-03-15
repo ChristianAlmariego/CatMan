@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+	<_config:DataLoadEnvironment configFile="${envPath}wc-dataload-env.xml" />
+	
+    <_config:LoadOrder commitCount="1" batchSize="1" maxError="500000" dataLoadMode="Replace">
+  	<_config:property name="firstTwoLinesAreHeader" value="true" />
+
+		
+	  <!-- Marketing Content -->
+	  <!--
+  	   <_config:LoadItem name="MarketingContent" businessObjectConfigFile="MarketingContent/wc-loader-marketing-content.xml" >
+	  		<_config:DataSourceLocation location="MarketingContent/MarketingContent.csv" />
+  	   </_config:LoadItem>
+	   -->
+
+  	   <_config:LoadItem name="MarketingContentDescription" businessObjectConfigFile="wc-loader-marketing-content-description.xml" >
+	  		<_config:DataSourceLocation location="${outputLocation}MarketingContentDescription.csv" />
+  	   </_config:LoadItem>
+	<!--
+  	   <_config:LoadItem name="MarketingContentAttachment" businessObjectConfigFile="MarketingContent/wc-loader-marketing-content-attachment.xml" >
+	  		<_config:DataSourceLocation location="MarketingContent/MarketingContentAttachment.csv" />
+  	   </_config:LoadItem>
+
+  	   <_config:LoadItem name="MarketingContentAttachmentDescription" businessObjectConfigFile="MarketingContent/wc-loader-marketing-content-attachment-description.xml" >
+	  		<_config:DataSourceLocation location="MarketingContent/MarketingContentAttachmentDescription.csv" />
+  	   </_config:LoadItem>
+
+  	   <_config:LoadItem name="MarketingContentImageMap" businessObjectConfigFile="MarketingContent/wc-loader-marketing-content-imagemap.xml" >
+	  		<_config:DataSourceLocation location="MarketingContent/MarketingContentImageMap.csv" />
+  	   </_config:LoadItem>
+
+	   -->
+		
+
+    </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

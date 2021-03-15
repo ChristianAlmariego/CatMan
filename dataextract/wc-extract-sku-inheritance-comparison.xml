@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                        select '${childCatentryId}' AS catentry_id, tabfordeletion.identifier from
+                        (
+                            select
+                                attrval.identifier, attrvaldesc.language_id,
+                                attr.identifier as attr_identifier,
+                                attrvaldesc.value as attr_attrvalue, attrvaldesc.stringvalue, attrvaldesc.sequence as value_sequence
+                            from catentryattr 
+                            left join catentry on catentryattr.catentry_id = catentry.catentry_id
+                            left join attr on catentryattr.attr_id = attr.attr_id
+                            left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                            left join (select * from attrvaldesc where attrvaldesc.language_id = -1) attrvaldesc 
+                                on attrvaldesc.attrval_id = attrval.attrval_id
+                            where
+                            catentry.markfordelete = 0
+                            AND attr.identifier not in ('EMR Country', 'EMR Platform', 'EMR Product Status', 'EMR Region', 'EMR TabSequence', 'EMR Locale')
+                            AND catentryattr.catentry_id IN (${parentCatentryId}) 
+ 
+                        INTERSECT
+
+                            select
+                                attrval.identifier, attrvaldesc.language_id,
+                                attr.identifier as attr_identifier,
+                                attrvaldesc.value as attr_attrvalue, attrvaldesc.stringvalue, attrvaldesc.sequence as value_sequence
+                            from catentryattr 
+                            left join catentry on catentryattr.catentry_id = catentry.catentry_id
+                            left join attr on catentryattr.attr_id = attr.attr_id
+                            left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                            left join (select * from attrvaldesc where attrvaldesc.language_id = -1) attrvaldesc 
+                            on attrvaldesc.attrval_id = attrval.attrval_id
+                            where catentry.markfordelete = 0
+                            AND attr.identifier not in ('EMR Country', 'EMR Platform', 'EMR Product Status', 'EMR Region', 'EMR TabSequence', 'EMR Locale')
+                            AND catentryattr.catentry_id IN (${childCatentryId})
+                            ) tabfordeletion
+                    ]]>
+              </_config:SQL>
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+                <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                        select
+                        catentry.partnumber,
+                        attrval.identifier, attrvaldesc.language_id,
+                        attr.identifier as attr_identifier,
+                        attr.field1,
+                        attr.field2,
+                        attr.field3,
+                        attrvaldesc.value as attr_attrvalue, attrvaldesc.stringvalue, attrvaldesc.sequence as value_sequence,
+                            CASE  WHEN ATTRVAL.IDENTIFIER LIKE '%Descriptive%' THEN 'Descriptive'
+                            ELSE 'Defining' END ATTRUSAGE
+                    from catentryattr 
+                    left join catentry on catentryattr.catentry_id = catentry.catentry_id
+                    left join attr on catentryattr.attr_id = attr.attr_id
+                    left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                    left join (select * from attrvaldesc where attrvaldesc.language_id = -1) attrvaldesc 
+                    on attrvaldesc.attrval_id = attrval.attrval_id
+                    where
+                        catentry.markfordelete = 0
+                        AND catentryattr.catentry_id = ?
+                        AND attrval.identifier = ?
+                    ]]>
+              </_config:SQL>
+                <_config:Param name="CATENTRY_ID" />
+                <_config:Param name="IDENTIFIER" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="ValueIdentifier" />
+                                <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                               <_config:ColumnMapping name="ATTR_IDENTIFIER" value="AttributeIdentifier" />
+                                <_config:ColumnMapping name="STRINGVALUE" value="Value" />
+                                 <_config:ColumnMapping name="ATTRUSAGE" value="Usage" />
+                                <_config:ColumnMapping name="VALUE_SEQUENCE" value="Sequence" />
+                                <_config:ColumnMapping name="FIELD1" value="Field1" />
+                                <_config:ColumnMapping name="FIELD2" value="Field2" />
+                                <_config:ColumnMapping name="FIELD3" value="Field3" />
+
+            </_config:Query>
+
+             <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                       <_config:column name="ValueIdentifier" number="2"/> 
+                                        <_config:column name="LanguageId" number="3"/>
+                                        <_config:column name="AttributeIdentifier" number="3"/>
+                                        <_config:column name="Value" number="5"/>
+                                        <_config:column name="Usage" number="6"/>
+                                        <_config:column name="Sequence" number="7"/>
+                                        <_config:column name="AttributeStoreIdentifier" value="EmersonCAS" number="8"/>
+                                        <_config:column name="Field1" number="9"/>
+                                        <_config:column name="Field2" number="10"/>
+                                        <_config:column name="Field3" number="11"/>
+                                        <_config:column name="Delete" value="1" number="12"/>
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

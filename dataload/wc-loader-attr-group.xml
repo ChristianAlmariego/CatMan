@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2013 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader" firstLineIsHeader="true" >
+      <_config:property name="keyColumns" value="GroupIdentifier,ParentStoreIdentifier,LanguageId" />
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.TableObjectBuilder" >
+      <_config:Table name="ATTRDICTGRP" excludeUnListedColumns="true">
+        <_config:Column name="ATTRDICTGRP_ID" value="ATTRDICTGRP_ID" valueFrom="IDResolve" >
+          <_config:IDResolve tableName="ATTRDICTGRP" generateNewKey="true" >
+          </_config:IDResolve>
+        </_config:Column>
+        <_config:Column name="IDENTIFIER" value="GroupIdentifier" />
+        <_config:Column name="ATTRDICT_ID" value="10001" valueFrom="Fixed" />
+        <_config:Column name="STOREENT_ID" value="storeId" valueFrom="BusinessContext" />
+        <_config:Column name="SEQUENCE" value="Sequence" />
+        <_config:Column name="MARKFORDELETE" value="Delete" defaultValue="0" defaultValueFrom="Fixed" />
+      </_config:Table>
+
+      <_config:Table name="ATTRDICTGRPDESC" excludeUnListedColumns="true">
+        <_config:Column name="ATTRDICTGRP_ID" value="ATTRDICTGRP_ID" valueFrom="IDResolve" />
+        <_config:Column name="LANGUAGE_ID" value="LanguageId" defaultValue="langId" defaultValueFrom="BusinessContext" />
+        <_config:Column name="NAME" value="Name" defaultValue="GroupIdentifier" defaultValueFrom="InputData" />
+        <_config:Column name="SHORTDESCRIPTION" value="ShortDescription" />
+      </_config:Table>
+
+      <_config:Table name="ATTRDICTGRPREL" excludeUnListedColumns="true">
+        <_config:TableHandler className="com.ibm.commerce.foundation.dataload.config.SkipTableIfColumnNullTableHandler" >
+          <_config:Parameter name="columnNames" value="ATTRDICTGRP_PARENT" valueFrom="Fixed" />
+        </_config:TableHandler>
+        <_config:Column name="ATTRDICTGRP_PARENT" value="ATTRDICTGRP_PARENT" valueFrom="IDResolve" >
+          <_config:IDResolve tableName="ATTRDICTGRP" generateNewKey="false" returnNullIfUnresolved="true" >
+            <_config:UniqueIndexColumn name="IDENTIFIER" value="ParentGroupIdentifier" skipIDResolveIfNull="true" />
+            <_config:UniqueIndexColumn name="ATTRDICT_ID" value="10001" valueFrom="Fixed" />
+          </_config:IDResolve>
+        </_config:Column>
+        <_config:Column name="ATTRDICTGRP_CHILD" value="ATTRDICTGRP_CHILD" valueFrom="IDResolve" >
+          <_config:IDResolve tableName="ATTRDICTGRP" generateNewKey="false" >
+            <_config:UniqueIndexColumn name="IDENTIFIER" value="GroupIdentifier" />
+            <_config:UniqueIndexColumn name="ATTRDICT_ID" value="10001" valueFrom="Fixed" />
+          </_config:IDResolve>
+        </_config:Column>
+        <_config:Column name="SEQUENCE" value="Sequence" />
+      </_config:Table>
+
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.TableObjectMediator" >
+      	<_config:property name="actionOnError" value="1" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

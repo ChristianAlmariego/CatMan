@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:ColumnExclusionList>
+        <_config:table name="CATENTDESC" columns="NAME, SHORTDESCRIPTION, THUMBNAIL, FULLIMAGE, AUXDESCRIPTION1, AUXDESCRIPTION2, AVAILABLE, PUBLISHED, AVAILABILITYDATE, KEYWORD" />
+    </_config:ColumnExclusionList>
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader"
+          firstLineIsHeader="true" useHeaderAsColumnName="true" />
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+    
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        <!-- The catalog entry language -->
+        <_config:mapping xpath="Description[0]/language" value="Language" />
+        <_config:mapping xpath="Description[0]/language" value="LanguageId" />
+        <!-- The catalog entry name -->
+        <_config:mapping xpath="Description[0]/Name" value="Name" />
+        <!-- The catalog entry short description -->
+        <_config:mapping xpath="Description[0]/ShortDescription" value="ShortDescription" />
+        <!-- The catalog entry long description -->
+        <_config:mapping xpath="Description[0]/LongDescription" value="LongDescription" />
+        <!-- The catalog entry thumbnail image path -->
+        <_config:mapping xpath="Description[0]/Thumbnail" value="Thumbnail" />
+        <!-- The catalog entry auxiliary description 1 -->
+        <_config:mapping xpath="Description[0]/Attributes/auxDescription1" value="AuxDescription1" />
+        <!-- The catalog entry full image path -->
+        <_config:mapping xpath="Description[0]/FullImage" value="FullImage" />
+        <!-- The catalog entry auxiliary description 2 -->
+        <_config:mapping xpath="Description[0]/Attributes/auxDescription2" value="AuxDescription2" />
+        <!-- The catalog entry time to availability -->
+        <_config:mapping xpath="Description[0]/Attributes/available" value="Available" />
+        <!-- The catalog entry Published indicator -->
+        <_config:mapping xpath="Description[0]/Attributes/published" value="Published" />
+        <!-- The catalog entry availability -->
+        <_config:mapping xpath="Description[0]/Attributes/availabilityDate" value="AvailabilityDate" />
+        <!-- The catalog entry keyword -->
+        <_config:mapping xpath="Description[0]/Keyword" value="Keyword" />
+        
+        <!--  SEO fields -->
+        <!-- The usage -->
+        <_config:mapping xpath="SEOURL/Usage" value="CatalogEntry" valueFrom="Fixed" />
+        <!-- The URL keyword -->
+        <_config:mapping xpath="SEOURL/URLKeyword/Keyword" value="URLKeyword" />
+        <!-- The URL keyword language -->
+        <_config:mapping xpath="SEOURL/URLKeyword/language" value="Language" />
+        <_config:mapping xpath="SEOURL/URLKeyword/language" value="LanguageId" />
+        <!-- The page title -->
+        <_config:mapping xpath="SEOProperties/Title" value="PageTitle" />
+        <!-- The meta description -->
+        <_config:mapping xpath="SEOProperties/MetaDescription" value="MetaDescription" />
+        <!-- The image alt text -->
+        <_config:mapping xpath="SEOProperties/FullImageAltDescription" value="ImageAltText" />
+        <!-- The page language id -->
+        <_config:mapping xpath="SEOProperties/language" value="Language" />
+        <_config:mapping xpath="SEOProperties/language" value="LanguageId" />
+	
+        <!-- The Delete indicator -->
+        <_config:mapping xpath="" value="Delete" deleteValue="1" />
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntryDescriptionMediator"
+      	componentId="com.ibm.commerce.catalog" />
+      	
+     </_config:BusinessObjectBuilder>
+
+    <!--  Catalog Entry Search Index -->
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntrySearchIndexMediator" componentId="com.ibm.commerce.catalog" >
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+    
+  </_config:DataLoader>  
+
+</_config:DataloadBusinessObjectConfiguration>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                        select 
+                            m.catentry_id_from,
+                            m.massoctype_id,
+                            m.catentry_id_to
+                        from massoccece m
+                        left join catentry mp on m.catentry_id_from = mp.catentry_id
+                        left join catentry mc on m.catentry_id_to = mc.catentry_id
+                        where m.catentry_id_from in 
+                            (select catgpenrel.catentry_id --, catgpenrel.catgroup_id, catgroup.identifier AS MASTER_PATH 
+                            from catgpenrel 
+                                left join catgroup on catgroup.catgroup_id = catgpenrel.catgroup_id
+                                    where catgroup.catgroup_id IN
+                                        (
+                                        select catgroup_id_child from
+                                            (
+                                            select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel from catgrprel start with
+                                            catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN (${platform})) connect by prior
+                                            catgroup_id_child = catgroup_id_parent
+                                            ) cattree
+                                        left join catgroup on cattree.catgroup_id_parent = catgroup.catgroup_id
+                                        where catgroup.markfordelete = 0
+                                        ) 
+                            )
+                        and mp.markfordelete = 0
+                        AND m.massoctype_id IN ('ACCESSORY','PARTS_LIST','REPLACEMENT','UPSELL','X-SELL')
+                        order by m.catentry_id_from
+                    ]]>
+              </_config:SQL>
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+                                            select 
+                                                mp.partnumber as parent_code,
+                                                case m.massoctype_id
+                                                    when 'X-SELL' then 'Related Products'
+                                                    when 'UPSELL' then 'Up-Sell'
+                                                    when 'ACCESSORY' then 'Accessories'
+                                                    when 'PARTS_LIST' then 'Parts List'
+                                                    when 'REPLACEMENT' then 'Replacement'
+                                                    else ''
+                                                end as componenttype,
+                                                mc.partnumber as child_code,
+                                                m.rank as sequence,
+                                                m.field1 as displaysequence
+                                            from massoccece m
+                                                left join catentry mp on m.catentry_id_from = mp.catentry_id
+                                                left join catentry mc on m.catentry_id_to = mc.catentry_id
+                                            where mp.markfordelete = 0
+                                                AND m.catentry_id_from = ?
+                                                AND m.massoctype_id = ?
+                                                AND m.catentry_id_to = ?
+                                            order by m.catentry_id_from
+                                        ]]>
+                                        </_config:SQL>
+                                <_config:Param name="CATENTRY_ID_FROM" />
+                                <_config:Param name="MASSOCTYPE_ID" />
+                                <_config:Param name="CATENTRY_ID_TO" />
+
+                                <_config:ColumnMapping name="PARENT_CODE" value="Component Code" />
+                                <_config:ColumnMapping name="COMPONENTTYPE" value="Component Type" />
+                                <_config:ColumnMapping name="CHILD_CODE" value="Child Code" />
+                                <_config:ColumnMapping name="SEQUENCE" value="Sequence" />
+                                <_config:ColumnMapping name="DISPLAYSEQUENCE" value="Display Sequence" />
+                        </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="Component Code" number="1"/>
+                                        <_config:column name="Component Type" number="2"/>
+                                        <_config:column name="Child Code" number="3" />
+                                        <_config:column name="Sequence" number="4" />
+                                        <_config:column name="Display Sequence" number="5" />
+                                        <_config:column name="Delete" number="6" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

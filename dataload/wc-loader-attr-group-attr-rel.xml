@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2013 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader" firstLineIsHeader="true" >
+      <_config:property name="keyColumns" value="AttributeIdentifier,AttributeGroupIdentifier" />
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.TableObjectBuilder" >
+      <_config:Table name="ATTRDICTGRPATTRREL" excludeUnListedColumns="true">
+        <_config:TableHandler className="com.ibm.commerce.foundation.dataload.config.SkipTableIfColumnNullTableHandler" >
+          <_config:Parameter name="columnNames" value="ATTR_ID" valueFrom="Fixed" />
+        </_config:TableHandler>
+        <_config:Column name="ATTRDICTGRP_ID" value="ATTRDICTGRP_ID" valueFrom="IDResolve" >
+          <_config:IDResolve tableName="ATTRDICTGRP" generateNewKey="false" >
+            <_config:UniqueIndexColumn name="IDENTIFIER" value="AttributeGroupIdentifier" />
+            <_config:Column name="ATTRDICT_ID" value="10001" valueFrom="Fixed" />
+          </_config:IDResolve>
+        </_config:Column>
+        <_config:Column name="ATTR_ID" value="ATTR_ID" valueFrom="IDResolve" >
+          <_config:IDResolve tableName="ATTR" generateNewKey="false" returnNullIfUnresolved="true" >
+            <_config:UniqueIndexColumn name="IDENTIFIER" value="AttributeIdentifier" />
+            <_config:Column name="ATTRDICT_ID" value="10001" valueFrom="Fixed" />
+          </_config:IDResolve>
+        </_config:Column>
+        <_config:Column name="SEQUENCE" value="Sequence" />
+      </_config:Table>
+
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.TableObjectMediator" >
+      	<_config:property name="actionOnError" value="1" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

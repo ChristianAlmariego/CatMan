@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataload-env.xml" />
+
+        <_config:LoadOrder commitCount="1" batchSize="1" maxError="500" dataLoadMode="Replace">
+        <_config:property name="firstTwoLinesAreHeader" value="true" />
+
+        <_config:LoadItem name="CatalogGroup" businessObjectConfigFile="wc-loader-catalog-group-rel.xml">
+          <_config:DataSourceLocation location="${outputLocation}catgrp-output.csv" />
+        </_config:LoadItem>
+
+        <_config:LoadItem name="CatalogGroupName" businessObjectConfigFile="wc-loader-catalog-group-name.xml">
+          <_config:DataSourceLocation location="${outputLocation}catgrpname-output.csv" />
+        </_config:LoadItem>
+        
+        <_config:LoadItem name="CatalogGroupUrlKeyword" businessObjectConfigFile="wc-loader-catalog-group-urlkeyword.xml">
+          <_config:DataSourceLocation location="${outputLocation}catgrpurlkeyword-output.csv" />
+        </_config:LoadItem>
+        
+        <_config:LoadItem name="CatalogGroupMetaDesc" businessObjectConfigFile="wc-loader-catalog-group-meta-desc.xml">
+          <_config:DataSourceLocation location="${outputLocation}catgrpmetadesc-output.csv" />
+        </_config:LoadItem>
+        
+        <_config:LoadItem name="CatalogGroupPageTitle" businessObjectConfigFile="wc-loader-catalog-group-page-title.xml">
+          <_config:DataSourceLocation location="${outputLocation}catgrppagetitle-output.csv" />
+        </_config:LoadItem>
+
+        <_config:LoadItem name="CatalogGroupShortDesc" businessObjectConfigFile="wc-loader-catalog-group-short-desc.xml">
+          <_config:DataSourceLocation location="${outputLocation}catgrpshortdesc-output.csv" />
+        </_config:LoadItem>
+
+    </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

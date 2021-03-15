@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+  
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader"
+          firstLineIsHeader="true" useHeaderAsColumnName="true" />
+        
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.marketing.facade.datatypes.MarketingPackage" dataObjectType="MarketingContentType" >
+    
+      <_config:DataMapping>
+        <_config:mapping xpath="MarketingContentIdentifier/ExternalIdentifier/Name" value="contentName" />
+        <_config:mapping xpath="MarketingContentDescription[0]/Location" value="location" />
+        <_config:mapping xpath="MarketingContentDescription[0]/MarketingText" value="marketingText" />
+        <_config:mapping xpath="MarketingContentDescription[0]/language" value="langId" />
+          <!--
+        <_config:mapping xpath="MarketingContentDescription[0]/UserData/UserDataField/customField1" value="field1" />
+        <_config:mapping xpath="MarketingContentDescription[0]/UserData/UserDataField/customField2" value="field2" />
+        -->
+        <_config:mapping xpath="" value="delete" deleteValue="1" />
+        
+      </_config:DataMapping>
+      
+      <_config:BusinessObjectMediator className="com.ibm.commerce.marketing.dataload.mediator.MarketingContentDescriptionMediator"
+      	componentId="com.ibm.commerce.marketing" />
+
+     </_config:BusinessObjectBuilder>
+  </_config:DataLoader>  
+
+</_config:DataloadBusinessObjectConfiguration>

@@ -1,0 +1,1511 @@
+Attribute Identifier,Sequence,Facetable
+EMR Features,1000,N
+EMR Access Portal CTA,1000,N
+EMR Buy Now CTA,1001,N
+EMR Calculate CTA,1002,N
+EMR Chat Now CTA,1003,N
+EMR Check Availablity CTA,1004,N
+EMR Check Order Status CTA,1005,N
+EMR Configure CTA,1006,N
+EMR Consult an Expert CTA,1007,N
+EMR Contact Sales CTA,1008,N
+EMR Contact Us CTA,1009,N
+EMR Download Device File CTA,1010,N
+EMR Download Drawing CTA,1011,N
+EMR Download Software CTA,1012,N
+EMR Learn About CTA,1013,N
+EMR Request Demo CTA,1014,N
+EMR Request Quote CTA,1015,N
+EMR Select CTA,1016,N
+EMR Size CTA,1017,N
+EMR Training CTA,1018,N
+EMR View Compatibility CTA,1019,N
+EMR View Courses CTA,1020,N
+EMR View Seminars CTA,1021,N
+EMR Where to Buy CTA,1022,N
+EMR Email Us CTA,1023,N
+EMR Find Product Information CTA,1024,N
+EMR Watch Video CTA,1025,N
+EMR Find a Pro Installer CTA,1026,N
+EMR Learn About DIY Install CTA,1027,N
+EMR Find Utility Rebates CTA,1028,N
+EMR View Comparison CTA,1029,N
+EMR View Replacement CTA,1030,N
+EMR View Drawing CTA,1031,N
+EMR Create Account CTA,1032,N
+EMR Learn About Systems CTA,1033,N
+EMR View Animation CTA,1034,N
+EMR View Online Help CTA,1035,N
+EMR View in Select CTA,1036,N
+EMR Certification Badge 1,1000,N
+EMR Certification Badge 2,1001,N
+EMR Certification Badge 3,1002,N
+EMR Certification Badge 4,1003,N
+EMR Certification Badge 5,1004,N
+EMR Certification Badge 6,1005,N
+EMR Generic Spec 1 Label,1000,N
+EMR Generic Spec 1 Value,1001,N
+EMR Generic Spec 2 Label,1002,N
+EMR Generic Spec 2 Value,1003,N
+EMR Generic Spec 3 Label,1004,N
+EMR Generic Spec 3 Value,1005,N
+EMR Generic Spec 4 Label,1006,N
+EMR Generic Spec 4 Value,1007,N
+EMR Generic Spec 5 Label,1008,N
+EMR Generic Spec 5 Value,1009,N
+EMR Generic Spec 6 Label,1010,N
+EMR Generic Spec 6 Value,1011,N
+EMR Generic Spec 7 Label,1012,N
+EMR Generic Spec 7 Value,1013,N
+EMR Generic Spec 8 Label,1014,N
+EMR Generic Spec 8 Value,1015,N
+EMR Generic Spec 9 Label,1016,N
+EMR Generic Spec 9 Value,1017,N
+EMR Generic Spec 10 Label,1018,N
+EMR Generic Spec 10 Value,1019,N
+EMR Generic Spec 11 Label,1020,N
+EMR Generic Spec 11 Value,1021,N
+EMR Generic Spec 12 Label,1022,N
+EMR Generic Spec 12 Value,1023,N
+EMR Generic Spec 13 Label,1024,N
+EMR Generic Spec 13 Value,1025,N
+EMR Generic Spec 14 Label,1026,N
+EMR Generic Spec 14 Value,1027,N
+EMR Generic Spec 15 Label,1028,N
+EMR Generic Spec 15 Value,1029,N
+EMR Generic Spec 16 Label,1030,N
+EMR Generic Spec 16 Value,1031,N
+EMR Generic Spec 17 Label,1032,N
+EMR Generic Spec 17 Value,1033,N
+EMR Generic Spec 18 Label,1034,N
+EMR Generic Spec 18 Value,1035,N
+EMR Generic Spec 19 Label,1036,N
+EMR Generic Spec 19 Value,1037,N
+EMR Generic Spec 20 Label,1038,N
+EMR Generic Spec 20 Value,1039,N
+EMR Generic Spec 21 Label,1040,N
+EMR Generic Spec 21 Value,1041,N
+EMR Generic Spec 22 Label,1042,N
+EMR Generic Spec 22 Value,1043,N
+EMR Generic Spec 23 Label,1044,N
+EMR Generic Spec 23 Value,1045,N
+EMR Generic Spec 24 Label,1046,N
+EMR Generic Spec 24 Value,1047,N
+EMR Generic Spec 25 Label,1048,N
+EMR Generic Spec 25 Value,1049,N
+EMR Utility Belt_Access Bulletins,1000,N
+EMR Utility Belt_Access Notices,1001,N
+EMR Utility Belt_Access Portal,1002,N
+EMR Utility Belt_Access Training,1003,N
+EMR Utility Belt_Advise,1004,N
+EMR Utility Belt_Buy Now,1005,N
+EMR Utility Belt_Calculate,1006,N
+EMR Utility Belt_Check Order Status,1007,N
+EMR Utility Belt_Click to Chat,1008,N
+EMR Utility Belt_Configure,1009,N
+EMR Utility Belt_Contact Local Partner,1010,N
+EMR Utility Belt_Contact Sales,1011,N
+EMR Utility Belt_Contact Service,1012,N
+EMR Utility Belt_Contact Support,1013,N
+EMR Utility Belt_Contact Us,1014,N
+EMR Utility Belt_Download App,1015,N
+EMR Utility Belt_Download Software,1016,N
+EMR Utility Belt_Find Product Recalls,1017,N
+EMR Utility Belt_Find a Store,1018,N
+EMR Utility Belt_Register Product,1019,N
+EMR Utility Belt_Request Demo,1020,N
+EMR Utility Belt_Request Quote,1021,N
+EMR Utility Belt_Select,1022,N
+EMR Utility Belt_Size,1023,N
+EMR Utility Belt_Visit our Blog,1024,N
+EMR Utility Belt_Visit our Community,1025,N
+EMR Utility Belt_Where to Buy,1026,N
+EMR Product Family 1,1000,N
+EMR Product Family 2,1001,N
+EMR Product Family 3,1002,N
+EMR Product Family 4,1003,N
+EMR Product Family 5,1004,N
+EMR Product Family 6,1005,N
+EMR Product Family 7,1006,N
+EMR Product Family 8,1007,N
+EMR Product Family 9,1008,N
+EMR Product Family 10,1009,N
+EMR Product Family 11,1010,N
+EMR Product Family 12,1011,N
+EMR Product Family 13,1012,N
+EMR Product Family 14,1013,N
+EMR Product Family 15,1014,N
+EMR Product Family 16,1015,N
+EMR Product Family 17,1016,N
+EMR Product Family 18,1017,N
+EMR Product Family 19,1018,N
+EMR Product Family 20,1019,N
+EMR Product Family 21,1020,N
+EMR Product Family 22,1021,N
+EMR Product Family 23,1022,N
+EMR Product Family 24,1023,N
+EMR Product Family 25,1024,N
+EMR Product Family 26,1025,N
+EMR Product Family 27,1026,N
+EMR Product Family 28,1027,N
+EMR Product Family 29,1028,N
+EMR Product Family 30,1029,N
+EMR Product Family 31,1030,N
+EMR Product Family 32,1031,N
+EMR 3rd Party Connectivity,2000,N
+EMR Actuation,2002,Y
+EMR Airflow CFM,2003,U
+EMR Alarm Type,2004,N
+EMR Ambient Temperature,2005,N
+EMR Amperage,2006,Y
+EMR Application,2007,Y
+EMR Approvals,2008,Y
+EMR Area,2009,N
+EMR Area Classification,2010,Y
+EMR Auxiliary Contacts,2011,N
+EMR Availability,2012,Y
+EMR Ballast Type,2013,N
+EMR Battery Type,2014,N
+EMR Blower Motor,2015,Y
+EMR Body Design,2016,Y
+EMR Bore,2017,Y
+EMR Box Shape,2018,N
+EMR Box Type,2019,N
+EMR Breaker Manufacturer,2020,Y
+EMR Breaker Type,2021,N
+EMR Breaking Capacity,2022,N
+EMR Bus Rating,2023,N
+EMR CAD Link,2024,Y
+EMR CPU Speed,2025,Y
+EMR Cable Entry Size,2026,N
+EMR Cable Length,2027,Y
+EMR Cable Temperature Rating,2028,Y
+EMR Cable Thickness,2029,N
+EMR Cable Wire Size,2030,N
+EMR Capacity Range,2031,Y
+EMR Certifications,2032,Y
+EMR Cleaning Process,2033,Y
+EMR Coil Class,2034,Y
+EMR Coil Number,2035,Y
+EMR Coil Voltage,2036,N
+EMR Color Rendering Index,2037,N
+EMR Color Temperature,2038,Y
+EMR Combination and Non Combination,2039,U
+EMR Communication Protocol,2040,Y
+EMR Conductor Size,2041,N
+EMR Conduit Hub Size,2042,U
+EMR Conduit Terminal Size,2043,U
+EMR Configuration,2044,Y
+EMR Connection Pressure Rating,2045,Y
+EMR Connection Standard,2046,Y
+EMR Connection Style,2047,Y
+EMR Connector Cable Diameter,2048,N
+EMR Contact Type,2049,N
+EMR Contacts,2050,N
+EMR Control Level,2051,Y
+EMR Control Type,2052,Y
+EMR Controller Inputs,2053,N
+EMR Controller Outputs,2054,N
+EMR Cooling System,2055,Y
+EMR Core Type,2056,N
+EMR Country,2057,N
+EMR Cover Style,2058,N
+EMR Critical Service,2059,Y
+EMR Cross Section,2060,N
+EMR Current Rating,2061,N
+EMR Cylinder Size,2062,Y
+EMR Data Interface,2063,Y
+EMR Design Type,2064,N
+EMR Devices,2065,Y
+EMR Diagnostics,2066,Y
+EMR DimView DXF 2D,2067,N
+EMR DimView IGES 3D,2068,N
+EMR DimView ProE3D,2069,N
+EMR DimView STEP 3D,2070,N
+EMR Dimensions,2071,N
+EMR Direct Replacement,2072,Y
+EMR Drawing Number,2073,N
+EMR EAC Control,2074,N
+EMR EER,2075,Y
+EMR EMI,2076,N
+EMR Efficiency,2077,N
+EMR Electrical,2078,Y
+EMR Electrical Connection,2079,Y
+EMR Element Configuration,2080,Y
+EMR Enclosure Type,2081,N
+EMR Evaporating Temperature Range,2082,N
+EMR Factory Sealed,2083,Y
+EMR Finish,2084,N
+EMR Fire Rating,2085,Y
+EMR Firmware Update,2086,Y
+EMR Fixture Size,2087,N
+EMR Flow Characteristics,2088,Y
+EMR Flow Cv,2089,U
+EMR Flow Direction,2090,Y
+EMR Flow Kv,2091,U
+EMR Flow L M,2092,U
+EMR Flow M3 H,2093,U
+EMR Flow Range,2094,Y
+EMR Flow SCFM,2095,U
+EMR Fluid State,2096,Y
+EMR Frequency,2097,Y
+EMR Full Load Cooling Efficiency,2098,U
+EMR Function,2099,Y
+EMR Fusing,2100,N
+EMR GFI,2101,N
+EMR Gas Type,2102,Y
+EMR Gas Valve System,2103,Y
+EMR Gasket,2104,N
+EMR Grounding Style,2105,N
+EMR HVAC System Type,2106,Y
+EMR Hardware Configuration,2107,Y
+EMR Heater,2108,Y
+EMR Heating Efficiency,2109,Y
+EMR Hertz,2110,Y
+EMR Horsepower,2111,Y
+EMR Horsepower Ratings,2112,Y
+EMR Hose Length,2113,Y
+EMR Housing,2114,N
+EMR Hub Arrangement Configuration,2115,U
+EMR Hub Size,2116,N
+EMR Humidity Control,2117,N
+EMR IM Pressure Vessel,2118,N
+EMR IM Solenoid,2119,N
+EMR Ignitor,2120,Y
+EMR Ignitor Type,2121,Y
+EMR Ignitor Voltage,2122,Y
+EMR Industry,2123,Y
+EMR Input Power,2124,Y
+EMR Input Signal,2125,Y
+EMR Input Voltage Range,2126,Y
+EMR Installation Type,2127,Y
+EMR Instrument Type,2128,Y
+EMR Insulation Resistance,2129,N
+EMR Item Type,2130,N
+EMR KVA Rating,2131,N
+EMR Kit Number,2132,N
+EMR LP Conversion Kit Included,2133,N
+EMR Lamp Included,2134,N
+EMR Lamp Type,2135,N
+EMR Leak Detection,2136,Y
+EMR Length,2137,Y
+EMR Light Distribution,2138,N
+EMR Line Frequency,2139,N
+EMR Line Size,2140,Y
+EMR Listed in Catalog,2141,N
+EMR Load Power Factor,2142,N
+EMR Locale,2143,N
+EMR Lower Tool Weight maximum,2144,U
+EMR Lumens,2145,Y
+EMR MCP or Breaker Trip,2146,N
+EMR MSDS URL,2147,N
+EMR Machine Controler,2148,Y
+EMR Market,2149,U
+EMR Material,2150,Y
+EMR Max Air Watts,2151,Y
+EMR Max Ambient Temperature,2152,Y
+EMR Max Clamping Force,2153,Y
+EMR Max Fluid Temperature,2154,Y
+EMR Max Inlet Pressure,2155,Y
+EMR Max Operating Press Air,2156,U
+EMR Max Operating Press Light Oil,2157,U
+EMR Max Operating Press Water,2158,U
+EMR Max Operating Pressure PSI,2159,U
+EMR Max Outlet Pressure,2160,Y
+EMR Measurement Type,2161,Y
+EMR Measuring range,2162,Y
+EMR Media,2163,Y
+EMR Min Ambient Temperature,2164,Y
+EMR Min Fluid Temperature,2165,Y
+EMR Min Operating Press Air,2166,U
+EMR Min Operating Press Light Oil,2167,U
+EMR Min Operating Press Water,2168,U
+EMR Min Operating Pressure PSI,2169,U
+EMR Protection,2170,Y
+EMR Mounting,2171,Y
+EMR Mounting Box Entries,2172,N
+EMR Mounting Type,2173,Y
+EMR NEMA Ratings,2174,Y
+EMR Navigation,2175,U
+EMR Noise Emission,2176,N
+EMR Nominal Current,2177,N
+EMR Nominal Voltage Range,2178,N
+EMR Number of Breakers,2179,N
+EMR Number of Circuits,2180,N
+EMR Number of Conductors,2181,N
+EMR Number of Lamps,2182,N
+EMR Number of Phases,2183,N
+EMR Number of Pilot Lights,2184,N
+EMR Number of Poles,2185,N
+EMR Number of Wires,2186,N
+EMR OEM Model Number,2187,N
+EMR OEM Name cross reference,2188,U
+EMR OEM Product Type,2189,N
+EMR Opening Style,2190,Y
+EMR Operating Environment,2191,N
+EMR Operating Frequency,2192,N
+EMR Operating Pressure,2193,Y
+EMR Operating System,2194,Y
+EMR Operating Temperature,2195,Y
+EMR Operating Voltage,2196,Y
+EMR Order Code,2197,N
+EMR Orifice Size,2198,Y
+EMR Output Power,2199,Y
+EMR Output Receptacles,2200,N
+EMR Output Signal,2201,Y
+EMR Output Variables,2202,Y
+EMR Output Voltage Range,2203,N
+EMR Overall Dimensions,2204,N
+EMR Overload Capability,2205,N
+EMR PDP Format,2206,N
+EMR Panelboard Type,2207,N
+EMR Part Load Cooling Efficiency,2208,U
+EMR Path,2209,N
+EMR Peak Horsepower,2210,Y
+EMR Phases,2211,Y
+EMR Pin Configuration,2212,N
+EMR Pipe Port Size,2213,U
+EMR Plastic Type,2214,Y
+EMR Platform,2215,Y
+EMR Plug Cable Diameter,2216,N
+EMR Pneumatics,2217,Y
+EMR Pneumatics Type,2218,Y
+EMR Port Type,2219,Y
+EMR Position Control,2220,Y
+EMR Power Factor,2221,N
+EMR Power Range,2222,N
+EMR Power Ratings,2223,Y
+EMR Power Source,2224,Y
+EMR Pressure Class,2225,Y
+EMR Primary Function,2226,N
+EMR Primary Voltage,2227,Y
+EMR Process Connection Type,2228,Y
+EMR Process Control,2229,Y
+EMR Product Family,2230,Y
+EMR Product Service Key,2231,U
+EMR Product Status,2232,N
+EMR Product Type,2233,Y
+EMR Product Weight,2234,N
+EMR Program Style,2235,Y
+EMR Purpose,2236,N
+EMR RPM,2237,N
+EMR RTU,2238,N
+EMR Rating,2239,N
+EMR Receptacle type,2240,Y
+EMR Recharge Time,2241,N
+EMR Reducer Brushing Kit,2242,N
+EMR Refrigerant Type,2243,Y
+EMR Region,2244,N
+EMR Regulator Adjustment Range,2245,N
+EMR Regulator Setting,2246,N
+EMR Replace OEM Models,2247,Y
+EMR Response Time,2248,N
+EMR Reversing or Non Reversing,2249,U
+EMR SEER Rating,2250,Y
+EMR Safety Certification,2251,Y
+EMR Seat Seal Type,2252,Y
+EMR Secondary Voltage,2253,Y
+EMR Segment,2254,Y
+EMR Sensor Type,2255,Y
+EMR Series,2256,N
+EMR Service Type,2257,N
+EMR Shipping Weight,2258,N
+EMR Shutoff Class,2259,Y
+EMR Side Taps,2260,N
+EMR Size of penetration,2261,Y
+EMR Special Feature,2262,N
+EMR Speed Range,2263,Y
+EMR Stages,2264,Y
+EMR Standards,2265,Y
+EMR Starter Furnished,2266,N
+EMR Starter Manufacturer,2267,N
+EMR Status Indicator,2268,N
+EMR Stem,2269,Y
+EMR Stroke Length,2270,Y
+EMR Style,2271,Y
+EMR Supply Media,2272,Y
+EMR Switch Description,2273,N
+EMR Switch Quantity,2274,N
+EMR Switch Rating,2275,Y
+EMR Switch Type,2276,Y
+EMR T Number,2277,N
+EMR TabSequence,2278,N
+EMR Tank Capacity,2279,Y
+EMR Technology Type,2280,Y
+EMR Temperature Rise,2281,Y
+EMR Terminal Style,2282,Y
+EMR Thickness,2283,Y
+EMR Torque Thrust Range,2284,U
+EMR Trip Range,2285,N
+EMR Trip Type Breaker Trip,2286,U
+EMR Tube Diameter,2287,Y
+EMR Tube Wall Thickness,2288,Y
+EMR Type of Cable,2289,N
+EMR Type of Conductor,2290,N
+EMR Type of Equipment,2291,N
+EMR Type of Pentrating Item,2292,Y
+EMR Typical Back Up Time,2293,Y
+EMR UL Recognized,2294,Y
+EMR UL listed,2295,Y
+EMR Universal,2296,U
+EMR Upper Tool Weight range,2297,U
+EMR User Access,2298,Y
+EMR User Interface,2299,Y
+EMR Valve Size,2300,Y
+EMR Valve Size Standard,2301,Y
+EMR Valve Type,2302,Y
+EMR Velocity,2303,Y
+EMR Voltage,2304,Y
+EMR Volume Cubic Capacity,2305,U
+EMR Water Lift,2306,Y
+EMR Wattage,2307,Y
+EMR Weld Area,2308,N
+EMR Weld Modes,2309,Y
+EMR Windings,2310,N
+EMR Wire Range,2311,N
+EMR Wire Recess Diameter,2312,N
+EMR Working Area Dimensions,2313,N
+EMR Working Volume Height,2314,N
+EMR Contact Arrangement,2315,N
+EMR Sensing Characteristic,2316,N
+EMR End Connection,2317,N
+EMR Meter Body,2318,N
+EMR Thermostat Color,2319,Y
+EMR Display Type,2320,Y
+EMR Wi Fi Connected,2321,Y
+EMR Ignitor Included,2322,Y
+EMR Coil Frequency,2323,N
+EMR Type of Feed,2324,Y
+EMR Compressor Type,2325,Y
+EMR Cpacity Range,2326,N
+EMR Grind Stages,2328,Y
+EMR Drain Connection,2329,N
+EMR Dishwasher Drain Connection,2330,N
+EMR Water Usage,2331,N
+EMR Lubrication,2332,N
+EMR Required Hole Diameter,2334,N
+EMR Power Cord Attached,2336,N
+EMR Inlet x Outlet Size,2337,N
+EMR HVAC and Indoor Air Quality,2338,N
+EMR Lighting,2339,N
+EMR Power Monitoring,2340,N
+EMR Distributed Case Controls,2341,N
+EMR Relay Outputs,2342,N
+EMR Power Supply,2343,N
+EMR Analog Digital Inputs,2344,N
+EMR Superheat Control,2345,N
+EMR Programmable Inputs,2346,N
+EMR Analog Outputs,2347,N
+EMR Temperature Range,2348,N
+EMR Color,2349,N
+EMR OEM,2350,N
+EMR Power Consumption,2351,N
+EMR RoHS,2352,N
+EMR Expertise Capabilities,2353,N
+EMR Review Exists,2354,N
+EMR Locale,2355,N
+EMR Notes,2356,N
+EMR Expertise Best Practices,2357,N
+EMR Location,2358,Y
+EMR Fan Diameter,2359,Y
+EMR Light Fixture Adaptable,2360,Y
+EMR Control Type Included,2361,Y
+EMR Mounting Options,2362,Y
+EMR Room Size,2363,Y
+EMR Motor Type,2364,Y
+EMR Dimming Capability,2365,Y
+EMR Blade Finish,2366,Y
+EMR Blade Collection,2367,Y
+EMR Energy Star Rated,2368,Y
+EMR Compatible with Sloped Ceiling Kit,2369,Y
+EMR Registerable,2370,N
+EMR Filter Type,2371,Y
+EMR Fits,2372,N
+EMR Product Category,2373,Y
+EMR Product Classification,2374,N
+EMR Sequence,2375,N
+EMR Accessory Size,2376,N
+EMR Drum Size,2377,N
+EMR Level of Filtration,2378,Y
+EMR sourceERP,2379,N
+EMR isOversized,2380,N
+EMR isInOPI,2381,N
+EMR priceOnlyCart,2382,N
+EMR oiAdditionalInput,2383,N
+EMR Login To My Account CTA,2384,N
+EMR My Account CTA,2385,N
+EMR Refrigeration,2386,Y
+EMR Project Type,2387,Y
+EMR Lifecycle Services,2388,Y
+EMR Division ID,2389,N
+EMR Drawing Format,2390,N
+EMR ARRA Compliant,2391,N
+EMR Trade Compliant,2392,N
+EMR Extended Sensing,2393,N
+EMR Export Status,2394,N
+EMR Maintenance,2395,N
+EMR Reliability,2396,N
+EMR Performance,2397,Y
+EMR Internals,2398,Y
+EMR Rotor Type,2399,Y
+EMR Part Type,2400,Y
+EMR Form Factor,2401,Y
+EMR Stability,2402,Y
+EMR Thermowell Style,2403,Y
+EMR Transmitter Base Model,2404,Y
+EMR Pressure Rating,2405,Y
+EMR Transducer Assembly,2406,Y
+EMR Design Code,2407,Y
+EMR Trim,2408,Y
+EMR Flow Conditioning,2409,Y
+EMR Seal Unit,2410,Y
+EMR Pipe Schedule,2411,Y
+EMR Transmitter Features,2412,Y
+EMR Product Grouping,2413,Y
+EMR Safety,2414,Y
+EMR SmartPower Type,2415,Y
+EMR Antenna Type,2416,Y
+EMR Device Capability,2417,Y
+EMR Advanced Capabilities,2418,Y
+EMR Seal Material,2419,Y
+EMR Ring Material,2420,Y
+EMR Electrical Type,2421,Y
+EMR Termination Style,2422,Y
+EMR Body Type Construction,2423,Y
+EMR Communication Method,2424,Y
+EMR Connection Type,2425,Y
+EMR Construction,2426,Y
+EMR Discharge Size,2427,Y
+EMR View in OPI CTA,2428,N
+EMR View Performance Data CTA,2429,N
+EMR Format,2430,Y
+EMR Grind Chambers Capacity,2431,N
+EMR Handle Type,2432,Y
+EMR Inuse Life,2433,Y
+EMR Number of Handles,2434,Y
+EMR Oil Type,2435,Y
+EMR Pressure Connection,2436,Y
+EMR Probe inputs,2437,Y
+EMR Reset type,2438,Y
+EMR Setpoint,2439,Y
+EMR Sound Insulation,2440,Y
+EMR Warranty,2441,Y
+EMR View Services CTA,2442,N
+EMR All Services CTA,2443,N
+EMR Preconfigured Model String1,2444,N
+EMR Preconfigured Model String2,2445,N
+EMR Preconfigured Model String3,2446,N
+EMR Configuration Header ID,2447,N
+EMR Configuration Revision ID,2448,N
+EMR HTS,2449,N
+EMR Country of Origin,2450,N
+EMR ECCN,2451,N
+EMR Configurator Parent Model Name,2452,N
+EMR Serial Number Required,2453,N
+EMR Preconfigured Child Model Name1,2454,N
+EMR Preconfigured Child Model Name2,2455,N
+EMR Preconfigured Child Model Name3,2456,N
+EMR Bore Size,2457,Y
+EMR Cart Product Description,2458,N
+EMR Lifecycle Services Icon,2459,Y
+EMR Adjustment Range Bar,2460,N
+EMR Agency approvals,2461,N
+EMR Air Flow Rate,2462,Y
+EMR Alarm relay contact rating,2463,N
+EMR Ambient operating humidity,2464,N
+EMR Ambient Operating Temperature,2465,N
+EMR Battery Backup,2466,N
+EMR Burst Pressure,2467,N
+EMR CAN Bus output,2468,N
+EMR Capacitance Value,2469,N
+EMR Capacitor Voltage,2470,N
+EMR Capacity kW,2471,N
+EMR Compressor LRA High,2472,Y
+EMR Compressor LRA Low,2473,Y
+EMR Condenser Water Inlet Temp,2474,Y
+EMR Condensing Temperature,2475,Y
+EMR Condensing Unit Type,2476,N
+EMR Condenser Type,2477,Y
+EMR Connectors,2478,N
+EMR Cooling Capacity kW at Standard Condition,2479,N
+EMR Cooling Type,2480,Y
+EMR Crankcase Heater,2481,Y
+EMR Current,2482,Y
+EMR Current Capacity,2483,N
+EMR Dielectric Voltage,2484,N
+EMR Dip switch for address set,2485,N
+EMR Discharge Connection,2486,Y
+EMR Drive,2487,Y
+EMR Drive Size,2488,Y
+EMR Evaporator Temperature,2489,Y
+EMR Fitting Type,2490,Y
+EMR Glass to Metal Seal Lapping Flatness,2491,N
+EMR Heating Capacity kW at Standard Condition,2492,N
+EMR Height mm,2493,N
+EMR Humidity,2494,N
+EMR Impedance,2495,N
+EMR Keyboard push buttons,2496,N
+EMR LAN output,2497,N
+EMR LengthWidth mm,2498,N
+EMR Liquid Temperature,2499,Y
+EMR Mass Flow,2500,Y
+EMR Max Fuse Size,2501,Y
+EMR Max Operating Current,2502,Y
+EMR Max Operating Humidity,2503,N
+EMR Max Working Pressure,2504,Y
+EMR MCC,2505,Y
+EMR Min. Circuit Ampacity,2506,Y
+EMR Minimum Body Diameter,2507,N
+EMR Model number,2508,N
+EMR Modulation Load,2509,Y
+EMR Motor Protection Type,2510,Y
+EMR Mounting Assembly,2511,Y
+EMR Nominal hp,2512,N
+EMR Oil Adjustment Fitting,2513,Y
+EMR Operating Humidity Range,2514,N
+EMR Operating Range of Sensor,2515,N
+EMR Options,2516,Y
+EMR Optoinsulated digital inputs,2517,Y
+EMR Pin Pull Strength,2518,N
+EMR Pin Spacing,2519,N
+EMR Power,2520,Y
+EMR Recording Options,2521,Y
+EMR Relay status indicator,2522,N
+EMR Relays contact rating,2523,N
+EMR Remote switch,2524,N
+EMR Return Gas Temperature,2525,Y
+EMR Schraeder Valve,2526,Y
+EMR Sensor range,2527,N
+EMR Sight Glass,2528,Y
+EMR Sound Power,2529,Y
+EMR Standard Capacitance Tolerance,2530,N
+EMR Standard Condition,2531,N
+EMR Storage temperature,2532,N
+EMR Subcooling,2533,Y
+EMR Subcooling Temperature,2534,N
+EMR Suction Connection,2535,Y
+EMR Suction Size,2536,Y
+EMR Suction Superheat Temperature,2537,N
+EMR Surface Finish,2538,N
+EMR Tandem Ready,2539,Y
+EMR Temperature Control,2540,Y
+EMR Temperature Monitoring,2541,Y
+EMR Temperature Options,2542,Y
+EMR UL ThruAir and Over Surface,2543,N
+EMR Unit Size,2544,Y
+EMR Useful Superheat,2545,N
+EMR Valve Series,2546,Y
+EMR Voltage Code,2547,Y
+EMR Water Temp Diff,2548,Y
+EMR Group1Header,2549,N
+EMR Group1SpecLabel,2550,N
+EMR Group1SpecValue,2551,N
+EMR Group2Header,2552,N
+EMR Group2SpecLabel,2553,N
+EMR Group2SpecValue,2554,N
+EMR Group3Header,2555,N
+EMR Group3SpecLabel,2556,N
+EMR Group3SpecValue,2557,N
+EMR Group4Header,2558,N
+EMR Group4SpecLabel,2559,N
+EMR Group4SpecValue,2560,N
+EMR Plate Thickness,2561,Y
+EMR AutoReverse,2562,Y
+EMR checkRebates,2563,N
+EMR Configurable relay outputs,2564,N
+EMR emergencyStock,2565,N
+EMR Septic Compatible,2566,Y
+EMR supersessionCheck,2567,N
+EMR Accessory Type,2568,Y
+EMR Air Preparation Sub Type,2569,Y
+EMR Body Material,2570,Y
+EMR Cylinder and Actuators Sub Type,2571,Y
+EMR Flow Range Cv,2572,Y
+EMR Pneumatic Valve Sub Type,2573,Y
+EMR Solenoid Valve Sub Type,2574,Y
+EMR Durometer,2575,Y
+EMR Model Type,2576,Y
+EMR Product Type Size,2577,Y
+EMR Product Sub Family,2578,Y
+EMR Access Valve,2579,N
+EMR Accumulators Connection Size,2580,N
+EMR Accumulator Refrigerant,2581,N
+EMR Advanced Rooftop Control,2582,N
+EMR AHU,2583,N
+EMR Air Conditioning & Chiller Controls,2584,N
+EMR Air Switch,2585,Y
+EMR Alarm Configurations,2586,Y
+EMR Alarm Delay time,2587,Y
+EMR Alarm Display Data,2588,Y
+EMR Alarm relay,2589,N
+EMR Alarm Switch,2590,N
+EMR Analog Combiner,2591,N
+EMR Analog Import Point,2592,N
+EMR Analog Inputs,2593,N
+EMR Analog Sensor Control,2594,N
+EMR Applied Directive,2595,Y
+EMR ASC2X Coils,2596,Y
+EMR Atmospheric Pressure,2597,Y
+EMR Auxiliary output,2598,N
+EMR Available Alarm Configurations,2599,Y
+EMR Ball Valves Connection Size,2600,N
+EMR Bolt Torque,2601,Y
+EMR Buzzer,2602,N
+EMR Cable,2603,N
+EMR CANBus,2604,N
+EMR Capacity,2605,N
+EMR Capacity Control,2606,Y
+EMR Capillary Tube Length,2607,N
+EMR Capscrew Torque,2608,Y
+EMR Case Control Circuit,2609,N
+EMR CC100 Case Suction,2610,N
+EMR CC100 Liquid Control,2611,N
+EMR CCB,2612,N
+EMR Check Valves Connection Size,2613,N
+EMR checkoutConfirmationSpot,2614,N
+EMR Coil Connection,2615,N
+EMR Compressor Controls,2616,N
+EMR Compressor load,2617,N
+EMR Compressor Speed,2618,Y
+EMR Condenser,2619,N
+EMR Control input,2620,N
+EMR Control Link ACC,2621,N
+EMR Control Link Case Disp,2622,N
+EMR Control Link RSC,2623,N
+EMR COP,2624,N
+EMR CS100 Ckt Suction,2625,N
+EMR CSV File Generation,2626,Y
+EMR CT Drive,2627,N
+EMR Cylinders,2628,Y
+EMR Data Collection Time,2629,Y
+EMR Defrost load,2630,N
+EMR Demand Control,2631,N
+EMR Desiccant Blend,2632,Y
+EMR Diaphragm Operated Solenoid Valve,2633,Y
+EMR Digital Combiner,2634,N
+EMR Digital inputs,2635,N
+EMR Digital Sensor Control,2636,N
+EMR Dip switche for address set,2637,N
+EMR Discharge Pressure,2638,Y
+EMR Discharge Pressure Loss,2639,Y
+EMR Discus,2640,N
+EMR Disposer Size,2641,Y
+EMR Drive Socket Size,2642,Y
+EMR E2 Alarm Panel,2643,N
+EMR Elevation,2644,Y
+EMR Energy Meter,2645,N
+EMR Enhanced Suction Group,2646,N
+EMR ERP Part Number,2647,N
+EMR ESR8 ESR Control,2648,N
+EMR Ethernet,2649,N
+EMR Expansion module,2650,N
+EMR Export to other applications,2651,Y
+EMR Extended Tubes,2652,Y
+EMR External modem,2653,N
+EMR Fan Load,2654,N
+EMR Filter Drier Connection Size,2655,N
+EMR Filter Drier Refrigerant,2656,N
+EMR Filter Drier Type,2657,N
+EMR Flexible Combiner,2658,N
+EMR Fusible Plug Temperature,2659,Y
+EMR Gas Mixture,2660,Y
+EMR General Purpose Controls,2661,N
+EMR Heating Controls,2662,N
+EMR HVAC Zone,2663,N
+EMR Infrared Leak Detection,2664,N
+EMR Internal modem,2665,N
+EMR IP Rating,2666,N
+EMR Jam Prevention,2667,Y
+EMR LAN,2668,N
+EMR LI Line Loss,2669,Y
+EMR Life Sciences Validation,2670,Y
+EMR Lighting Control,2671,N
+EMR Liquid Approach Temperature,2672,Y
+EMR Liquid Injection Port,2673,Y
+EMR Logging Group,2674,N
+EMR Marking,2675,Y
+EMR Marking Capabilities,2676,Y
+EMR Maximum Bulb Temperature,2677,Y
+EMR Maximum load,2678,N
+EMR Maximum Suction Temperature,2679,Y
+EMR Medium compatibility,2680,Y
+EMR Medium Temp at pressure element,2681,Y
+EMR Memory,2682,Y
+EMR Mesh Frequency,2683,Y
+EMR Min Condensing Temperature,2684,Y
+EMR Minimum Operating Pressure Differential,2685,Y
+EMR MOPD,2686,Y
+EMR Motor Code,2687,N
+EMR Mounting Parts Included,2688,N
+EMR MRLDS,2689,N
+EMR Muffler Connection Type,2690,N
+EMR Multiples,2691,N
+EMR MWP,2692,Y
+EMR NFC Read Range,2693,Y
+EMR Offset adjustment,2694,N
+EMR Oil Charge Source,2695,N
+EMR Oil Cooling,2696,Y
+EMR Oil Cooling Type,2697,Y
+EMR Oil Injection Temperature,2698,Y
+EMR Oil Separator Application Temperature,2699,N
+EMR Oil Separator Refrigerant,2700,N
+EMR Oil Separator Style,2701,N
+EMR Oil Separator Type,2702,N
+EMR Oil Temperature,2703,Y
+EMR OMB Compressor Sight Glass Connection,2704,N
+EMR OMB Electrical Connection Type,2705,N
+EMR Other Pressure Drops,2706,N
+EMR PakSense Label Viewer App,2707,Y
+EMR Parametric Controls,2708,N
+EMR PDF Generation,2709,Y
+EMR Percent Capacity,2710,Y
+EMR Phase current operating,2711,Y
+EMR Phase Inductance,2712,Y
+EMR Pilot Operated,2713,Y
+EMR Port Vapor Superheating,2714,Y
+EMR Pressure,2715,N
+EMR Pressure Connectors,2716,Y
+EMR Pressure Loss,2717,Y
+EMR Pressure Range or Contacts,2718,Y
+EMR Product Series,2719,N
+EMR Programmable Controls,2720,N
+EMR Protection grade,2721,N
+EMR Pulse Accumulator,2722,N
+EMR RCB Controller,2723,N
+EMR Real time clock,2724,N
+EMR Recording Life,2725,Y
+EMR recurringOnly,2726,N
+EMR Recycle Options,2727,Y
+EMR Refrigerant charge,2728,N
+EMR Refrigeration Controls,2729,N
+EMR Relative Humidity Accuracy,2730,Y
+EMR Relative Humidity Resolution,2731,Y
+EMR Relay Inputs,2732,N
+EMR Remote display output,2733,N
+EMR Remote Monitoring Controls,2734,N
+EMR Required Cooling Capacity,2735,Y
+EMR Resistance to vibration,2736,Y
+EMR Reusable Operating Life,2737,Y
+EMR Max Operating Press CO2,2738,Y
+EMR Max Operating Press Combustible Gas,2739,Y
+EMR Max Operating Press Cryogenic Fluids,2740,Y
+EMR Max Operating Press Fuel Gas,2741,Y
+EMR Max Operating Pressure Range,2742,Y
+EMR Max Operating Press Oxygen,2743,Y
+EMR Max Operating Press Steam,2744,Y
+EMR Max Operating Press Superheated water,2745,Y
+EMR Min Operating Press CO2,2746,Y
+EMR Min Operating Press Combustible Gas,2747,Y
+EMR Min Operating Press Cryogenic Fluids,2748,Y
+EMR Min Operating Press Fuel Gas,2749,Y
+EMR Min Operating Press Oxygen,2750,Y
+EMR Min Operating Press Steam,2751,Y
+EMR Min Operating Press Superheated water,2752,Y
+EMR Anti Sweat,2753,N
+EMR Cooling Capacity kW,2754,N
+EMR Cooling Capacity min max kW,2755,N
+EMR Delay Before Start cool down,2756,Y
+EMR RMS Asset,2757,N
+EMR RS485,2758,N
+EMR Sensor Life,2759,Y
+EMR Serial output,2760,N
+EMR Side Load Evaporating Temperature,2761,Y
+EMR Sight Glasses Connection Type,2762,N
+EMR Single or Tandem,2763,Y
+EMR Solenoid Coil,2764,Y
+EMR Solenoid MOPD,2765,Y
+EMR Solenoid Refrigerant,2766,N
+EMR Spout Height,2767,Y
+EMR Spout Reach,2768,Y
+EMR Standard Conditions,2769,N
+EMR Start Up Delay,2770,Y
+EMR Starting Current,2771,Y
+EMR Step Angle,2772,Y
+EMR Step Mode,2773,Y
+EMR Stepper motor type,2774,Y
+EMR Stepping Rate,2775,Y
+EMR Stop Button,2776,Y
+EMR subscriptionType,2777,N
+EMR Suction pressure,2778,Y
+EMR Suction Pressure Loss,2779,Y
+EMR Suction temperature,2780,Y
+EMR Supply Current,2781,Y
+EMR Supported NFC Readers,2782,Y
+EMR Supported Operating Systems,2783,Y
+EMR System Design,2784,Y
+EMR TD Condenser Fan Control,2785,N
+EMR Temp Alert LEDs,2786,Y
+EMR Temperature Pressure Controls Connection Size,2787,N
+EMR Temperature Resolution,2788,Y
+EMR Temperature Sampling Frequency,2789,Y
+EMR Thermostatic Expansion Valves,2790,N
+EMR Time Delay for after setpoint recovery,2791,Y
+EMR Time delay for low level signalling,2792,Y
+EMR Time Schedule,2793,N
+EMR Torque Bolts,2794,Y
+EMR Torque Power Assembly,2795,Y
+EMR Total Number of Steps,2796,Y
+EMR Transformer VA requirements,2797,Y
+EMR Triac output,2798,N
+EMR VA Holding,2799,Y
+EMR VA Inrush,2800,Y
+EMR Waterproof Rating,2801,Y
+EMR Winding Resistance per phase,2802,Y
+EMR Displacement Range m&sup3; over h,2803,Y
+EMR Display n&deg; digits,2804,N
+EMR First display n&deg; digits,2805,N
+EMR Second display n&deg; digits,2806,N
+EMR Heat or Cool Control,2807,N
+EMR Heating Capacity kW,2808,N
+EMR Heating Capacity min max kW,2809,N
+EMR Increase or Decrease Design Capacity,2810,N
+EMR Installation and Remote Maintenance,2811,Y
+EMR Loop or Sequence Control,2812,N
+EMR VoltageHz,2813,Y
+EMR Metrology,2814,Y
+EMR Catalog Number,2815,N
+EMR Discount Code,2816,N
+EMR Bulb Type,2817,Y
+EMR Defining Cable Length,2818,N
+EMR Defining Voltage,2819,N
+EMR Freight Class,2820,N
+EMR Hazardous Material Flag,2821,N
+EMR More Ways To Shop,2822,Y
+EMR Dispenser Finish,2823,N
+EMR Air Restricted,2824,N
+EMR Style Collection,2825,Y
+EMR Orientation,2826,Y
+EMR Shell Life,2827,N
+EMR Speeds,2828,Y
+EMR Tool Kit,2829,Y
+EMR Product Brand,2830,N
+EMR Fan Housing Finish,2831,Y
+EMR Fan Product Type,2832,Y
+EMR Recycle options GreenSenseTM program,2833,N
+EMR Inlet Connection Size,2834,Y
+EMR Maximum Operating Pressure Differential,2835,Y
+EMR Filtration,2836,Y
+EMR Lead Length,2837,Y
+EMR Static Lift - in,2838,N
+EMR Decibel - dBA,2839,N
+EMR Dry Fit - qt or L,2840,Y
+EMR Wet Fit - gal or L,2841,Y
+EMR Hose Diameter - in,2842,N
+EMR Approx. Run Time,2843,N
+EMR Approx. Change Time,2844,N
+EMR Product Material,2845,N
+EMR Power Cord - ft,2846,N
+EMR Drain Port,2847,N
+EMR Drying Positions,2848,N
+EMR Competitive Cross Reference,2849,N
+EMR Supersession Cross Reference,2850,N
+EMR Whats In The Box Image,2851,N
+EMR Whats In The Box Alt Tags,2852,N
+EMR Whats In The Box Content,2853,N
+EMR UR/CUR File Number,2854,Y
+EMR UL/CUL File Number,2855,Y
+EMR Worldwide Approvals,2856,Y
+EMR Electrical Rating Standard Switch,2857,Y
+EMR Electrical Rating Micro Switch,2858,Y
+EMR Transport Temperature Range,2859,Y
+EMR Max Allowable Pressure PS,2860,Y
+EMR Max test pressure PT,2861,Y
+EMR Energy Monitoring,2862,Y
+EMR Temperature Sensors,2863,Y
+EMR Light Level Sensors,2864,Y
+EMR Transducers,2865,Y
+EMR Supply Voltage,2866,Y
+EMR Resolution,2867,Y
+EMR High MOPD,2868,Y
+EMR IPLV(C),2869,Y
+EMR Control Circuit Rating,2870,Y
+EMR Rated Voltage,2871,Y
+EMR R-410A Operating Range,2872,Y
+EMR Packing Units,2873,Y
+EMR Protection Class,2874,Y
+EMR UL File,2875,Y
+EMR AFP,2876,Y
+EMR HVAC networkable thermostats,2877,Y
+EMR Supply,2878,Y
+EMR Seat Material,2879,Y
+EMR M3/min at 50Hz,2880,Y
+EMR LED indicators,2881,Y
+EMR Display LED,2882,Y
+EMR Connecting cable,2883,Y
+EMR Energy Control,2884,Y
+EMR Refrigeration monitoring,2885,Y
+EMR Temperatures,2886,Y
+EMR kW at 50Hz,2887,Y
+EMR CFM at 60Hz,2888,Y
+EMR Max HP at 60Hz,2889,Y
+EMR Internal Battery Charging Time,2890,Y
+EMR Plug-in Connector Size,2891,Y
+EMR Digital Outputs,2892,Y
+EMR Power Requirement,2893,Y
+EMR Input,2894,Y
+EMR Output,2895,Y
+EMR Permissible noise & ripple,2896,Y
+EMR Influence of supply voltage,2897,Y
+EMR Load resistance,2898,Y
+EMR Compatability,2899,Y
+EMR Password Protection,2900,Y
+EMR Power Element,2901,Y
+EMR Compliancy,2902,Y
+EMR Working Temperature,2903,Y
+EMR Seat Leakage,2904,Y
+EMR Microprocessor,2905,Y
+EMR Flash Memory,2906,Y
+EMR Connection,2907,Y
+EMR Fluid Temperature Range,2908,Y
+EMR Range,2909,Y
+EMR CE marking,2910,Y
+EMR A-IHL Series Moisture Indicators,2911,Y
+EMR Electrical Ratings,2912,Y
+EMR Compatibility,2913,Y
+EMR Control range,2914,Y
+EMR Tonnage,2915,Y
+EMR Maximum allowable pressure,2916,Y
+EMR Wireless External Sensor Communication,2917,Y
+EMR 1.0 Pressure Drop Capacity,2918,Y
+EMR Access Type,2919,Y
+EMR Baffles,2920,Y
+EMR Bi-Directional,2921,Y
+EMR Bleed,2922,Y
+EMR Capacity (Nominal),2923,Y
+EMR Charge Code,2924,Y
+EMR Coil Current,2925,Y
+EMR Connector Type,2926,Y
+EMR Contact Rating,2927,Y
+EMR Cubic Inches,2928,Y
+EMR Cut-In,2929,Y
+EMR Cut-Out,2930,Y
+EMR Discharge Maximum,2931,Y
+EMR Efficiency Rating,2932,Y
+EMR Elastomer Code,2933,Y
+EMR Element Type,2934,Y
+EMR Equalizer,2935,Y
+EMR Extended Ends,2936,Y
+EMR Fan Motor,2937,Y
+EMR High Pressure Range,2938,Y
+EMR Ignition Type,2939,Y
+EMR Inducer Motor/Blower Motor,2940,Y
+EMR Inductive Rating,2941,Y
+EMR Insulation,2942,Y
+EMR Line Voltage,2943,Y
+EMR Low Pressure Range,2944,Y
+EMR Operating Current,2945,Y
+EMR Outlet Connection Size,2946,Y
+EMR Range of Regulation (BTU/Hr),2947,Y
+EMR Replaces,2948,Y
+EMR Resistive Rating,2949,Y
+EMR Stages / Opening Characteristic,2950,Y
+EMR Strainer,2951,Y
+EMR Switch Action,2952,Y
+EMR Timings,2953,Y
+EMR Universal or Direct OEM Replacement,2954,Y
+EMR Water Capacity,2955,Y
+EMR Typical Applications,2956,Y
+EMR Amp Rating,2957,Y
+EMR Attic Application,2958,Y
+EMR Auxiliary Switch Included,2959,Y
+EMR Board Mount,2960,Y
+EMR Bracket Style,2961,Y
+EMR Bulb Style,2962,Y
+EMR Cable Style,2963,Y
+EMR Carbide Element,2964,Y
+EMR CFM Rating,2965,Y
+EMR De-Energized Position,2966,Y
+EMR Defrost Method,2967,Y
+EMR Disc Diameter,2968,Y
+EMR Duty Cycle,2969,Y
+EMR Electric Heat Sequencer,2970,Y
+EMR Element Length,2971,Y
+EMR Fixed Temperature Setting,2972,Y
+EMR Full Load Motor Rating @ 120Vac,2973,Y
+EMR Head Type On Pilot,2974,Y
+EMR Ignition Style,2975,Y
+EMR Integrated,2976,Y
+EMR Mini-Ignitor,2977,Y
+EMR Motor Style,2978,Y
+EMR Multiple Input Voltages,2979,Y
+EMR Nitride Element,2980,Y
+EMR Nominal Size,2981,Y
+EMR Non-integrated,2982,Y
+EMR Number of Switches,2983,Y
+EMR Number of Timings,2984,Y
+EMR One Independent Load,2985,Y
+EMR Open Circuit,2986,Y
+EMR Pilot & Generator Combination,2987,Y
+EMR Pipe Connection,2988,Y
+EMR Pole Form,2989,Y
+EMR Porting,2990,Y
+EMR Reset Design,2991,Y
+EMR Single Stage,2992,Y
+EMR Temperature Differential In Degrees,2993,Y
+EMR Time Delay Relay,2994,Y
+EMR Timings-Off In Seconds,2995,Y
+EMR Timings-On In Seconds,2996,Y
+EMR Two Independent Loads,2997,Y
+EMR Two-Stage,2998,Y
+EMR Universal Brackets Included,2999,Y
+EMR VA Output,3000,Y
+EMR Extended Sensing,3001,Y
+EMR Lighting Calculator CTA,3002,N
+EMR Select Online CTA,3003,N
+EMR Spare Parts CTA,3004,N
+EMR Quickship Available,3005,Y
+EMR Sizing Tool Product Type,3006,N
+EMR Date Created,3007,N
+EMR Rating Heating Capacity,3008,Y
+EMR Rating Cooling Capacity,3009,Y
+EMR Oil Separator - Capacity,3010,Y
+EMR Calibration,3011,Y
+EMR Auto Changeover (Heat/Cool),3012,Y
+EMR Backlight,3013,Y
+EMR Economizer Connections,3014,Y
+EMR Fan Switch,3015,Y
+EMR Filter Change Reminder,3016,Y
+EMR Millivolt Compatible,3017,Y
+EMR Port Size,3018,Y
+EMR Program Periods Per Day,3019,Y
+EMR Remote Sensor Option,3020,Y
+EMR Design Code Pipe Schedule,3021,Y
+EMR B2B Only,3022,N
+EMR Utility Belt_Support and Warranty Information,3023,N
+EMR Utility Belt_Cross Reference and Product Information,3024,N
+EMR Search Cross Reference CTA,3025,N
+EMR Sizing Required,3026,N
+EMR Accumulator,3027,Y
+EMR Accumulator Max Pressure,3028,Y
+EMR Acoustic Level,3029,Y
+EMR Actuator Type and Size,3030,Y
+EMR Air Consumption or Measuring Point,3031,Y
+EMR Air Supply,3032,Y
+EMR Alarm Handling,3033,Y
+EMR Alarm Outputs,3034,Y
+EMR Ambient Temperature Effect,3035,Y
+EMR AMS Snap-On Version,3036,Y
+EMR Area Coverage,3037,Y
+EMR Battery Life,3038,Y
+EMR Baudrate,3039,Y
+EMR Beam Angle,3040,Y
+EMR Cable Glands,3041,Y
+EMR Cage Clamp Opening Size,3042,Y
+EMR Calculations,3043,Y
+EMR Configuration Software,3044,Y
+EMR Connection Block Max. Pressure,3045,Y
+EMR Contact Information,3046,Y
+EMR CPU Specifications,3047,Y
+EMR Custody Transfer Approval,3048,Y
+EMR Customized Views,3049,Y
+EMR Design Modifiers,3050,Y
+EMR Detected Gas,3051,Y
+EMR Detection Limit,3052,Y
+EMR Detection Range,3053,Y
+EMR Discharge Coefficient Uncertainty,3054,Y
+EMR Displacement/Misalignment,3055,Y
+EMR Display Resolution,3056,Y
+EMR Display Variables,3057,Y
+EMR Drift,3058,Y
+EMR Dynamic Range,3059,Y
+EMR Electrical Feedback,3060,Y
+EMR Emulation Capability,3061,Y
+EMR Enclosure Rating,3062,Y
+EMR End Closing Thrust,3063,Y
+EMR Environmental Specifications,3064,Y
+EMR Explosion Protection,3065,Y
+EMR False Alarm Immunity,3066,Y
+EMR Field Bus,3067,Y
+EMR Field Bus Overvoltage Protection,3068,Y
+EMR Flow Turndown,3069,Y
+EMR Heated Optics,3070,Y
+EMR Housing Material,3071,Y
+EMR Hydraulic Media and Viscosities,3072,Y
+EMR Industry Compliance,3073,Y
+EMR Interface,3074,Y
+EMR Internet Access,3075,Y
+EMR Interoperability,3076,Y
+EMR Inventory Calculations,3077,Y
+EMR Lead Wires,3078,Y
+EMR Linear Range,3079,Y
+EMR Linearity,3080,Y
+EMR Magnetic Power,3081,Y
+EMR Manifold Material,3082,Y
+EMR Manifold Style,3083,Y
+EMR Materials of Construction,3084,Y
+EMR Max Flow Rate,3085,Y
+EMR Max Level Rate,3086,Y
+EMR Max Running Time,3087,Y
+EMR Max Wire Dimension,3088,Y
+EMR Measurement Frequency,3089,Y
+EMR Measuring Points,3090,Y
+EMR Metrology Sealing,3091,Y
+EMR Minimal Detectable Level,3092,Y
+EMR Network Capabilities,3093,Y
+EMR Network Capacity,3094,Y
+EMR Network Reliability,3095,Y
+EMR Nitrogen Charge Pressure,3096,Y
+EMR Number of Field Devices,3097,Y
+EMR Number of Modem Ports,3098,Y
+EMR Number of Spot Elements,3099,Y
+EMR Number of Tanks,3100,Y
+EMR Oil Displacement,3101,Y
+EMR Oil Viscosity Range,3102,Y
+EMR Opening Thrust,3103,Y
+EMR Overall Length,3104,Y
+EMR Overpressure Protection,3105,Y
+EMR Packing Material,3106,Y
+EMR Path Length,3107,Y
+EMR Pipe Clamp Materials,3108,Y
+EMR Ports,3109,Y
+EMR Power Module Life,3110,Y
+EMR Pressure Port/Fitting,3111,Y
+EMR Probe Types,3112,Y
+EMR Process Media,3113,Y
+EMR Process Media Density,3114,Y
+EMR Process Temperature,3115,Y
+EMR Process Temperature Range,3116,Y
+EMR Product Literature,3117,Y
+EMR Product Program,3118,Y
+EMR Product Tests,3119,Y
+EMR Profile,3120,Y
+EMR Protection Tube,3121,Y
+EMR Protective Sheath,3122,Y
+EMR Pump Capacity at 50/60 Hz,3123,Y
+EMR Qualification Standard,3124,Y
+EMR Radar Frequency,3125,Y
+EMR Radiation Rating,3126,Y
+EMR Radio Frequency,3127,Y
+EMR Rail Power,3128,Y
+EMR Rangedown,3129,Y
+EMR Redundancy,3130,Y
+EMR Reference Accuracy,3131,Y
+EMR Relief Valve Cracking Pressure,3132,Y
+EMR Repeatability,3133,Y
+EMR Reporting,3134,Y
+EMR RJ 45 Female connector,3135,Y
+EMR Rotation,3136,Y
+EMR Sample Gas Temperature,3137,Y
+EMR Seal System Type,3138,Y
+EMR Security,3139,Y
+EMR Seismic Rating,3140,Y
+EMR Software Compatibility,3141,Y
+EMR Spectral Response,3142,Y
+EMR Steam Pressure,3143,Y
+EMR Stroke Height,3144,Y
+EMR Supported Devices,3145,Y
+EMR System Configuration and Installation,3146,Y
+EMR Tank Gauging Data,3147,Y
+EMR Tank Hub Versions,3148,Y
+EMR Tank Volume,3149,Y
+EMR Tankbus,3150,Y
+EMR Temperature Sensor Types,3151,Y
+EMR Test Pressure,3152,Y
+EMR Thermowell Calculations,3153,Y
+EMR Time Constant / Response,3154,Y
+EMR Torque,3155,Y
+EMR Transmitter Connection,3156,Y
+EMR Transmitter Support,3157,Y
+EMR Transmitters Available,3158,Y
+EMR Update Rate,3159,Y
+EMR Vibration Limits,3160,Y
+EMR Viscosity,3161,Y
+EMR Water Level Sensor Versions,3162,Y
+EMR Wireless Range,3163,Y
+EMR Minimum Quantity,3164,N
+EMR Maximum Quantity,3165,N
+EMR Quantity Increment,3166,N
+EMR Selling UOM,3167,N
+EMR California Prop 65 Cancer or Reproductive Harm,3168,N
+EMR Glass Finish,3169,Y
+EMR Installation Included,3170,Y
+EMR Tap Type,3171,Y
+EMR Water Type,3172,Y
+EMR Return Eligibility,3173,N
+EMR Standard Carton,3174,N
+EMR Standard Case,3175,N
+EMR UPC,3176,N
+EMR Advise CTA,3177,N
+EMR Blade Color,3178,Y
+EMR Reversible,3179,Y
+EMR Packaging Options,3180,N
+EMR COP,3181,Y
+EMR Replacement Type,3182,Y
+EMR Blade Length,3183,Y
+EMR Model Name,3184,Y
+EMR Utility Belt_MyEmerson Sign In,3185,N
+EMR Utility Belt_Select Online,3186,N
+EMR Utility Belt_Controls Navigator,3187,N
+EMR Controls Navigator CTA,3188,N
+EMR HidePriceB2C,3189,N
+EMR Detected Flame,3190,Y
+EMR Replacement Category,3191,Y
+EMR Vacuums,3192,Y
+EMR HideCatEntAttr,3193,N
+EMR AWEF Outdoor Freezer Compliant,3194,Y
+EMR AWEF Outdoor Cooler Compliant,3195,Y
+EMR AWEF Indoor Freezer Compliant,3196,Y
+EMR AWEF Indoor Cooler Compliant,3197,Y
+EMR Tool,3198,Y
+EMR Kit Type,3199,Y
+EMR Workspace Product Type,3200,N
+EMR LED color,3201,Y
+EMR Compressed air connection,3202,Y
+EMR Compressed air connection 2,3203,Y
+EMR Compressed air connection input,3204,Y
+EMR Compressed air connection output,3205,Y
+EMR Compressed air connection type 2,3206,Y
+EMR Compressed air connection type,3207,Y
+EMR Activation,3208,Y
+EMR Adjustable cushioning,3209,Y
+EMR Coding,3210,Y
+EMR Chain suitable,3211,Y
+EMR Condensate drain,3212,Y
+EMR Cushioning,3213,Y
+EMR Piston rod modification,3214,Y
+EMR Piston rod thread,3215,Y
+EMR Cylinder series,3216,Y
+EMR Adjustable angle of rotation max,3217,Y
+EMR Bellows,3218,Y
+EMR Bending radius,3219,Y
+EMR Bowl Type,3220,Y
+EMR External Diameter,3221,Y
+EMR For cylinder diameter,3222,Y
+EMR Hysteresis,3223,Y
+EMR Qn 1 to 2,3224,Y
+EMR Qn 2 to 1,3225,Y
+EMR Volume,3226,Y
+EMR Wall thickness,3227,Y
+EMR Piston diameter,3228,Y
+EMR Sealing Material,3229,Y
+EMR Gauge Option,3230,Y
+EMR Nominal width NW,3231,Y
+EMR number of controlled lines,3232,Y
+EMR Number of lines,3233,Y
+EMR Number of valve positions,3234,Y
+EMR Standards and Regulations,3235,Y
+EMR Regulation Range,3236,Y
+EMR CertificateAvailable,3237,N
+EMR Switching distance max.,3238,Y
+EMR Switching pressure max.,3239,Y
+EMR Supply voltage AC max.,3240,Y
+EMR Supply voltage DC max.,3241,Y
+EMR Opening pressure,3242,Y
+EMR Pressure adjustment range max.,3243,Y
+EMR Min Fluid Temp,3244,Y
+EMR Force max.,3245,Y
+EMR Force min.,3246,Y
+EMR Max Pressure,3247,Y
+EMR Measuring range speed max.,3248,Y
+EMR Guide,3249,Y
+EMR IO module version,3250,Y
+EMR Lockable,3251,Y
+EMR Logic function,3252,Y
+EMR Magnetic piston,3253,Y
+EMR Manometer housing diameter,3254,Y
+EMR Material Gripper,3255,Y
+EMR Pipe material,3256,Y
+EMR Protection class,3257,Y
+EMR Return type,3258,Y
+EMR Scraper,3259,Y
+EMR Shielding,3260,Y
+EMR Signal connection size,3261,Y
+EMR Silencer material,3262,Y
+EMR Slot width,3263,Y
+EMR Stop,3264,Y
+EMR Suitable for cylinder norm,3265,Y
+EMR Suitable piston rod thread,3266,Y
+EMR Thread type,3267,Y
+EMR Version,3268,Y
+EMR Version Manometer,3269,Y
+EMR Local Display,3270,Y
+EMR Filter porosity,3271,Y
+EMR Rotary joint,3272,Y
+EMR Throttle direction,3273,Y
+EMR AliasPartnumbers,3274,N
+EMR AttrSequencing,3275,N
+EMR Subscription B2B Discount,3276,N
+EMR Subscription B2C Discount,3277,N
+EMR Subscription Duration,3278,N
+EMR Installation Included,3279,Y
+EMR Model String,3280,N
+EMR Bolt,3281,Y
+EMR Compressor Type,3282,Y
+EMR Displacement,3283,Y
+EMR Electrical Data,3284,Y
+EMR Grommet,3285,Y
+EMR Gross Weight,3286,Y
+EMR Hinged  Door Chassis,3287,Y
+EMR Liquid Line connection,3288,Y
+EMR Maximum capacity,3289,Y
+EMR Modulation,3290,Y
+EMR No of Return Gas Connection,3291,Y
+EMR Oil Separator,3292,Y
+EMR Oil Type,3293,Y
+EMR Return Gas connection,3294,Y
+EMR Spacer,3295,Y
+EMR Spring Spacer,3296,Y
+EMR Steel External Mount,3297,Y
+EMR Tube mounting Sleeve,3298,Y
+EMR Low Ambient Kit,3299,Y
+EMR Configuration Number,3300,Y
+EMR Separate condenser,3301,Y
+EMR Communication Slots,3303,Y
+EMR Ethernet,3304,Y
+EMR IO Points,3305,Y
+EMR Managed,3306,Y
+EMR Motor Power,3307,Y
+EMR Processor,3308,Y
+EMR Serial Interfaces,3309,Y
+EMR Slots,3310,Y
+EMR Sunlight Readable,3311,Y
+EMR Touch Screen Type,3312,Y
+EMR USB,3313,Y
+EMR VAC,3314,Y
+EMR IO Type,3315,Y
+EMR Seal Model Type,3316,Y
+EMR Design Code Pipe Schedule,3317,Y
+EMR Process Temperature,3318,Y
+EMR Wetted Surface Finish,3319,Y
+EMR Holding Force,3320,Y
+EMR Functional principle,3321,Y
+EMR Electrical Connection Type,3322,Y
+EMR Maintenance Unit Parts,3323,Y
+EMR Rotation Speed Speed max.,3324,Y
+EMR Max. working pressure at [[20]°C],3325,Y
+EMR Exit voltage analog,3326,Y
+EMR Actuating control,3327,Y
+EMR Switching principle,3328,Y
+EMR Actuating element,3329,Y
+EMR Operational voltage AC at 50 Hz,3330,Y
+EMR Operational voltage AC at 60 Hz,3331,Y
+EMR DC operating voltage,3332,Y
+EMR Flow Accuracy,3333,Y
+EMR Density Accuracy,3334,Y
+EMR Output Wattage,3335,Y
+EMR Family,3336,Y
+EMR Find a Pro Installer CTA,3302,N
+EMR Request More Information CTA,3337,N
+EMR Update Professional Version CTA,3338,N
+EMR Technology Overview CTA,3339,N
+EMR Calculate Line Size CTA,3340,N
+EMR Select Line Size CTA,3341,N
+EMR Purchase Software CTA,3342,N
+EMR Download Basic Version CTA,3343,N
+EMR PCIe,3344,N
+EMR CPU Core Count,3345,N
+EMR CPU Power,3346,N
+EMR Storage,3347,N
+EMR Non-Volatile RAM,3348,N
+EMR Form Factor,3349,N
+EMR Fitting Type,3350,N
+EMR Body Material,3351,N
+EMR Subbase Plate Type,3352,N
+EMR External Memory,3353,N
+EMR Valve Standard,3354,N
+EMR Air Preparation Type,3355,N
+EMR Air Preparation Accessory Type,3356,N
+EMR Electrical Connection Valve System,3357,N
+EMR Download Select CTA,3358,N
+EMR View User Manual CTA,3359,N
+EMR Select Application CTA,3360,N

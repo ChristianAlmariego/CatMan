@@ -1,0 +1,9 @@
+{
+	"storePath":"CatManTest/EMR-OLD/",
+	"wcStoreIdentifier" : "EMR-OLD",
+	"outputPath":"EMR-OLD/",
+	"storeID": "10151",
+	"supportedStores" : [
+	    { "name": "TEST" , "wcStoreIdentifier" : "EMR-OLD"}
+	]
+}

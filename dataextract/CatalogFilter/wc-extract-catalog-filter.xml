@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader" >
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+				
+					SELECT
+						DISTINCT CATFILTER.CATFILTER_ID, CATENTRY.CATENTRY_ID
+           
+					FROM
+						CATFILTER
+						INNER JOIN STOREENT ON STOREENT.STOREENT_ID = CATFILTER.STOREENT_ID
+						LEFT JOIN (SELECT * FROM CATFLTDSC WHERE LANGUAGE_ID = -1 ) CATFLTDSC ON CATFLTDSC.CATFILTER_ID = CATFILTER.CATFILTER_ID
+						LEFT JOIN CFCATGROUP ON CFCATGROUP.CATFILTER_ID = CATFILTER.CATFILTER_ID
+						LEFT JOIN CATGROUP ON CATGROUP.CATGROUP_ID = CFCATGROUP.CATGROUP_ID
+						LEFT JOIN CFPRODUCTSET ON CFPRODUCTSET.CATFILTER_ID = CATFILTER.CATFILTER_ID
+
+						INNER JOIN PRODUCTSET ON PRODUCTSET.PRODUCTSET_ID = CFPRODUCTSET.PRODUCTSET_ID
+
+						INNER JOIN PRSETCEREL ON PRSETCEREL.PRODUCTSET_ID = PRODUCTSET.PRODUCTSET_ID
+						INNER JOIN CATENTRY ON CATENTRY.CATENTRY_ID = PRSETCEREL.CATENTRY_ID AND CATENTRY.MARKFORDELETE = 0
+
+						LEFT JOIN (SELECT * FROM CATENTDESC WHERE CATENTDESC.LANGUAGE_ID = -1) CATENTDESC ON CATENTDESC.CATENTRY_ID = CATENTRY.CATENTRY_ID
+						LEFT JOIN STOREENT STOREENT_2 ON STOREENT_2.MEMBER_ID = CATENTRY.MEMBER_ID
+
+					WHERE 
+						CATFILTER.STOREENT_ID IN (20101, ?)
+
+					ORDER BY CATFILTER.CATFILTER_ID, CATENTRY.CATENTRY_ID
+
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator" >
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+					SELECT
+						STOREENT.IDENTIFIER AS "STORE_IDENTIFIER",
+						CATFILTER.IDENTIFIER AS "CFName",
+						CATFLTDSC.DESCRIPTION AS "Description",
+						CFCATGROUP.CATGROUP_ID AS "Categories",
+						CFCATGROUP.TYPE AS "CFCATGROUP_TYPE",
+						STOREENT_2.IDENTIFIER AS "STORE",
+						CATENTRY.PARTNUMBER AS "CODE",
+						CATENTDESC.NAME,
+						CFPRODUCTSET.TYPE AS "CFPRODUCTSET_TYPE"
+					FROM
+						CATFILTER
+
+						INNER JOIN STOREENT ON STOREENT.STOREENT_ID = CATFILTER.STOREENT_ID
+						LEFT JOIN (SELECT * FROM CATFLTDSC WHERE LANGUAGE_ID = -1 ) CATFLTDSC ON CATFLTDSC.CATFILTER_ID = CATFILTER.CATFILTER_ID
+						LEFT JOIN CFCATGROUP ON CFCATGROUP.CATFILTER_ID = CATFILTER.CATFILTER_ID
+						LEFT JOIN CATGROUP ON CATGROUP.CATGROUP_ID = CFCATGROUP.CATGROUP_ID
+						LEFT JOIN CFPRODUCTSET ON CFPRODUCTSET.CATFILTER_ID = CATFILTER.CATFILTER_ID
+
+						INNER JOIN PRODUCTSET ON PRODUCTSET.PRODUCTSET_ID = CFPRODUCTSET.PRODUCTSET_ID
+
+						INNER JOIN PRSETCEREL ON PRSETCEREL.PRODUCTSET_ID = PRODUCTSET.PRODUCTSET_ID
+						INNER JOIN CATENTRY ON CATENTRY.CATENTRY_ID = PRSETCEREL.CATENTRY_ID AND CATENTRY.MARKFORDELETE = 0
+
+						LEFT JOIN (SELECT * FROM CATENTDESC WHERE CATENTDESC.LANGUAGE_ID = -1) CATENTDESC ON CATENTDESC.CATENTRY_ID = CATENTRY.CATENTRY_ID
+						LEFT JOIN STOREENT STOREENT_2 ON STOREENT_2.MEMBER_ID = CATENTRY.MEMBER_ID
+
+					WHERE CATFILTER.STOREENT_ID = ?
+						AND CATFILTER.CATFILTER_ID = ?
+						AND CATENTRY.CATENTRY_ID = ?
+					ORDER BY CATFILTER.CATFILTER_ID
+
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	      <_config:Param name="CATFILTER_ID" />
+			  <_config:Param name="CATENTRY_ID" />
+
+    	      <_config:ColumnMapping name="STORE_IDENTIFIER" value="StoreIdentifier" />
+    	      <_config:ColumnMapping name="CFName" value="CatFilterName" />
+    	      <_config:ColumnMapping name="Description" value="Description" />
+    	      <_config:ColumnMapping name="Categories" value="Categories" />
+    	      <_config:ColumnMapping name="CFCATGROUP_TYPE" value="CfCatgroupType" />
+    	      <_config:ColumnMapping name="STORE" value="Store" />
+    	      <_config:ColumnMapping name="CODE" value="Code" />
+    	      <_config:ColumnMapping name="NAME" value="Name" />
+    	      <_config:ColumnMapping name="CFPRODUCTSET_TYPE" value="CfProductSetType" />
+
+    	    </_config:Query>
+
+   		<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+      		<_config:Data>
+	     		<_config:column number="1" name="StoreIdentifier" />
+	      		<_config:column number="2" name="CatFilterName" />
+	      		<_config:column number="3" name="Description" />
+	      		<_config:column number="4" name="Categories" />
+				<_config:column number="5" name="CfCatgroupType" />
+				<_config:column number="6" name="Store" />
+				<_config:column number="7" name="Code" />
+				<_config:column number="8" name="Name" />
+				<_config:column number="9" name="CfProductSetType" />
+
+
+	    	</_config:Data>
+    	</_config:DataWriter>
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

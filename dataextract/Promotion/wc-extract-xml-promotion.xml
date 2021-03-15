@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+    SELECT PX_PROMOTION_ID 
+    FROM PX_PROMOTION 
+    WHERE STOREENT_ID = ? AND STATUS IN (0, 1)
+    ORDER BY PX_PROMOTION_ID
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+
+    </_config:DataReader>
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder" >
+      <_config:BusinessObjectMediator className="com.ibm.commerce.promotion.dataload.mediator.PromotionToDomTransformMediator" >
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+    				SELECT ADMINSTVENAME, GRPNAME, COMMENTS, PRIORITY, EXCLSVE, USERREG.LOGONID, 
+    				  PERORDLMT, PERSHOPPERLMT, TOTALLMT, TGTSALES, PROMOTIONTYPE, CTLPARAM, PX_PROMOTION.STARTDATE, PX_PROMOTION.ENDDATE,
+    				  DAILYSTARTTIME, DAILYENDTIME, WEEKDAY_SUN, WEEKDAY_MON, WEEKDAY_TUE, WEEKDAY_WED, WEEKDAY_THU, WEEKDAY_FRI, WEEKDAY_SAT,
+    				  PX_PROMOTION.TYPE, EFFECTIVE, EXPIRE, TRANSFER, CDREQUIRED, PX_PROMOTION.CODE, CALCODE.DISPLAYLEVEL 
+    				FROM PX_PROMOTION 
+    				JOIN PX_GROUP ON (PX_PROMOTION.PX_GROUP_ID = PX_GROUP.PX_GROUP_ID)
+    				JOIN PX_PROMOAUTH ON (PX_PROMOTION.PX_PROMOTION_ID = PX_PROMOAUTH.PX_PROMOTION_ID)
+    				JOIN CLCDPROMO ON (PX_PROMOTION.PX_PROMOTION_ID = CLCDPROMO.PX_PROMOTION_ID)
+    				JOIN CALCODE ON (CLCDPROMO.CALCODE_ID = CALCODE.CALCODE_ID)
+    				LEFT OUTER JOIN USERREG ON (LASTUPDATEBY = USERS_ID)
+    				WHERE PX_PROMOTION.PX_PROMOTION_ID in (?) 
+    				ORDER BY PX_PROMOTION.PX_PROMOTION_ID
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="PX_PROMOTION_ID" />
+    	      
+    	      <_config:ColumnMapping name="ADMINSTVENAME" value="AdministrativeName" />
+    	      <_config:ColumnMapping name="GRPNAME" value="PromotionGroupIdentifier" />
+    	      <_config:ColumnMapping name="COMMENTS" value="Comments" />
+    	      <_config:ColumnMapping name="PRIORITY" value="Priority" />
+    	      <_config:ColumnMapping name="EXCLSVE" value="Exclusive" />
+    	      <_config:ColumnMapping name="LOGONID" value="LastUpdateByLogonId" />
+    	      <_config:ColumnMapping name="PERORDLMT" value="PerOrderLimit" />
+    	      <_config:ColumnMapping name="PERSHOPPERLMT" value="PerShopperLimit" />
+    	      <_config:ColumnMapping name="TOTALLMT" value="ApplicationLimit" />
+    	      <_config:ColumnMapping name="TGTSALES" value="TargetSales" />
+    	      <_config:ColumnMapping name="PROMOTIONTYPE" value="PromotionTypeName" />
+    	      <_config:ColumnMapping name="CTLPARAM" value="ControlParameter" />
+    	      <_config:ColumnMapping name="STARTDATE" value="StartDate" />
+    	      <_config:ColumnMapping name="ENDDATE" value="EndDate" />
+    	      <_config:ColumnMapping name="DAILYSTARTTIME" value="DailyStartTime" />
+    	      <_config:ColumnMapping name="DAILYENDTIME" value="DailyEndTime" />
+    	      <_config:ColumnMapping name="WEEKDAY_SUN" value="Sunday" />
+    	      <_config:ColumnMapping name="WEEKDAY_MON" value="Monday" />
+    	      <_config:ColumnMapping name="WEEKDAY_TUE" value="Tuesday" />
+    	      <_config:ColumnMapping name="WEEKDAY_WED" value="Wednesday" />
+    	      <_config:ColumnMapping name="WEEKDAY_THU" value="Thursday" />
+    	      <_config:ColumnMapping name="WEEKDAY_FRI" value="Friday" />
+    	      <_config:ColumnMapping name="WEEKDAY_SAT" value="Saturday" />
+    	      <_config:ColumnMapping name="TYPE" value="Type" />
+    	      <_config:ColumnMapping name="EFFECTIVE" value="EffectiveDays" />
+    	      <_config:ColumnMapping name="EXPIRE" value="ExpirationDays" />
+    	      <_config:ColumnMapping name="TRANSFER" value="AllowTransfer" />
+    	      <_config:ColumnMapping name="CDREQUIRED" value="PromotionCodeRequired" />
+    	      <_config:ColumnMapping name="CODE" value="PromotionCodeCue" />
+    	      <_config:ColumnMapping name="DISPLAYLEVEL" value="DisplayLevel" />
+    	    </_config:Query>
+    	    
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+    				SELECT CODETYPE, PATTERN, COUNT, CODESTATUS, TRANSFERABLE 
+    				FROM PX_CDSPEC 
+    				WHERE PX_PROMOTION_ID in (?) 
+    				ORDER BY PX_PROMOTION_ID
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="PX_PROMOTION_ID" />
+    	      
+    	      <_config:ColumnMapping name="CODETYPE" value="CodeType" />
+    	      <_config:ColumnMapping name="PATTERN" value="Pattern" />
+    	      <_config:ColumnMapping name="COUNT" value="Count" />
+    	      <_config:ColumnMapping name="CODESTATUS" value="CodeStatus" />
+    	      <_config:ColumnMapping name="TRANSFERABLE" value="Transferable" />
+    	    </_config:Query>
+    	    
+	   	<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.DomXmlWriter">
+          <_config:property name="rootElemenetName" value="Promotions" />
+          <_config:property name="indent" value="true" />
+          <_config:property name="indentAmount" value="2" />
+	   	</_config:DataWriter>
+	  </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

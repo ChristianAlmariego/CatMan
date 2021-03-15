@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+  
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader"
+          firstLineIsHeader="true" useHeaderAsColumnName="true" />
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        <!-- The unique reference number of the attribute -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/AttributeIdentifier/UniqueID" value="AttributeUniqueId" />
+        <!-- The attribute identifier -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/AttributeIdentifier/ExternalIdentifier/Identifier" value="AttributeIdentifier" />
+        <!-- The attribute value identifier -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/Value/identifier" value="ValueIdentifier" />
+        <!-- The attribute value -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/Value/value" value="Value" />
+        <!-- The attribute value language -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/language" value="Language" />
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/language" value="LanguageId" />
+        <!-- The attribute usage -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/usage" value="Usage" />
+        <!-- The attribute display sequence -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/displaySequence" value="Sequence" />
+        <!-- The unique reference number of the store that owns the attribute dictionary -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/AttributeIdentifier/ExternalIdentifier/StoreIdentifier/UniqueID" value="AttributeStoreUniqueId" />
+        <!-- The identifier of the store that owns the attribute dictionary -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/AttributeIdentifier/ExternalIdentifier/StoreIdentifier/ExternalIdentifier/NameIdentifier" value="AttributeStoreIdentifier" />
+        <!-- CatEntryAttr.Field1 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedData/AttributeRelationshipField1" value="Field1" />
+        <!-- CatEntryAttr.Field2 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedData/AttributeRelationshipField2" value="Field2" />
+        <!-- CatEntryAttr.Field3 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedData/AttributeRelationshipField3" value="Field3" />
+        <!-- AttrVal.Field1 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/AttributeValueField1" value="AttributeValueField1" />
+        <!-- AttrVal.Field2 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/AttributeValueField2" value="AttributeValueField2" />
+        <!-- AttrVal.Field3 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/AttributeValueField3" value="AttributeValueField3" />
+        <!-- AttrValDesc.Field1 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/Field1" value="AttributeValueDescriptionField1" />
+        <!-- AttrValDesc.Field2 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/Field2" value="AttributeValueDescriptionField2" />
+        <!-- AttrValDesc.Field3 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/Field3" value="AttributeValueDescriptionField3" />
+        <!-- AttrValDesc.Image1 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/Image1" value="AttributeValueDescriptionImage1" />
+        <!-- AttrValDesc.Image2 -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/Image2" value="AttributeValueDescriptionImage2" />
+        <!-- AttrValDesc.QTYUNIT_ID -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/ExtendedValue/UnitOfMeasure" value="UnitOfMeasure" />
+        <!-- The Delete indicator -->
+        <_config:mapping xpath="" value="Delete" deleteValue="1" />
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntryAttributeDictionaryAttributeMediator" componentId="com.ibm.commerce.catalog" >
+		<_config:property name="supportMultipleValuesForADAttributes" value="true" />
+		<_config:property name="attributeValueValidation" value="false" />
+		<_config:property name="shareAssignedAttributeValues" value="true" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+    <!--  Catalog Entry Search Index -->
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        <!-- The attribute usage -->
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/usage" value="Usage" />
+        
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntrySearchIndexMediator" componentId="com.ibm.commerce.catalog" >
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+    
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

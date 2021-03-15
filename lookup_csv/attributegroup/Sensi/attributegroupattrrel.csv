@@ -1,0 +1,166 @@
+AttributeIdentifier,AttributeGroupIdentifier,ParentStoreIdentifier,Sequence,Delete
+EMR Access Portal CTA,Sensi-CallToActionGroup,EmersonCAS,0,0
+EMR Check Availablity CTA,Sensi-CallToActionGroup,EmersonCAS,1,0
+EMR Check Order Status CTA,Sensi-CallToActionGroup,EmersonCAS,2,0
+EMR Configure CTA,Sensi-CallToActionGroup,EmersonCAS,3,0
+EMR Consult an Expert CTA,Sensi-CallToActionGroup,EmersonCAS,4,0
+EMR Contact Sales CTA,Sensi-CallToActionGroup,EmersonCAS,5,0
+EMR Contact Us CTA,Sensi-CallToActionGroup,EmersonCAS,6,0
+EMR Download Drawing CTA,Sensi-CallToActionGroup,EmersonCAS,7,0
+EMR Download Software CTA,Sensi-CallToActionGroup,EmersonCAS,8,0
+EMR Learn About CTA,Sensi-CallToActionGroup,EmersonCAS,9,0
+EMR Request Quote CTA,Sensi-CallToActionGroup,EmersonCAS,10,0
+EMR Select CTA,Sensi-CallToActionGroup,EmersonCAS,11,0
+EMR Size CTA,Sensi-CallToActionGroup,EmersonCAS,12,0
+EMR View Courses CTA,Sensi-CallToActionGroup,EmersonCAS,13,0
+EMR Where to Buy CTA,Sensi-CallToActionGroup,EmersonCAS,14,0
+EMR Email Us CTA,Sensi-CallToActionGroup,EmersonCAS,15,0
+EMR Find Product Information CTA,Sensi-CallToActionGroup,EmersonCAS,16,0
+EMR Watch Video CTA,Sensi-CallToActionGroup,EmersonCAS,17,0
+EMR View Replacement CTA,Sensi-CallToActionGroup,EmersonCAS,18,0
+EMR View Drawing CTA,Sensi-CallToActionGroup,EmersonCAS,19,0
+EMR View Animation CTA,Sensi-CallToActionGroup,EmersonCAS,20,0
+EMR View in OPI CTA,Sensi-CallToActionGroup,EmersonCAS,21,0
+EMR View Performance Data CTA,Sensi-CallToActionGroup,EmersonCAS,22,0
+EMR View in Select CTA,Sensi-CallToActionGroup,EmersonCAS,23,0
+EMR Lighting Calculator CTA,Sensi-CallToActionGroup,EmersonCAS,24,0
+EMR Select Online CTA,Sensi-CallToActionGroup,EmersonCAS,25,0
+EMR Spare Parts CTA,Sensi-CallToActionGroup,EmersonCAS,26,0
+EMR Controls Navigator CTA,Sensi-CallToActionGroup,EmersonCAS,27,0
+EMR Find a Pro Installer CTA,Sensi-CallToActionGroup,EmersonCAS,28,0
+EMR Request More Information CTA,Sensi-CallToActionGroup,EmersonCAS,29,0
+EMR Update Professional Version CTA,Sensi-CallToActionGroup,EmersonCAS,30,0
+EMR Technology Overview CTA,Sensi-CallToActionGroup,EmersonCAS,31,0
+EMR Calculate Line Size CTA,Sensi-CallToActionGroup,EmersonCAS,32,0
+EMR Select Line Size CTA,Sensi-CallToActionGroup,EmersonCAS,33,0
+EMR Purchase Software CTA,Sensi-CallToActionGroup,EmersonCAS,34,0
+EMR Download Basic Version CTA,Sensi-CallToActionGroup,EmersonCAS,35,0
+EMR Download Select CTA,Sensi-CallToActionGroup,EmersonCAS,36,0
+EMR View User Manual CTA,Sensi-CallToActionGroup,EmersonCAS,37,0
+EMR Select Application CTA,Sensi-CallToActionGroup,EmersonCAS,38,0
+EMR Certification Badge 1,Sensi-CertificationBadgeGroup,EmersonCAS,0,0
+EMR Certification Badge 2,Sensi-CertificationBadgeGroup,EmersonCAS,1,0
+EMR Certification Badge 3,Sensi-CertificationBadgeGroup,EmersonCAS,2,0
+EMR Certification Badge 4,Sensi-CertificationBadgeGroup,EmersonCAS,3,0
+EMR Certification Badge 5,Sensi-CertificationBadgeGroup,EmersonCAS,4,0
+EMR Certification Badge 6,Sensi-CertificationBadgeGroup,EmersonCAS,5,0
+EMR Certifications,Sensi-CertificationBadgeGroup,EmersonCAS,6,0
+EMR Features,Sensi-FeaturesGroup,EmersonCAS,0,0
+EMR Product Family 1,Sensi-ProductFamilyGroup,EmersonCAS,1,0
+EMR Product Family 2,Sensi-ProductFamilyGroup,EmersonCAS,2,0
+EMR Product Family 3,Sensi-ProductFamilyGroup,EmersonCAS,3,0
+EMR Product Family 4,Sensi-ProductFamilyGroup,EmersonCAS,4,0
+EMR Product Family 5,Sensi-ProductFamilyGroup,EmersonCAS,5,0
+EMR Product Family 6,Sensi-ProductFamilyGroup,EmersonCAS,6,0
+EMR Product Family 7,Sensi-ProductFamilyGroup,EmersonCAS,7,0
+EMR Product Family 8,Sensi-ProductFamilyGroup,EmersonCAS,8,0
+EMR Product Family 9,Sensi-ProductFamilyGroup,EmersonCAS,9,0
+EMR Product Family 10,Sensi-ProductFamilyGroup,EmersonCAS,10,0
+EMR Product Family 11,Sensi-ProductFamilyGroup,EmersonCAS,11,0
+EMR Product Family 12,Sensi-ProductFamilyGroup,EmersonCAS,12,0
+EMR Product Family 13,Sensi-ProductFamilyGroup,EmersonCAS,13,0
+EMR Product Family 14,Sensi-ProductFamilyGroup,EmersonCAS,14,0
+EMR Product Family 15,Sensi-ProductFamilyGroup,EmersonCAS,15,0
+EMR Product Family 16,Sensi-ProductFamilyGroup,EmersonCAS,16,0
+EMR Product Family 17,Sensi-ProductFamilyGroup,EmersonCAS,17,0
+EMR Product Family 18,Sensi-ProductFamilyGroup,EmersonCAS,18,0
+EMR Product Family 19,Sensi-ProductFamilyGroup,EmersonCAS,19,0
+EMR Product Family 20,Sensi-ProductFamilyGroup,EmersonCAS,20,0
+EMR Product Family 21,Sensi-ProductFamilyGroup,EmersonCAS,21,0
+EMR Product Family 22,Sensi-ProductFamilyGroup,EmersonCAS,22,0
+EMR Product Family 23,Sensi-ProductFamilyGroup,EmersonCAS,23,0
+EMR Product Family 24,Sensi-ProductFamilyGroup,EmersonCAS,24,0
+EMR Product Family 25,Sensi-ProductFamilyGroup,EmersonCAS,25,0
+EMR Product Family 26,Sensi-ProductFamilyGroup,EmersonCAS,26,0
+EMR Product Family 27,Sensi-ProductFamilyGroup,EmersonCAS,27,0
+EMR Product Family 28,Sensi-ProductFamilyGroup,EmersonCAS,28,0
+EMR Product Family 29,Sensi-ProductFamilyGroup,EmersonCAS,29,0
+EMR Product Family 30,Sensi-ProductFamilyGroup,EmersonCAS,30,0
+EMR Product Family 31,Sensi-ProductFamilyGroup,EmersonCAS,31,0
+EMR Product Family 32,Sensi-ProductFamilyGroup,EmersonCAS,32,0
+EMR Generic Spec 1 Label,Sensi-SpecificationGroup,EmersonCAS,0,0
+EMR Generic Spec 1 Value,Sensi-SpecificationGroup,EmersonCAS,1,0
+EMR Generic Spec 2 Label,Sensi-SpecificationGroup,EmersonCAS,2,0
+EMR Generic Spec 2 Value,Sensi-SpecificationGroup,EmersonCAS,3,0
+EMR Generic Spec 3 Label,Sensi-SpecificationGroup,EmersonCAS,4,0
+EMR Generic Spec 3 Value,Sensi-SpecificationGroup,EmersonCAS,5,0
+EMR Generic Spec 4 Label,Sensi-SpecificationGroup,EmersonCAS,6,0
+EMR Generic Spec 4 Value,Sensi-SpecificationGroup,EmersonCAS,7,0
+EMR Generic Spec 5 Label,Sensi-SpecificationGroup,EmersonCAS,8,0
+EMR Generic Spec 5 Value,Sensi-SpecificationGroup,EmersonCAS,9,0
+EMR Generic Spec 6 Label,Sensi-SpecificationGroup,EmersonCAS,10,0
+EMR Generic Spec 6 Value,Sensi-SpecificationGroup,EmersonCAS,11,0
+EMR Generic Spec 7 Label,Sensi-SpecificationGroup,EmersonCAS,12,0
+EMR Generic Spec 7 Value,Sensi-SpecificationGroup,EmersonCAS,13,0
+EMR Generic Spec 8 Label,Sensi-SpecificationGroup,EmersonCAS,14,0
+EMR Generic Spec 8 Value,Sensi-SpecificationGroup,EmersonCAS,15,0
+EMR Generic Spec 9 Label,Sensi-SpecificationGroup,EmersonCAS,16,0
+EMR Generic Spec 9 Value,Sensi-SpecificationGroup,EmersonCAS,17,0
+EMR Generic Spec 10 Label,Sensi-SpecificationGroup,EmersonCAS,18,0
+EMR Generic Spec 10 Value,Sensi-SpecificationGroup,EmersonCAS,19,0
+EMR Generic Spec 11 Label,Sensi-SpecificationGroup,EmersonCAS,20,0
+EMR Generic Spec 11 Value,Sensi-SpecificationGroup,EmersonCAS,21,0
+EMR Generic Spec 12 Label,Sensi-SpecificationGroup,EmersonCAS,22,0
+EMR Generic Spec 12 Value,Sensi-SpecificationGroup,EmersonCAS,23,0
+EMR Generic Spec 13 Label,Sensi-SpecificationGroup,EmersonCAS,24,0
+EMR Generic Spec 13 Value,Sensi-SpecificationGroup,EmersonCAS,25,0
+EMR Generic Spec 14 Label,Sensi-SpecificationGroup,EmersonCAS,26,0
+EMR Generic Spec 14 Value,Sensi-SpecificationGroup,EmersonCAS,27,0
+EMR Generic Spec 15 Label,Sensi-SpecificationGroup,EmersonCAS,28,0
+EMR Generic Spec 15 Value,Sensi-SpecificationGroup,EmersonCAS,29,0
+EMR Generic Spec 16 Label,Sensi-SpecificationGroup,EmersonCAS,30,0
+EMR Generic Spec 16 Value,Sensi-SpecificationGroup,EmersonCAS,31,0
+EMR Generic Spec 17 Label,Sensi-SpecificationGroup,EmersonCAS,32,0
+EMR Generic Spec 17 Value,Sensi-SpecificationGroup,EmersonCAS,33,0
+EMR Generic Spec 18 Label,Sensi-SpecificationGroup,EmersonCAS,34,0
+EMR Generic Spec 18 Value,Sensi-SpecificationGroup,EmersonCAS,35,0
+EMR Generic Spec 19 Label,Sensi-SpecificationGroup,EmersonCAS,36,0
+EMR Generic Spec 19 Value,Sensi-SpecificationGroup,EmersonCAS,37,0
+EMR Generic Spec 20 Label,Sensi-SpecificationGroup,EmersonCAS,38,0
+EMR Generic Spec 20 Value,Sensi-SpecificationGroup,EmersonCAS,39,0
+EMR Generic Spec 21 Label,Sensi-SpecificationGroup,EmersonCAS,40,0
+EMR Generic Spec 21 Value,Sensi-SpecificationGroup,EmersonCAS,41,0
+EMR Generic Spec 22 Label,Sensi-SpecificationGroup,EmersonCAS,42,0
+EMR Generic Spec 22 Value,Sensi-SpecificationGroup,EmersonCAS,43,0
+EMR Generic Spec 23 Label,Sensi-SpecificationGroup,EmersonCAS,44,0
+EMR Generic Spec 23 Value,Sensi-SpecificationGroup,EmersonCAS,45,0
+EMR Generic Spec 24 Label,Sensi-SpecificationGroup,EmersonCAS,46,0
+EMR Generic Spec 24 Value,Sensi-SpecificationGroup,EmersonCAS,47,0
+EMR Generic Spec 25 Label,Sensi-SpecificationGroup,EmersonCAS,48,0
+EMR Generic Spec 25 Value,Sensi-SpecificationGroup,EmersonCAS,49,0
+EMR Group1Header,Sensi-SpecificationGroup,EmersonCAS,50,0
+EMR Group1SpecLabel,Sensi-SpecificationGroup,EmersonCAS,51,0
+EMR Group1SpecValue,Sensi-SpecificationGroup,EmersonCAS,52,0
+EMR Group2Header,Sensi-SpecificationGroup2,EmersonCAS,0,0
+EMR Group2SpecLabel,Sensi-SpecificationGroup2,EmersonCAS,1,0
+EMR Group2SpecValue,Sensi-SpecificationGroup2,EmersonCAS,2,0
+EMR Group3Header,Sensi-SpecificationGroup3,EmersonCAS,0,0
+EMR Group3SpecLabel,Sensi-SpecificationGroup3,EmersonCAS,1,0
+EMR Group3SpecValue,Sensi-SpecificationGroup3,EmersonCAS,2,0
+EMR Group4Header,Sensi-SpecificationGroup4,EmersonCAS,0,0
+EMR Group4SpecLabel,Sensi-SpecificationGroup4,EmersonCAS,1,0
+EMR Group4SpecValue,Sensi-SpecificationGroup4,EmersonCAS,2,0
+EMR TabSequence,Sensi-TabAndContentGroup,EmersonCAS,0,0
+EMR Training CTA,Sensi-TrainingServicesGroup,EmersonCAS,17,0
+EMR Utility Belt_Access Portal,Sensi-UtilityBeltGroup,EmersonCAS,2,0
+EMR Utility Belt_Buy Now,Sensi-UtilityBeltGroup,EmersonCAS,5,0
+EMR Utility Belt_Calculate,Sensi-UtilityBeltGroup,EmersonCAS,6,0
+EMR Utility Belt_Check Order Status,Sensi-UtilityBeltGroup,EmersonCAS,7,0
+EMR Utility Belt_Configure,Sensi-UtilityBeltGroup,EmersonCAS,8,0
+EMR Utility Belt_Contact Local Partner,Sensi-UtilityBeltGroup,EmersonCAS,9,0
+EMR Utility Belt_Contact Sales,Sensi-UtilityBeltGroup,EmersonCAS,10,0
+EMR Utility Belt_Contact Service,Sensi-UtilityBeltGroup,EmersonCAS,11,0
+EMR Utility Belt_Contact Support,Sensi-UtilityBeltGroup,EmersonCAS,12,0
+EMR Utility Belt_Contact Us,Sensi-UtilityBeltGroup,EmersonCAS,13,0
+EMR Utility Belt_Download Software,Sensi-UtilityBeltGroup,EmersonCAS,14,0
+EMR Utility Belt_Find a Store,Sensi-UtilityBeltGroup,EmersonCAS,16,0
+EMR Utility Belt_Register Product,Sensi-UtilityBeltGroup,EmersonCAS,17,0
+EMR Utility Belt_Request Quote,Sensi-UtilityBeltGroup,EmersonCAS,19,0
+EMR Utility Belt_Select,Sensi-UtilityBeltGroup,EmersonCAS,20,0
+EMR Utility Belt_Where to Buy,Sensi-UtilityBeltGroup,EmersonCAS,21,0
+EMR Utility Belt_Visit our Blog,Sensi-UtilityBeltGroup,EmersonCAS,22,0
+EMR Utility Belt_Click to Chat,Sensi-UtilityBeltGroup,EmersonCAS,24,0
+EMR Utility Belt_Cross Reference and Product Information,Sensi-UtilityBeltGroup,EmersonCAS,26,0
+EMR Utility Belt_MyEmerson Sign In,Sensi-UtilityBeltGroup,EmersonCAS,27,0
+EMR Utility Belt_Select Online,Sensi-UtilityBeltGroup,EmersonCAS,28,0
+EMR Utility Belt_Controls Navigator,Sensi-UtilityBeltGroup,EmersonCAS,29,0

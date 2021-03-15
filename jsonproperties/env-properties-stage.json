@@ -1,0 +1,13 @@
+{
+  "baseSharedDirectory" : "/websphere/spdata/S5/",
+	"smtpHost" : "inetmail.emrsn.net",
+	"smtpPort" : 25,
+	"emailFrom" : "noreply@emrsn.com",
+	"catalogGroup" : "Ashley.Reeder@emerson.com;ali.litwicki@emerson.com;Auleo.Galang@Emerson.com;Mira.Castaneda@Emerson.com;Jerome.Canete@Emerson.com;Roderick.Crystal@Emerson.com;",
+	"baseSharedFolder4Email" : "\\\\USAZRECD0064\\catman\\spcontentstg\\S5\\",
+	"productExportReportULG" : "Ashley.Reeder@emerson.com;Douglas.Wagner@Emerson.com;Allison.Freeman@Emerson.com;ali.litwicki@emerson.com;Auleo.Galang@Emerson.com;markelbert.hael@emerson.com;Kim.Boothman@Emerson.com;Mira.Castaneda@Emerson.com;jerome.canete@emerson.com;Roderick.Crystal@emerson.com;",
+	"productImportReportULG" : "andreea.fratila@emerson.com;markelbert.hael@emerson.com;kelly.george@emerson.com;anna.pasco@emerson.com;jenica.lim@emerson.com;william.bolling@emerson.com;Roderick.Crystal@emerson.com;",
+	"autosolProductImportReportULG" : "andreea.fratila@emerson.com;markelbert.hael@emerson.com;kelly.george@emerson.com;anna.pasco@emerson.com;jenica.lim@emerson.com;william.bolling@emerson.com;Roderick.Crystal@emerson.com;",
+	"comresProductImportReportULG"  : "shaun.garrett@emerson.com",
+	"catalogSummaryGroup" : "Douglas.Wagner@Emerson.com;Allison.Freeman@Emerson.com;Kim.Boothman@Emerson.com;cathy.ash@emerson.com"
+}

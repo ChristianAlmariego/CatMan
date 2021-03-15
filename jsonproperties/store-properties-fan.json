@@ -1,0 +1,8 @@
+{
+	"outputPath":"FAN/",
+	"storeID": "10152",
+	"supportedStores" : [
+	    { "name": "FAN" , "wcStoreIdentifier" : "FAN"}
+	   
+	]
+}

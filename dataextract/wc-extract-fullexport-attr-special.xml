@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                        select catentryattr.catentry_id, catentryattr.attr_id, catentryattr.attrval_id
+                        from catentryattr
+                            left join catentry on catentryattr.catentry_id = catentry.catentry_id
+                            left join attr on catentryattr.attr_id = attr.attr_id
+                            left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                            left join (select * from attrvaldesc where attrvaldesc.language_id = ?) attrvaldesc
+                                on attrvaldesc.attrval_id = attrval.attrval_id
+                            left join
+                                (
+                                    select * from catgpenrel where catgroup_id IN
+                                    (
+                                        select cattree.catgroup_id_child as catgroup_id from
+                                        (
+                                            select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel from catgrprel start with
+                                            catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN (${platform})) connect by prior
+                                            catgroup_id_child = catgroup_id_parent
+                                        ) cattree
+                                            left join catgroup catgroupchild on (cattree.catgroup_id_child = catgroupchild.catgroup_id and catgroupchild.markfordelete = 0)
+                                        UNION
+                                            select catgroup.catgroup_id from catgroup
+                                                where catgroup_id IN (select catgroup_id from catgroup where identifier IN (${platform}))
+                                    )
+                                ) tcatgrp on catentry.catentry_id = tcatgrp.catentry_id
+                            left join
+                                (select (catentryparent.partnumber || ' | ' || catentry.partnumber) AS orderkey, catentry.catentry_id,
+                                    catentryparent.catentry_id as parent_id, catentryparent.partnumber as parent_partnumber, catentryparent.catenttype_id as parent_type
+                                    from catentrel
+                                    left join catentry on catentrel.catentry_id_child = catentry.catentry_id
+                                    left join catentry catentryparent on catentrel.catentry_id_parent = catentryparent.catentry_id
+                                    where catentrel.catreltype_id = 'PRODUCT_ITEM'
+                                ) catentryparent on catentry.catentry_id = catentryparent.catentry_id
+                            where
+                                catentry.markfordelete = 0
+                                AND attrvaldesc.language_id IS NOT NULL
+                                AND (attr.identifier = 'EMR Features' OR attr.identifier like '%CTA%' OR attr.identifier like '%Utility Belt%' OR attr.identifier like 'EMR Generic Spec%')
+                                AND tcatgrp.catgroup_id IS NOT NULL
+                            order by 
+                                case
+                                    when (catentryparent.orderkey IS NULL AND catentry.catenttype_id IN ('ProductBean','PackageBean','BundleBean'))
+                                        then (catentry.mfname || ' | ' || catentry.partnumber)
+                                    when (catentryparent.orderkey IS NULL AND catentry.catenttype_id IN ('ItemBean'))
+                                        then (catentry.mfname || ' | ' || 'ZZZ' || ' | ' || catentry.partnumber)
+                                    else (catentry.mfname || ' | ' || catentryparent.orderkey)
+                                end ASC,
+                                attr.identifier, 
+                                catentryattr.sequence
+                    ]]>
+              </_config:SQL>
+                <_config:Param name="langId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+                <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                         select catentryattr.catentry_id, catentry.partnumber, catentry.catenttype_id,
+                            case
+                                when (catentrel.catentry_id_parent IS NOT NULL AND catentry.catenttype_id = 'ItemBean') then catentrel.catentry_id_parent
+                                when catentry.catenttype_id IN ('ProductBean','PackageBean','BundleBean') then catentryattr.catentry_id
+                            end as parent_id,
+                            attrvaldesc.language_id, attr.identifier as attribute_identifier,
+                            catentryattr.sequence AS catentryattrsequence, attrvaldesc.sequence as valuesequence, attrvaldesc.stringvalue as value,
+                            case
+                                when attrval.identifier like '%Descriptive%' then 'Descriptive'
+                                else 'Defining'
+                            end as attrvalusage
+                            from catentryattr
+                                left join catentry on catentryattr.catentry_id = catentry.catentry_id
+                                left join attr on catentryattr.attr_id = attr.attr_id
+                                left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                                left join (select * from attrvaldesc where attrvaldesc.language_id = ?) attrvaldesc
+                                    on attrvaldesc.attrval_id = attrval.attrval_id
+                                left join
+                                    catentrel on (catentry.catentry_id = catentrel.catentry_id_child)
+                        WHERE catentryattr.catentry_id = ?
+                        AND catentryattr.attr_id = ?
+                        AND catentryattr.attrval_id = ?
+                    ]]>
+              </_config:SQL>
+                    <_config:Param name="langId" valueFrom="BusinessContext" />
+                    <_config:Param name="CATENTRY_ID" />
+                    <_config:Param name="ATTR_ID" />
+                    <_config:Param name="ATTRVAL_ID" />
+                        <_config:ColumnMapping name="CATENTRY_ID" value="CATENTRY_ID" />
+                        <_config:ColumnMapping name="PARTNUMBER" value="PARTNUMBER" />
+                        <_config:ColumnMapping name="CATENTTYPE_ID" value="CATENTTYPE_ID" />
+                        <_config:ColumnMapping name="PARENT_ID" value="PARENT_ID" />
+                        <_config:ColumnMapping name="LANGUAGE_ID" value="LANGUAGE_ID" />
+                        <_config:ColumnMapping name="ATTRIBUTE_IDENTIFIER" value="ATTRIBUTE_IDENTIFIER" />
+                        <_config:ColumnMapping name="CATENTRYATTRSEQUENCE" value="CATENTRYATTRSEQUENCE" />
+                        <_config:ColumnMapping name="VALUESEQUENCE" value="VALUESEQUENCE" />
+                        <_config:ColumnMapping name="VALUE" value="VALUE" />
+                        <_config:ColumnMapping name="ATTRVALUSAGE" value="ATTRVALUSAGE" />
+
+            </_config:Query>
+
+             <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                <_config:Data>
+                    <_config:column name="CATENTRY_ID" number="1"/>
+                    <_config:column name="PARTNUMBER" number="2"/>
+                    <_config:column name="CATENTTYPE_ID" number="3"/>
+                    <_config:column name="PARENT_ID" number="4"/>
+                    <_config:column name="LANGUAGE_ID" number="5"/>
+                    <_config:column name="ATTRIBUTE_IDENTIFIER" number="6"/>
+                    <_config:column name="CATENTRYATTRSEQUENCE" number="7"/>
+                    <_config:column name="VALUESEQUENCE" number="8"/>
+                    <_config:column name="VALUE" number="9"/>
+                    <_config:column name="ATTRVALUSAGE" number="10"/>
+                </_config:Data>
+             </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

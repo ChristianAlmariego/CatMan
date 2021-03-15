@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader" >
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+    				SELECT COLLATERAL_ID
+    				FROM COLLATERAL  
+    				WHERE STOREENT_ID = ?
+    				ORDER BY COLLATERAL_ID
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator" >
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+					SELECT COLLATERAL.NAME AS COLLATERAL_NAME, COLLTYPE.NAME AS COLLTYPE, URL, BEHAVIOR, UIDISPLAYABLE, MANAGINGTOOL,
+						LOCATION, MARKETINGTEXT, LONGMKTGTEXT, COLLATERAL.FIELD1, COLLATERAL.FIELD2
+					FROM COLLATERAL
+						JOIN COLLTYPE ON (COLLATERAL.COLLTYPE_ID = COLLTYPE.COLLTYPE_ID)
+						LEFT OUTER JOIN COLLDESC ON (COLLATERAL.COLLATERAL_ID = COLLDESC.COLLATERAL_ID AND COLLDESC.LANGUAGE_ID = ?) 
+					WHERE COLLATERAL.COLLATERAL_ID IN (?) 
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="langId" valueFrom="BusinessContext" />
+    	      <_config:Param name="COLLATERAL_ID" />
+
+    	      <_config:ColumnMapping name="COLLATERAL_NAME" value="contentName" />
+    	      <_config:ColumnMapping name="COLLTYPE" value="contentType" />
+    	      <_config:ColumnMapping name="URL" value="url" >
+					    <_config:ValueHandler className="com.ibm.commerce.foundation.dataload.config.ConvertToExternalIdentifierValueHandler" >
+						    <_config:Parameter name="productId" value="SELECT PARTNUMBER FROM CATENTRY WHERE CATENTRY_ID = ?" valueFrom="Fixed" />
+						    <_config:Parameter name="categoryId" value="SELECT IDENTIFIER FROM CATGROUP WHERE CATGROUP_ID = ?" valueFrom="Fixed" />
+					    </_config:ValueHandler>
+    	      </_config:ColumnMapping>
+    	      <_config:ColumnMapping name="BEHAVIOR" value="behavior" />
+    	      <_config:ColumnMapping name="UIDISPLAYABLE" value="uiDisplable" />
+    	      <_config:ColumnMapping name="MANAGINGTOOL" value="managingTool" />
+    	      <_config:ColumnMapping name="LOCATION" value="location" />
+    	      <_config:ColumnMapping name="LONGMKTGTEXT" value="marketingText" >
+							<_config:ValueHandler className="com.ibm.commerce.foundation.dataload.config.StringValueHandler" >
+								<_config:Parameter name="replace" value="MARKETINGTEXT" />
+							</_config:ValueHandler>
+    	      </_config:ColumnMapping>
+    	      <_config:ColumnMapping name="FIELD1" value="field1" />
+    	      <_config:ColumnMapping name="FIELD2" value="field2" />
+    	    </_config:Query>
+        
+   		<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+      		<_config:Data>
+	     		<_config:column number="1" name="contentName" />
+	      		<_config:column number="2" name="contentType" />
+	      		<_config:column number="3" name="url" />
+	      		<_config:column number="4" name="behavior" />
+	      		<_config:column number="5" name="uiDisplable" />
+	      		<_config:column number="6" name="managingTool" />
+	      		<_config:column number="7" name="location" />
+	      		<_config:column number="8" name="marketingText" />
+	      		<_config:column number="9" name="field1" />
+	      		<_config:column number="10" name="field2" />
+						<_config:column number="11" name="delete" value="0" />
+	    	</_config:Data>
+    	</_config:DataWriter>
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

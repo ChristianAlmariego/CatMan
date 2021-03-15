@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								CATENTRY.CATENTRY_ID, CATENTREL.CATRELTYPE_ID, CATENTREL.CATENTRY_ID_CHILD
+				FROM
+								CATENTRY
+				JOIN 
+								CATENTREL ON (CATENTREL.CATENTRY_ID_PARENT = CATENTRY.CATENTRY_ID)
+				JOIN 
+								CATENTRY CATENTCHILD ON (CATENTCHILD.CATENTRY_ID = CATENTREL.CATENTRY_ID_CHILD)
+				WHERE
+								CATENTRY.MARKFORDELETE = 0
+									AND CATRELTYPE_ID <> 'PRODUCT_ITEM'
+									AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+				ORDER BY
+								CATENTRY.PARTNUMBER, CATENTREL.CATRELTYPE_ID, CATENTCHILD.PARTNUMBER
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+				SELECT 
+								CATENTRY.PARTNUMBER,
+								CATENTREL.CATRELTYPE_ID,
+								CATENTCHILD.PARTNUMBER CHILDPARTNUMBER, STOREENT.IDENTIFIER CHILDSTOREIDENTIFIER, CATENTREL.SEQUENCE,
+								CATENTREL.QUANTITY, CATENTREL.FIELD1, CATENTREL.FIELD2, CATENTREL.FIELD3
+				FROM
+								CATENTRY
+				JOIN 
+								CATENTREL ON (CATENTREL.CATENTRY_ID_PARENT = CATENTRY.CATENTRY_ID)
+				JOIN 
+								CATENTRY CATENTCHILD ON (CATENTCHILD.CATENTRY_ID = CATENTREL.CATENTRY_ID_CHILD)
+				JOIN
+								STOREENT ON (STOREENT.MEMBER_ID = CATENTCHILD.MEMBER_ID)
+				WHERE
+								CATENTRY.CATENTRY_ID = ? AND CATENTREL.CATRELTYPE_ID = ? AND CATENTREL.CATENTRY_ID_CHILD = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="CATENTRY_ID" />
+                <_config:Param name="CATRELTYPE_ID" />
+                <_config:Param name="CATENTRY_ID_CHILD" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="CATRELTYPE_ID" value="Type" />
+                                <_config:ColumnMapping name="CHILDPARTNUMBER" value="ChildPartNumber" />
+                                <_config:ColumnMapping name="CHILDSTOREIDENTIFIER" value="ChildStoreIdentifier" />
+                                <_config:ColumnMapping name="SEQUENCE" value="Sequence" />
+                                <_config:ColumnMapping name="QUANTITY" value="Quantity" />
+                                <_config:ColumnMapping name="FIELD1" value="ParentToChildCatEntryRelField1" />
+                                <_config:ColumnMapping name="FIELD2" value="ParentToChildCatEntryRelField2" />
+                                <_config:ColumnMapping name="FIELD3" value="ParentToChildCatEntryRelField3" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                        <_config:column name="Type" number="2"/>
+                                        <_config:column name="ChildPartNumber" number="3"/>
+                                        <_config:column name="ChildStoreIdentifier" number="4"/>
+                                        <_config:column name="Sequence" number="5"/>
+                                        <_config:column name="Quantity" number="6"/>
+                                        <_config:column name="ParentToChildCatEntryRelField1" number="7"/>
+                                        <_config:column name="ParentToChildCatEntryRelField2" number="8"/>
+                                        <_config:column name="ParentToChildCatEntryRelField3" number="9"/>
+                                        <_config:column name="Delete" number="10" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

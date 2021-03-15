@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								CATGROUP.CATGROUP_ID
+				FROM
+								(SELECT CATGROUP_ID, 0 LVL
+								 FROM CATTOGRP
+								 WHERE CATALOG_ID = ?
+								 UNION
+								 SELECT DISTINCT CATGROUP_ID_CHILD CATGROUP_ID, LEVEL LVL
+								 FROM CATGRPREL
+								 WHERE CATALOG_ID = ?
+								 START WITH CATGROUP_ID_PARENT IN (SELECT CATGROUP_ID FROM CATTOGRP WHERE CATALOG_ID = CATGRPREL.CATALOG_ID)
+								 CONNECT BY PRIOR CATGROUP_ID_CHILD = CATGROUP_ID_PARENT) CGR
+				JOIN
+								CATGROUP ON (CATGROUP.CATGROUP_ID = CGR.CATGROUP_ID)
+				WHERE
+								CATGROUP.MARKFORDELETE = 0
+				ORDER BY
+								CGR.LVL, CATGROUP.IDENTIFIER
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="catalogId" valueFrom="BusinessContext" />
+              <_config:Param name="catalogId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+				SELECT
+								'FALSE' MASTERCATALOG, CG.IDENTIFIER, CGRCG.IDENTIFIER PARENT, CGD.NAME, CGSEOURL.URLKEYWORD,
+								CGSEOPD.TITLE, CGSEOPD.META_DESC, CGF.FACETNAMES
+				FROM
+								CATGROUP CG
+				LEFT OUTER JOIN
+								CATGRPREL CGR ON (CGR.CATGROUP_ID_CHILD = CG.CATGROUP_ID)
+				LEFT OUTER JOIN
+								CATGROUP CGRCG ON (CGRCG.CATGROUP_ID = CGR.CATGROUP_ID_PARENT)
+				LEFT OUTER JOIN
+								CATGRPDESC CGD ON (CGD.CATGROUP_ID = CG.CATGROUP_ID AND CGD.LANGUAGE_ID = ?)
+				LEFT OUTER JOIN 
+								SEOURL ON (SEOURL.TOKENNAME = 'CategoryToken' AND SEOURL.TOKENVALUE = CG.CATGROUP_ID || '')
+				LEFT OUTER JOIN
+								SEOURLKEYWORD CGSEOURL ON (CGSEOURL.SEOURL_ID = SEOURL.SEOURL_ID AND
+								CGSEOURL.LANGUAGE_ID = CGD.LANGUAGE_ID AND CGSEOURL.STATUS = 1)
+				LEFT OUTER JOIN
+								SEOPAGEDEF ON (SEOPAGEDEF.PAGENAME = 'CATEGORY_PAGE_' || CG.CATGROUP_ID)
+				LEFT OUTER JOIN
+								SEOPAGEDEFDESC CGSEOPD ON (CGSEOPD.SEOPAGEDEF_ID = SEOPAGEDEF.SEOPAGEDEF_ID
+								AND CGSEOPD.LANGUAGE_ID = CGD.LANGUAGE_ID)
+				LEFT OUTER JOIN
+								(SELECT 
+										F.CATGROUP_ID, LISTAGG(F.ATTRNAME, ' | ') WITHIN GROUP (ORDER BY F.SEQUENCE) FACETNAMES
+								FROM (SELECT 
+											FACETCATGRP.CATGROUP_ID, FACETCATGRP.SEQUENCE, DECODE(FACETCATGRP.FACET_ID, 
+																										-1000, 'Brand', 
+																										-1001, 'Category', 
+																										ATTR.IDENTIFIER) ATTRNAME
+									      FROM
+									      		FACETCATGRP
+									      JOIN
+									      		FACET ON (FACET.FACET_ID = FACETCATGRP.FACET_ID)
+									      LEFT OUTER JOIN
+									      		ATTR ON (ATTR.ATTR_ID = FACET.ATTR_ID)
+									      WHERE
+									      		FACETCATGRP.STOREENT_ID = ?
+									      		AND FACETCATGRP.DISPLAYABLE = 1) F
+								GROUP BY
+										F.CATGROUP_ID) CGF ON CGF.CATGROUP_ID = CG.CATGROUP_ID
+				WHERE
+								CG.CATGROUP_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="langId" valueFrom="BusinessContext" />
+                <_config:Param name="storeId" valueFrom="BusinessContext" />
+                <_config:Param name="CATGROUP_ID" />
+                                <_config:ColumnMapping name="MASTERCATALOG" value="Master Catalog" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="Identifier" />
+                                <_config:ColumnMapping name="PARENT" value="Parent Identifier" />
+                                <_config:ColumnMapping name="NAME" value="Name US" />
+                                <_config:ColumnMapping name="URLKEYWORD" value="URL keyword" />
+                                <_config:ColumnMapping name="TITLE" value="Page title" />
+                                <_config:ColumnMapping name="META_DESC" value="Meta description" />
+                                <_config:ColumnMapping name="FACETNAMES" value="Facet Ordered List" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="Master Catalog" number="1"/>
+                                        <_config:column name="Identifier" number="2"/>
+                                        <_config:column name="Parent Identifier" number="3"/>
+                                        <_config:column name="Name US" number="4"/>
+                                        <_config:column name="URL keyword" number="5"/>
+                                        <_config:column name="Page title" number="6"/>
+                                        <_config:column name="Meta description" number="7"/>
+                                        <_config:column name="Facet Ordered List" number="8"/>
+                                        <_config:column name="Delete" number="9" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

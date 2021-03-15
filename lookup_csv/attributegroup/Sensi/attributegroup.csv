@@ -1,0 +1,17 @@
+GroupIdentifier,ParentGroupIdentifier,ParentStoreIdentifier,Sequence,LanguageId,Name,ShortDescription,Delete
+Sensi-CallToActionGroup,,Sensi,3,-1,CallToActionGroup,Call To Action Group,0
+Sensi-CarouselBadgeGroup,,Sensi,3,-1,CarouselBadgeGroup,Carousel Overlay Action Group,0
+Sensi-CertificationBadgeGroup,,Sensi,3,-1,CertificationBadgeGroup,Certification Action Group,0
+Sensi-DocumentsDrawingsGroup,,Sensi,5,-1,DocumentsDrawingsGroup,Documents And Drawings Group,0
+Sensi-FeaturesGroup,,Sensi,3,-1,FeaturesGroup,Features Action Group,0
+Sensi-MobileAppsGroup,,Sensi,7,-1,MobileAppsGroup,Mobile Apps Group,0
+Sensi-ProductFamilyGroup,,Sensi,3,-1,ProductFamilyGroup,Product Family Group,0
+Sensi-RatingsReviewsGroup,,Sensi,8,-1,RatingsReviewsGroup,Ratings And Reviews Group,0
+Sensi-RelatedProductsGroup,,Sensi,9,-1,RelatedProductsGroup,Related Products Group,0
+Sensi-SpecificationGroup,,Sensi,4,-1,SpecificationGroup,Specification Action Group,0
+Sensi-SpecificationGroup2,,Sensi,4,-1,SpecificationGroup2,Specification Group 2,0
+Sensi-SpecificationGroup3,,Sensi,4,-1,SpecificationGroup3,Specification Group 3,0
+Sensi-SpecificationGroup4,,Sensi,4,-1,SpecificationGroup4,Specification Group 4,0
+Sensi-TabAndContentGroup,,Sensi,3,-1,TabAndContentGroup,Tab And Content Action Group,0
+Sensi-TrainingServicesGroup,,Sensi,6,-1,TrainingServicesGroup,Training And Services Group,0
+Sensi-UtilityBeltGroup,,Sensi,10,-1,UtilityBeltGroup,Utility Belt Action Group,0

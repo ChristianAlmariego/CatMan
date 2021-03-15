@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader" firstLineIsHeader="true" useHeaderAsColumnName="true" >
+    </_config:DataReader>
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="AttributeDictionaryAttributeType" >
+      <_config:DataMapping>
+        <!-- The attribute identifier -->
+        <_config:mapping xpath="AttributeIdentifier/ExternalIdentifier/Identifier" value="Identifier" />
+        <!-- The unique reference number of the attribute -->
+        <_config:mapping xpath="AttributeIdentifier/UniqueID" value="AttributeUniqueId" />
+        <!-- The attribute language -->
+        <_config:mapping xpath="AllowedValue/language" value="Language" />
+        <_config:mapping xpath="AllowedValue/language" value="LanguageId" />
+        <!-- The attribute value identifier -->
+        <_config:mapping xpath="AllowedValue/identifier" value="ValueIdentifier" />
+        <!-- The attribute value display sequence -->
+        <_config:mapping xpath="AllowedValue/displaySequence" value="Sequence" />
+        <!-- The attribute value (language sensitive) -->
+        <_config:mapping xpath="AllowedValue/Value" value="Value" />
+        <!-- The attribute value usage -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/ValueUsage" value="ValueUsage" />
+        
+        <!-- The attribute value field 1 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/AttributeValueField1" value="AttributeValueField1" />
+        <!-- The attribute value field 2 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/AttributeValueField2" value="AttributeValueField2" />
+        <!-- The attribute value field 3 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/AttributeValueField3" value="AttributeValueField3" />
+        
+        <!-- The attribute value image 1 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/Image1" value="Image1" />
+        <!-- The attribute value image 2 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/Image2" value="Image2" />
+        <!-- The attribute value custom field 1 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/Field1" value="Field1" />
+        <!-- The attribute value custom field 2 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/Field2" value="Field2" />
+        <!-- The attribute value custom field 3 -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/Field3" value="Field3" />
+       <!-- AttrValDesc.QTYUNIT_ID -->
+        <_config:mapping xpath="AllowedValue/ExtendedValue/UnitOfMeasure" value="UnitOfMeasure" />
+         
+        <!-- The Delete indicator -->
+        <_config:mapping xpath="" value="Delete" deleteValue="1" />
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.AttributeDictionaryAttributeMediator" componentId="com.ibm.commerce.catalog" >
+		<_config:property name="allowChangeAttributeType" value="true" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+    <!--  Attribute Dictionary Attribute Search Index -->
+    <!--
+      <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+        packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="AttributeDictionaryAttributeType" >
+
+        <_config:DataMapping> -->
+          <!-- The attribute identifier
+        <_config:mapping xpath="AttributeIdentifier/ExternalIdentifier/Identifier" value="Identifier" /> -->
+        <!-- The unique reference number of the attribute
+        <_config:mapping xpath="AttributeIdentifier/UniqueID" value="AttributeUniqueId" /> -->
+    <!--
+     </_config:DataMapping>
+     <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.AttributeDictionaryAttributeSearchIndexMediator" componentId="com.ibm.commerce.catalog" >
+     </_config:BusinessObjectMediator>
+   </_config:BusinessObjectBuilder>
+    -->
+
+ </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

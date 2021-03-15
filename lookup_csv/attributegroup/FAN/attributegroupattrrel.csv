@@ -1,0 +1,166 @@
+AttributeIdentifier,AttributeGroupIdentifier,ParentStoreIdentifier,Sequence,Delete
+EMR Access Portal CTA,FAN-CallToActionGroup,EmersonCAS,0,0
+EMR Check Availablity CTA,FAN-CallToActionGroup,EmersonCAS,1,0
+EMR Check Order Status CTA,FAN-CallToActionGroup,EmersonCAS,2,0
+EMR Configure CTA,FAN-CallToActionGroup,EmersonCAS,3,0
+EMR Consult an Expert CTA,FAN-CallToActionGroup,EmersonCAS,4,0
+EMR Contact Sales CTA,FAN-CallToActionGroup,EmersonCAS,5,0
+EMR Contact Us CTA,FAN-CallToActionGroup,EmersonCAS,6,0
+EMR Download Drawing CTA,FAN-CallToActionGroup,EmersonCAS,7,0
+EMR Download Software CTA,FAN-CallToActionGroup,EmersonCAS,8,0
+EMR Learn About CTA,FAN-CallToActionGroup,EmersonCAS,9,0
+EMR Request Quote CTA,FAN-CallToActionGroup,EmersonCAS,10,0
+EMR Select CTA,FAN-CallToActionGroup,EmersonCAS,11,0
+EMR Size CTA,FAN-CallToActionGroup,EmersonCAS,12,0
+EMR View Courses CTA,FAN-CallToActionGroup,EmersonCAS,13,0
+EMR Where to Buy CTA,FAN-CallToActionGroup,EmersonCAS,14,0
+EMR Email Us CTA,FAN-CallToActionGroup,EmersonCAS,15,0
+EMR Find Product Information CTA,FAN-CallToActionGroup,EmersonCAS,16,0
+EMR Watch Video CTA,FAN-CallToActionGroup,EmersonCAS,17,0
+EMR View Replacement CTA,FAN-CallToActionGroup,EmersonCAS,18,0
+EMR View Drawing CTA,FAN-CallToActionGroup,EmersonCAS,19,0
+EMR View Animation CTA,FAN-CallToActionGroup,EmersonCAS,20,0
+EMR View in OPI CTA,FAN-CallToActionGroup,EmersonCAS,21,0
+EMR View Performance Data CTA,FAN-CallToActionGroup,EmersonCAS,22,0
+EMR View in Select CTA,FAN-CallToActionGroup,EmersonCAS,23,0
+EMR Lighting Calculator CTA,FAN-CallToActionGroup,EmersonCAS,24,0
+EMR Select Online CTA,FAN-CallToActionGroup,EmersonCAS,25,0
+EMR Spare Parts CTA,FAN-CallToActionGroup,EmersonCAS,26,0
+EMR Controls Navigator CTA,FAN-CallToActionGroup,EmersonCAS,27,0
+EMR Find a Pro Installer CTA,FAN-CallToActionGroup,EmersonCAS,28,0
+EMR Request More Information CTA,FAN-CallToActionGroup,EmersonCAS,29,0
+EMR Update Professional Version CTA,FAN-CallToActionGroup,EmersonCAS,30,0
+EMR Technology Overview CTA,FAN-CallToActionGroup,EmersonCAS,31,0
+EMR Calculate Line Size CTA,FAN-CallToActionGroup,EmersonCAS,32,0
+EMR Select Line Size CTA,FAN-CallToActionGroup,EmersonCAS,33,0
+EMR Purchase Software CTA,FAN-CallToActionGroup,EmersonCAS,34,0
+EMR Download Basic Version CTA,FAN-CallToActionGroup,EmersonCAS,35,0
+EMR Download Select CTA,FAN-CallToActionGroup,EmersonCAS,36,0
+EMR View User Manual CTA,FAN-CallToActionGroup,EmersonCAS,37,0
+EMR Select Application CTA,FAN-CallToActionGroup,EmersonCAS,38,0
+EMR Certification Badge 1,FAN-CertificationBadgeGroup,EmersonCAS,0,0
+EMR Certification Badge 2,FAN-CertificationBadgeGroup,EmersonCAS,1,0
+EMR Certification Badge 3,FAN-CertificationBadgeGroup,EmersonCAS,2,0
+EMR Certification Badge 4,FAN-CertificationBadgeGroup,EmersonCAS,3,0
+EMR Certification Badge 5,FAN-CertificationBadgeGroup,EmersonCAS,4,0
+EMR Certification Badge 6,FAN-CertificationBadgeGroup,EmersonCAS,5,0
+EMR Certifications,FAN-CertificationBadgeGroup,EmersonCAS,6,0
+EMR Features,FAN-FeaturesGroup,EmersonCAS,0,0
+EMR Product Family 1,FAN-ProductFamilyGroup,EmersonCAS,1,0
+EMR Product Family 2,FAN-ProductFamilyGroup,EmersonCAS,2,0
+EMR Product Family 3,FAN-ProductFamilyGroup,EmersonCAS,3,0
+EMR Product Family 4,FAN-ProductFamilyGroup,EmersonCAS,4,0
+EMR Product Family 5,FAN-ProductFamilyGroup,EmersonCAS,5,0
+EMR Product Family 6,FAN-ProductFamilyGroup,EmersonCAS,6,0
+EMR Product Family 7,FAN-ProductFamilyGroup,EmersonCAS,7,0
+EMR Product Family 8,FAN-ProductFamilyGroup,EmersonCAS,8,0
+EMR Product Family 9,FAN-ProductFamilyGroup,EmersonCAS,9,0
+EMR Product Family 10,FAN-ProductFamilyGroup,EmersonCAS,10,0
+EMR Product Family 11,FAN-ProductFamilyGroup,EmersonCAS,11,0
+EMR Product Family 12,FAN-ProductFamilyGroup,EmersonCAS,12,0
+EMR Product Family 13,FAN-ProductFamilyGroup,EmersonCAS,13,0
+EMR Product Family 14,FAN-ProductFamilyGroup,EmersonCAS,14,0
+EMR Product Family 15,FAN-ProductFamilyGroup,EmersonCAS,15,0
+EMR Product Family 16,FAN-ProductFamilyGroup,EmersonCAS,16,0
+EMR Product Family 17,FAN-ProductFamilyGroup,EmersonCAS,17,0
+EMR Product Family 18,FAN-ProductFamilyGroup,EmersonCAS,18,0
+EMR Product Family 19,FAN-ProductFamilyGroup,EmersonCAS,19,0
+EMR Product Family 20,FAN-ProductFamilyGroup,EmersonCAS,20,0
+EMR Product Family 21,FAN-ProductFamilyGroup,EmersonCAS,21,0
+EMR Product Family 22,FAN-ProductFamilyGroup,EmersonCAS,22,0
+EMR Product Family 23,FAN-ProductFamilyGroup,EmersonCAS,23,0
+EMR Product Family 24,FAN-ProductFamilyGroup,EmersonCAS,24,0
+EMR Product Family 25,FAN-ProductFamilyGroup,EmersonCAS,25,0
+EMR Product Family 26,FAN-ProductFamilyGroup,EmersonCAS,26,0
+EMR Product Family 27,FAN-ProductFamilyGroup,EmersonCAS,27,0
+EMR Product Family 28,FAN-ProductFamilyGroup,EmersonCAS,28,0
+EMR Product Family 29,FAN-ProductFamilyGroup,EmersonCAS,29,0
+EMR Product Family 30,FAN-ProductFamilyGroup,EmersonCAS,30,0
+EMR Product Family 31,FAN-ProductFamilyGroup,EmersonCAS,31,0
+EMR Product Family 32,FAN-ProductFamilyGroup,EmersonCAS,32,0
+EMR Generic Spec 1 Label,FAN-SpecificationGroup,EmersonCAS,0,0
+EMR Generic Spec 1 Value,FAN-SpecificationGroup,EmersonCAS,1,0
+EMR Generic Spec 2 Label,FAN-SpecificationGroup,EmersonCAS,2,0
+EMR Generic Spec 2 Value,FAN-SpecificationGroup,EmersonCAS,3,0
+EMR Generic Spec 3 Label,FAN-SpecificationGroup,EmersonCAS,4,0
+EMR Generic Spec 3 Value,FAN-SpecificationGroup,EmersonCAS,5,0
+EMR Generic Spec 4 Label,FAN-SpecificationGroup,EmersonCAS,6,0
+EMR Generic Spec 4 Value,FAN-SpecificationGroup,EmersonCAS,7,0
+EMR Generic Spec 5 Label,FAN-SpecificationGroup,EmersonCAS,8,0
+EMR Generic Spec 5 Value,FAN-SpecificationGroup,EmersonCAS,9,0
+EMR Generic Spec 6 Label,FAN-SpecificationGroup,EmersonCAS,10,0
+EMR Generic Spec 6 Value,FAN-SpecificationGroup,EmersonCAS,11,0
+EMR Generic Spec 7 Label,FAN-SpecificationGroup,EmersonCAS,12,0
+EMR Generic Spec 7 Value,FAN-SpecificationGroup,EmersonCAS,13,0
+EMR Generic Spec 8 Label,FAN-SpecificationGroup,EmersonCAS,14,0
+EMR Generic Spec 8 Value,FAN-SpecificationGroup,EmersonCAS,15,0
+EMR Generic Spec 9 Label,FAN-SpecificationGroup,EmersonCAS,16,0
+EMR Generic Spec 9 Value,FAN-SpecificationGroup,EmersonCAS,17,0
+EMR Generic Spec 10 Label,FAN-SpecificationGroup,EmersonCAS,18,0
+EMR Generic Spec 10 Value,FAN-SpecificationGroup,EmersonCAS,19,0
+EMR Generic Spec 11 Label,FAN-SpecificationGroup,EmersonCAS,20,0
+EMR Generic Spec 11 Value,FAN-SpecificationGroup,EmersonCAS,21,0
+EMR Generic Spec 12 Label,FAN-SpecificationGroup,EmersonCAS,22,0
+EMR Generic Spec 12 Value,FAN-SpecificationGroup,EmersonCAS,23,0
+EMR Generic Spec 13 Label,FAN-SpecificationGroup,EmersonCAS,24,0
+EMR Generic Spec 13 Value,FAN-SpecificationGroup,EmersonCAS,25,0
+EMR Generic Spec 14 Label,FAN-SpecificationGroup,EmersonCAS,26,0
+EMR Generic Spec 14 Value,FAN-SpecificationGroup,EmersonCAS,27,0
+EMR Generic Spec 15 Label,FAN-SpecificationGroup,EmersonCAS,28,0
+EMR Generic Spec 15 Value,FAN-SpecificationGroup,EmersonCAS,29,0
+EMR Generic Spec 16 Label,FAN-SpecificationGroup,EmersonCAS,30,0
+EMR Generic Spec 16 Value,FAN-SpecificationGroup,EmersonCAS,31,0
+EMR Generic Spec 17 Label,FAN-SpecificationGroup,EmersonCAS,32,0
+EMR Generic Spec 17 Value,FAN-SpecificationGroup,EmersonCAS,33,0
+EMR Generic Spec 18 Label,FAN-SpecificationGroup,EmersonCAS,34,0
+EMR Generic Spec 18 Value,FAN-SpecificationGroup,EmersonCAS,35,0
+EMR Generic Spec 19 Label,FAN-SpecificationGroup,EmersonCAS,36,0
+EMR Generic Spec 19 Value,FAN-SpecificationGroup,EmersonCAS,37,0
+EMR Generic Spec 20 Label,FAN-SpecificationGroup,EmersonCAS,38,0
+EMR Generic Spec 20 Value,FAN-SpecificationGroup,EmersonCAS,39,0
+EMR Generic Spec 21 Label,FAN-SpecificationGroup,EmersonCAS,40,0
+EMR Generic Spec 21 Value,FAN-SpecificationGroup,EmersonCAS,41,0
+EMR Generic Spec 22 Label,FAN-SpecificationGroup,EmersonCAS,42,0
+EMR Generic Spec 22 Value,FAN-SpecificationGroup,EmersonCAS,43,0
+EMR Generic Spec 23 Label,FAN-SpecificationGroup,EmersonCAS,44,0
+EMR Generic Spec 23 Value,FAN-SpecificationGroup,EmersonCAS,45,0
+EMR Generic Spec 24 Label,FAN-SpecificationGroup,EmersonCAS,46,0
+EMR Generic Spec 24 Value,FAN-SpecificationGroup,EmersonCAS,47,0
+EMR Generic Spec 25 Label,FAN-SpecificationGroup,EmersonCAS,48,0
+EMR Generic Spec 25 Value,FAN-SpecificationGroup,EmersonCAS,49,0
+EMR Group1Header,FAN-SpecificationGroup,EmersonCAS,50,0
+EMR Group1SpecLabel,FAN-SpecificationGroup,EmersonCAS,51,0
+EMR Group1SpecValue,FAN-SpecificationGroup,EmersonCAS,52,0
+EMR Group2Header,FAN-SpecificationGroup2,EmersonCAS,0,0
+EMR Group2SpecLabel,FAN-SpecificationGroup2,EmersonCAS,1,0
+EMR Group2SpecValue,FAN-SpecificationGroup2,EmersonCAS,2,0
+EMR Group3Header,FAN-SpecificationGroup3,EmersonCAS,0,0
+EMR Group3SpecLabel,FAN-SpecificationGroup3,EmersonCAS,1,0
+EMR Group3SpecValue,FAN-SpecificationGroup3,EmersonCAS,2,0
+EMR Group4Header,FAN-SpecificationGroup4,EmersonCAS,0,0
+EMR Group4SpecLabel,FAN-SpecificationGroup4,EmersonCAS,1,0
+EMR Group4SpecValue,FAN-SpecificationGroup4,EmersonCAS,2,0
+EMR TabSequence,FAN-TabAndContentGroup,EmersonCAS,0,0
+EMR Training CTA,FAN-TrainingServicesGroup,EmersonCAS,17,0
+EMR Utility Belt_Access Portal,FAN-UtilityBeltGroup,EmersonCAS,0,0
+EMR Utility Belt_Buy Now,FAN-UtilityBeltGroup,EmersonCAS,1,0
+EMR Utility Belt_Calculate,FAN-UtilityBeltGroup,EmersonCAS,2,0
+EMR Utility Belt_Check Order Status,FAN-UtilityBeltGroup,EmersonCAS,3,0
+EMR Utility Belt_Configure,FAN-UtilityBeltGroup,EmersonCAS,4,0
+EMR Utility Belt_Contact Local Partner,FAN-UtilityBeltGroup,EmersonCAS,5,0
+EMR Utility Belt_Contact Sales,FAN-UtilityBeltGroup,EmersonCAS,6,0
+EMR Utility Belt_Contact Service,FAN-UtilityBeltGroup,EmersonCAS,7,0
+EMR Utility Belt_Contact Support,FAN-UtilityBeltGroup,EmersonCAS,8,0
+EMR Utility Belt_Contact Us,FAN-UtilityBeltGroup,EmersonCAS,9,0
+EMR Utility Belt_Download Software,FAN-UtilityBeltGroup,EmersonCAS,10,0
+EMR Utility Belt_Find a Store,FAN-UtilityBeltGroup,EmersonCAS,11,0
+EMR Utility Belt_Register Product,FAN-UtilityBeltGroup,EmersonCAS,12,0
+EMR Utility Belt_Request Quote,FAN-UtilityBeltGroup,EmersonCAS,13,0
+EMR Utility Belt_Select,FAN-UtilityBeltGroup,EmersonCAS,14,0
+EMR Utility Belt_Where to Buy,FAN-UtilityBeltGroup,EmersonCAS,15,0
+EMR Utility Belt_Visit our Blog,FAN-UtilityBeltGroup,EmersonCAS,16,0
+EMR Utility Belt_Click to Chat,FAN-UtilityBeltGroup,EmersonCAS,17,0
+EMR Utility Belt_Cross Reference and Product Information,FAN-UtilityBeltGroup,EmersonCAS,18,0
+EMR Utility Belt_MyEmerson Sign In,FAN-UtilityBeltGroup,EmersonCAS,19,0
+EMR Utility Belt_Select Online,FAN-UtilityBeltGroup,EmersonCAS,20,0
+EMR Utility Belt_Controls Navigator,FAN-UtilityBeltGroup,EmersonCAS,21,0

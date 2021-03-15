@@ -1,0 +1,13 @@
+{
+  "baseSharedDirectory" : "/websphere/spdata/Dev5/",
+	"smtpHost" : "inetmail.emrsn.net",
+	"smtpPort" : 25,
+	"emailFrom" : "noreply@emrsn.com",
+	"catalogGroup" : "Ashley.Reeder@emerson.com;BillyJoe.Cuasay@Emerson.com;Jeffrey.Fellizar@Emerson.com;Mira.Castaneda@Emerson.com;Jerome.Canete@Emerson.com;Roderick.Crystal@Emerson.com;Ali.Litwicki@Emerson.com;",
+	"baseSharedFolder4Email" : "\\\\USAZRECD0064\\catman\\websphere_spdata\\Dev5\\",
+	"productExportReportULG" : "Ashley.Reeder@emerson.com;BillyJoe.Cuasay@Emerson.com;Jeffrey.Fellizar@Emerson.com;Roderick.Crystal@emerson.com;jerome.canete@emerson.com;",
+	"productImportReportULG" : "Roderick.Crystal@emerson.com;jerome.canete@emerson.com;Ashley.Reeder@emerson.com;Ali.Litwicki@Emerson.com;arpith@infosys.com;",
+	"autosolProductImportReportULG" : "Roderick.Crystal@emerson.com;jerome.canete@emerson.com;Ashley.Reeder@emerson.com;Ali.Litwicki@Emerson.com;arpith@infosys.com;",
+	"comresProductImportReportULG"  : "Roderick.Crystal@emerson.com;jerome.canete@emerson.com;Ashley.Reeder@emerson.com;Ali.Litwicki@Emerson.com;arpith@infosys.com;",
+	"catalogSummaryGroup" : "Ashley.Reeder@emerson.com;"
+}

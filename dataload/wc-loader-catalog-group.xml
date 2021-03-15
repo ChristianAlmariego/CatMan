@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2010 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:ColumnExclusionList>
+        <_config:table name="CATGROUP" columns="LASTUPDATE, FIELD1, FIELD2, OID, RANK, OPTCOUNTER, DYNAMIC" />    
+        <_config:table name="CATGRPDESC" columns="SHORTDESCRIPTION, LONGDESCRIPTION, THUMBNAIL, FULLIMAGE, DISPLAY, KEYWORD, NOTE, OPTCOUNTER " />
+        <_config:table name="CATTOGRP" columns="LASTUPDATE, SEQUENCE, CATALOG_ID_LINK, OPTCOUNTER" />
+        <_config:table name="CATGRPREL" columns="RULE, SEQUENCE, LASTUPDATE, CATALOG_ID_LINK, OPTCOUNTER" />
+        <_config:table name="CATGPCALCD" columns="STORE_ID, CATGPCALCD_ID, TRADING_ID, CATGROUP_ID, CALCODE_ID, OPTCOUNTER, CALFLAGS" />
+        <_config:table name="SEOURL" columns="SEOURL_ID, TOKENNAME, TOKENVALUE, PRIORITY, CHANGE_FREQUENCY, MOBILE_PRIORITY, MOBILE_CHG_FREQ, OPTCOUNTER" />
+        <_config:table name="SEOPAGEDEF" columns="SEOPAGEDEF_ID, PAGENAME, STOREENT_ID, LASTUPDATE, CREATEDTIME, OPTCOUNTER" />
+    </_config:ColumnExclusionList>
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader"
+          firstLineIsHeader="true" useHeaderAsColumnName="true" />
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogGroupType" >
+    
+	<_config:DataMapping>
+	  <_config:mapping xpath="CatalogGroupIdentifier/UniqueID" value="GroupUniqueId" />
+	  <_config:mapping xpath="CatalogGroupIdentifier/ExternalIdentifier/GroupIdentifier" value="GroupIdentifier" />
+	  <_config:mapping xpath="ParentCatalogGroupIdentifier/UniqueID" value="ParentGroupUniqueId" />
+      <_config:mapping xpath="CatalogGroupIdentifier/ExternalIdentifier/StoreIdentifier/ExternalIdentifier/NameIdentifier" value="StoreIdentifier" valueFrom="InputData" />
+	  <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/GroupIdentifier" value="ParentGroupIdentifier" />
+	  <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/StoreIdentifier/ExternalIdentifier/NameIdentifier" value="ParentStoreIdentifier" valueFrom="InputData" />
+	  <_config:mapping xpath="topCatalogGroup" value="TopGroup" />
+	  <_config:mapping xpath="displaySequence" value="Sequence" />
+	  <_config:mapping xpath="Description[0]/Name" value="Name" />
+	  <_config:mapping xpath="Description[0]/ShortDescription" value="ShortDescription" />
+	  <_config:mapping xpath="Description[0]/LongDescription" value="LongDescription" />
+	  <_config:mapping xpath="Description[0]/Thumbnail" value="Thumbnail" />
+	  <_config:mapping xpath="Description[0]/FullImage" value="FullImage" />
+	  <_config:mapping xpath="Description[0]/Attributes/published" value="Published" />
+	  <_config:mapping xpath="Description[0]/Keyword" value="Keyword" />
+	  <_config:mapping xpath="Description[0]/Attributes/note" value="Note" />
+	  <_config:mapping xpath="Attributes/field1" value="Field1"/>
+	  <_config:mapping xpath="Attributes/field2" value="Field2"/>
+	  <_config:mapping xpath="" value="Delete" valueFrom="InputData" deleteValue="1"/>
+	</_config:DataMapping>
+      
+    <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogGroupMediator" componentId="com.ibm.commerce.catalog">
+     	<_config:property name="markForDelete" value="true" />
+	</_config:BusinessObjectMediator>
+ 
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>  
+
+</_config:DataloadBusinessObjectConfiguration>

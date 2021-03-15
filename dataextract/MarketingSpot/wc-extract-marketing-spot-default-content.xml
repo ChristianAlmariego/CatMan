@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader" >
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+    				SELECT DMEMSPOTDEF_ID
+    				FROM DMEMSPOTDEF  
+    				WHERE STOREENT_ID = ? AND CONTENTTYPE IN ('MarketingContent', 'CatalogGroup', 'CatalogEntry')
+    				ORDER BY DMEMSPOTDEF_ID
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator" >
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+					SELECT EMSPOT.NAME, EMSPOT.USAGETYPE, DMEMSPOTDEF.CONTENTTYPE, DMEMSPOTDEF.CONTENT, DMEMSPOTDEF.SEQUENCE
+					FROM DMEMSPOTDEF join EMSPOT ON (DMEMSPOTDEF.EMSPOT_ID = EMSPOT.EMSPOT_ID)
+					WHERE DMEMSPOTDEF_ID IN (?)
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="DMEMSPOTDEF_ID" />
+
+    	      <_config:ColumnMapping name="NAME" value="spotName" />
+    	      <_config:ColumnMapping name="USAGETYPE" value="usageType" />
+    	      <_config:ColumnMapping name="CONTENTTYPE" value="contentType" />
+    	      <_config:ColumnMapping name="CONTENT" value="content" >
+	      		<_config:ValueHandler className="com.ibm.commerce.foundation.dataload.config.ResolveValueBasedOnSQLHandler" >
+	      			<_config:Parameter name="sqlBasedOnKey" value="contentType" valueFrom="Fixed" />
+	      			<_config:Parameter name="CatalogEntry" value="SELECT PARTNUMBER FROM CATENTRY WHERE CATENTRY.CATENTRY_ID = ?" valueFrom="Fixed" />
+	      			<_config:Parameter name="CatalogGroup" value="SELECT IDENTIFIER FROM CATGROUP WHERE CATGROUP_ID = ?" valueFrom="Fixed" />
+	      			<_config:Parameter name="MarketingContent" value="SELECT NAME FROM COLLATERAL WHERE COLLATERAL_ID = ?" valueFrom="Fixed" />
+	      		</_config:ValueHandler>
+    	      </_config:ColumnMapping>
+    	      <_config:ColumnMapping name="SEQUENCE" value="sequence" />
+    	    </_config:Query>
+        
+   		<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+      		<_config:Data>
+	     		  <_config:column number="1" name="spotName" />
+	     		  <_config:column number="2" name="usageType" />
+	      		<_config:column number="3" name="contentType" />
+	      		<_config:column number="4" name="content" />
+	      		<_config:column number="5" name="sequence" />
+						<_config:column number="6" name="delete" value="0" />
+	    	</_config:Data>
+    	</_config:DataWriter>
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

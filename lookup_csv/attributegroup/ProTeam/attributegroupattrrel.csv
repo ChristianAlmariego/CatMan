@@ -1,0 +1,166 @@
+AttributeIdentifier,AttributeGroupIdentifier,ParentStoreIdentifier,Sequence,Delete
+EMR Access Portal CTA,ProTeam-CallToActionGroup,EmersonCAS,0,0
+EMR Check Availablity CTA,ProTeam-CallToActionGroup,EmersonCAS,1,0
+EMR Check Order Status CTA,ProTeam-CallToActionGroup,EmersonCAS,2,0
+EMR Configure CTA,ProTeam-CallToActionGroup,EmersonCAS,3,0
+EMR Consult an Expert CTA,ProTeam-CallToActionGroup,EmersonCAS,4,0
+EMR Contact Sales CTA,ProTeam-CallToActionGroup,EmersonCAS,5,0
+EMR Contact Us CTA,ProTeam-CallToActionGroup,EmersonCAS,6,0
+EMR Download Drawing CTA,ProTeam-CallToActionGroup,EmersonCAS,7,0
+EMR Download Software CTA,ProTeam-CallToActionGroup,EmersonCAS,8,0
+EMR Learn About CTA,ProTeam-CallToActionGroup,EmersonCAS,9,0
+EMR Request Quote CTA,ProTeam-CallToActionGroup,EmersonCAS,10,0
+EMR Select CTA,ProTeam-CallToActionGroup,EmersonCAS,11,0
+EMR Size CTA,ProTeam-CallToActionGroup,EmersonCAS,12,0
+EMR View Courses CTA,ProTeam-CallToActionGroup,EmersonCAS,13,0
+EMR Where to Buy CTA,ProTeam-CallToActionGroup,EmersonCAS,14,0
+EMR Email Us CTA,ProTeam-CallToActionGroup,EmersonCAS,15,0
+EMR Find Product Information CTA,ProTeam-CallToActionGroup,EmersonCAS,16,0
+EMR Watch Video CTA,ProTeam-CallToActionGroup,EmersonCAS,17,0
+EMR View Replacement CTA,ProTeam-CallToActionGroup,EmersonCAS,18,0
+EMR View Drawing CTA,ProTeam-CallToActionGroup,EmersonCAS,19,0
+EMR View Animation CTA,ProTeam-CallToActionGroup,EmersonCAS,20,0
+EMR View in OPI CTA,ProTeam-CallToActionGroup,EmersonCAS,21,0
+EMR View Performance Data CTA,ProTeam-CallToActionGroup,EmersonCAS,22,0
+EMR View in Select CTA,ProTeam-CallToActionGroup,EmersonCAS,23,0
+EMR Lighting Calculator CTA,ProTeam-CallToActionGroup,EmersonCAS,24,0
+EMR Select Online CTA,ProTeam-CallToActionGroup,EmersonCAS,25,0
+EMR Spare Parts CTA,ProTeam-CallToActionGroup,EmersonCAS,26,0
+EMR Controls Navigator CTA,ProTeam-CallToActionGroup,EmersonCAS,27,0
+EMR Find a Pro Installer CTA,ProTeam-CallToActionGroup,EmersonCAS,28,0
+EMR Request More Information CTA,ProTeam-CallToActionGroup,EmersonCAS,29,0
+EMR Update Professional Version CTA,ProTeam-CallToActionGroup,EmersonCAS,30,0
+EMR Technology Overview CTA,ProTeam-CallToActionGroup,EmersonCAS,31,0
+EMR Calculate Line Size CTA,ProTeam-CallToActionGroup,EmersonCAS,32,0
+EMR Select Line Size CTA,ProTeam-CallToActionGroup,EmersonCAS,33,0
+EMR Purchase Software CTA,ProTeam-CallToActionGroup,EmersonCAS,34,0
+EMR Download Basic Version CTA,ProTeam-CallToActionGroup,EmersonCAS,35,0
+EMR Download Select CTA,ProTeam-CallToActionGroup,EmersonCAS,36,0
+EMR View User Manual CTA,ProTeam-CallToActionGroup,EmersonCAS,37,0
+EMR Select Application CTA,ProTeam-CallToActionGroup,EmersonCAS,38,0
+EMR Certification Badge 1,ProTeam-CertificationBadgeGroup,EmersonCAS,0,0
+EMR Certification Badge 2,ProTeam-CertificationBadgeGroup,EmersonCAS,1,0
+EMR Certification Badge 3,ProTeam-CertificationBadgeGroup,EmersonCAS,2,0
+EMR Certification Badge 4,ProTeam-CertificationBadgeGroup,EmersonCAS,3,0
+EMR Certification Badge 5,ProTeam-CertificationBadgeGroup,EmersonCAS,4,0
+EMR Certification Badge 6,ProTeam-CertificationBadgeGroup,EmersonCAS,5,0
+EMR Certifications,ProTeam-CertificationBadgeGroup,EmersonCAS,6,0
+EMR Features,ProTeam-FeaturesGroup,EmersonCAS,0,0
+EMR Product Family 1,ProTeam-ProductFamilyGroup,EmersonCAS,1,0
+EMR Product Family 2,ProTeam-ProductFamilyGroup,EmersonCAS,2,0
+EMR Product Family 3,ProTeam-ProductFamilyGroup,EmersonCAS,3,0
+EMR Product Family 4,ProTeam-ProductFamilyGroup,EmersonCAS,4,0
+EMR Product Family 5,ProTeam-ProductFamilyGroup,EmersonCAS,5,0
+EMR Product Family 6,ProTeam-ProductFamilyGroup,EmersonCAS,6,0
+EMR Product Family 7,ProTeam-ProductFamilyGroup,EmersonCAS,7,0
+EMR Product Family 8,ProTeam-ProductFamilyGroup,EmersonCAS,8,0
+EMR Product Family 9,ProTeam-ProductFamilyGroup,EmersonCAS,9,0
+EMR Product Family 10,ProTeam-ProductFamilyGroup,EmersonCAS,10,0
+EMR Product Family 11,ProTeam-ProductFamilyGroup,EmersonCAS,11,0
+EMR Product Family 12,ProTeam-ProductFamilyGroup,EmersonCAS,12,0
+EMR Product Family 13,ProTeam-ProductFamilyGroup,EmersonCAS,13,0
+EMR Product Family 14,ProTeam-ProductFamilyGroup,EmersonCAS,14,0
+EMR Product Family 15,ProTeam-ProductFamilyGroup,EmersonCAS,15,0
+EMR Product Family 16,ProTeam-ProductFamilyGroup,EmersonCAS,16,0
+EMR Product Family 17,ProTeam-ProductFamilyGroup,EmersonCAS,17,0
+EMR Product Family 18,ProTeam-ProductFamilyGroup,EmersonCAS,18,0
+EMR Product Family 19,ProTeam-ProductFamilyGroup,EmersonCAS,19,0
+EMR Product Family 20,ProTeam-ProductFamilyGroup,EmersonCAS,20,0
+EMR Product Family 21,ProTeam-ProductFamilyGroup,EmersonCAS,21,0
+EMR Product Family 22,ProTeam-ProductFamilyGroup,EmersonCAS,22,0
+EMR Product Family 23,ProTeam-ProductFamilyGroup,EmersonCAS,23,0
+EMR Product Family 24,ProTeam-ProductFamilyGroup,EmersonCAS,24,0
+EMR Product Family 25,ProTeam-ProductFamilyGroup,EmersonCAS,25,0
+EMR Product Family 26,ProTeam-ProductFamilyGroup,EmersonCAS,26,0
+EMR Product Family 27,ProTeam-ProductFamilyGroup,EmersonCAS,27,0
+EMR Product Family 28,ProTeam-ProductFamilyGroup,EmersonCAS,28,0
+EMR Product Family 29,ProTeam-ProductFamilyGroup,EmersonCAS,29,0
+EMR Product Family 30,ProTeam-ProductFamilyGroup,EmersonCAS,30,0
+EMR Product Family 31,ProTeam-ProductFamilyGroup,EmersonCAS,31,0
+EMR Product Family 32,ProTeam-ProductFamilyGroup,EmersonCAS,32,0
+EMR Generic Spec 1 Label,ProTeam-SpecificationGroup,EmersonCAS,0,0
+EMR Generic Spec 1 Value,ProTeam-SpecificationGroup,EmersonCAS,1,0
+EMR Generic Spec 2 Label,ProTeam-SpecificationGroup,EmersonCAS,2,0
+EMR Generic Spec 2 Value,ProTeam-SpecificationGroup,EmersonCAS,3,0
+EMR Generic Spec 3 Label,ProTeam-SpecificationGroup,EmersonCAS,4,0
+EMR Generic Spec 3 Value,ProTeam-SpecificationGroup,EmersonCAS,5,0
+EMR Generic Spec 4 Label,ProTeam-SpecificationGroup,EmersonCAS,6,0
+EMR Generic Spec 4 Value,ProTeam-SpecificationGroup,EmersonCAS,7,0
+EMR Generic Spec 5 Label,ProTeam-SpecificationGroup,EmersonCAS,8,0
+EMR Generic Spec 5 Value,ProTeam-SpecificationGroup,EmersonCAS,9,0
+EMR Generic Spec 6 Label,ProTeam-SpecificationGroup,EmersonCAS,10,0
+EMR Generic Spec 6 Value,ProTeam-SpecificationGroup,EmersonCAS,11,0
+EMR Generic Spec 7 Label,ProTeam-SpecificationGroup,EmersonCAS,12,0
+EMR Generic Spec 7 Value,ProTeam-SpecificationGroup,EmersonCAS,13,0
+EMR Generic Spec 8 Label,ProTeam-SpecificationGroup,EmersonCAS,14,0
+EMR Generic Spec 8 Value,ProTeam-SpecificationGroup,EmersonCAS,15,0
+EMR Generic Spec 9 Label,ProTeam-SpecificationGroup,EmersonCAS,16,0
+EMR Generic Spec 9 Value,ProTeam-SpecificationGroup,EmersonCAS,17,0
+EMR Generic Spec 10 Label,ProTeam-SpecificationGroup,EmersonCAS,18,0
+EMR Generic Spec 10 Value,ProTeam-SpecificationGroup,EmersonCAS,19,0
+EMR Generic Spec 11 Label,ProTeam-SpecificationGroup,EmersonCAS,20,0
+EMR Generic Spec 11 Value,ProTeam-SpecificationGroup,EmersonCAS,21,0
+EMR Generic Spec 12 Label,ProTeam-SpecificationGroup,EmersonCAS,22,0
+EMR Generic Spec 12 Value,ProTeam-SpecificationGroup,EmersonCAS,23,0
+EMR Generic Spec 13 Label,ProTeam-SpecificationGroup,EmersonCAS,24,0
+EMR Generic Spec 13 Value,ProTeam-SpecificationGroup,EmersonCAS,25,0
+EMR Generic Spec 14 Label,ProTeam-SpecificationGroup,EmersonCAS,26,0
+EMR Generic Spec 14 Value,ProTeam-SpecificationGroup,EmersonCAS,27,0
+EMR Generic Spec 15 Label,ProTeam-SpecificationGroup,EmersonCAS,28,0
+EMR Generic Spec 15 Value,ProTeam-SpecificationGroup,EmersonCAS,29,0
+EMR Generic Spec 16 Label,ProTeam-SpecificationGroup,EmersonCAS,30,0
+EMR Generic Spec 16 Value,ProTeam-SpecificationGroup,EmersonCAS,31,0
+EMR Generic Spec 17 Label,ProTeam-SpecificationGroup,EmersonCAS,32,0
+EMR Generic Spec 17 Value,ProTeam-SpecificationGroup,EmersonCAS,33,0
+EMR Generic Spec 18 Label,ProTeam-SpecificationGroup,EmersonCAS,34,0
+EMR Generic Spec 18 Value,ProTeam-SpecificationGroup,EmersonCAS,35,0
+EMR Generic Spec 19 Label,ProTeam-SpecificationGroup,EmersonCAS,36,0
+EMR Generic Spec 19 Value,ProTeam-SpecificationGroup,EmersonCAS,37,0
+EMR Generic Spec 20 Label,ProTeam-SpecificationGroup,EmersonCAS,38,0
+EMR Generic Spec 20 Value,ProTeam-SpecificationGroup,EmersonCAS,39,0
+EMR Generic Spec 21 Label,ProTeam-SpecificationGroup,EmersonCAS,40,0
+EMR Generic Spec 21 Value,ProTeam-SpecificationGroup,EmersonCAS,41,0
+EMR Generic Spec 22 Label,ProTeam-SpecificationGroup,EmersonCAS,42,0
+EMR Generic Spec 22 Value,ProTeam-SpecificationGroup,EmersonCAS,43,0
+EMR Generic Spec 23 Label,ProTeam-SpecificationGroup,EmersonCAS,44,0
+EMR Generic Spec 23 Value,ProTeam-SpecificationGroup,EmersonCAS,45,0
+EMR Generic Spec 24 Label,ProTeam-SpecificationGroup,EmersonCAS,46,0
+EMR Generic Spec 24 Value,ProTeam-SpecificationGroup,EmersonCAS,47,0
+EMR Generic Spec 25 Label,ProTeam-SpecificationGroup,EmersonCAS,48,0
+EMR Generic Spec 25 Value,ProTeam-SpecificationGroup,EmersonCAS,49,0
+EMR Group1Header,ProTeam-SpecificationGroup,EmersonCAS,50,0
+EMR Group1SpecLabel,ProTeam-SpecificationGroup,EmersonCAS,51,0
+EMR Group1SpecValue,ProTeam-SpecificationGroup,EmersonCAS,52,0
+EMR Group2Header,ProTeam-SpecificationGroup2,EmersonCAS,0,0
+EMR Group2SpecLabel,ProTeam-SpecificationGroup2,EmersonCAS,1,0
+EMR Group2SpecValue,ProTeam-SpecificationGroup2,EmersonCAS,2,0
+EMR Group3Header,ProTeam-SpecificationGroup3,EmersonCAS,0,0
+EMR Group3SpecLabel,ProTeam-SpecificationGroup3,EmersonCAS,1,0
+EMR Group3SpecValue,ProTeam-SpecificationGroup3,EmersonCAS,2,0
+EMR Group4Header,ProTeam-SpecificationGroup4,EmersonCAS,0,0
+EMR Group4SpecLabel,ProTeam-SpecificationGroup4,EmersonCAS,1,0
+EMR Group4SpecValue,ProTeam-SpecificationGroup4,EmersonCAS,2,0
+EMR TabSequence,ProTeam-TabAndContentGroup,EmersonCAS,0,0
+EMR Training CTA,ProTeam-TrainingServicesGroup,EmersonCAS,17,0
+EMR Utility Belt_Access Portal,ProTeam-UtilityBeltGroup,EmersonCAS,0,0
+EMR Utility Belt_Buy Now,ProTeam-UtilityBeltGroup,EmersonCAS,1,0
+EMR Utility Belt_Calculate,ProTeam-UtilityBeltGroup,EmersonCAS,2,0
+EMR Utility Belt_Check Order Status,ProTeam-UtilityBeltGroup,EmersonCAS,3,0
+EMR Utility Belt_Configure,ProTeam-UtilityBeltGroup,EmersonCAS,4,0
+EMR Utility Belt_Contact Local Partner,ProTeam-UtilityBeltGroup,EmersonCAS,5,0
+EMR Utility Belt_Contact Sales,ProTeam-UtilityBeltGroup,EmersonCAS,6,0
+EMR Utility Belt_Contact Service,ProTeam-UtilityBeltGroup,EmersonCAS,7,0
+EMR Utility Belt_Contact Support,ProTeam-UtilityBeltGroup,EmersonCAS,8,0
+EMR Utility Belt_Contact Us,ProTeam-UtilityBeltGroup,EmersonCAS,9,0
+EMR Utility Belt_Download Software,ProTeam-UtilityBeltGroup,EmersonCAS,10,0
+EMR Utility Belt_Find a Store,ProTeam-UtilityBeltGroup,EmersonCAS,11,0
+EMR Utility Belt_Register Product,ProTeam-UtilityBeltGroup,EmersonCAS,12,0
+EMR Utility Belt_Request Quote,ProTeam-UtilityBeltGroup,EmersonCAS,13,0
+EMR Utility Belt_Select,ProTeam-UtilityBeltGroup,EmersonCAS,14,0
+EMR Utility Belt_Where to Buy,ProTeam-UtilityBeltGroup,EmersonCAS,15,0
+EMR Utility Belt_Visit our Blog,ProTeam-UtilityBeltGroup,EmersonCAS,16,0
+EMR Utility Belt_Click to Chat,ProTeam-UtilityBeltGroup,EmersonCAS,17,0
+EMR Utility Belt_Cross Reference and Product Information,ProTeam-UtilityBeltGroup,EmersonCAS,18,0
+EMR Utility Belt_MyEmerson Sign In,ProTeam-UtilityBeltGroup,EmersonCAS,19,0
+EMR Utility Belt_Select Online,ProTeam-UtilityBeltGroup,EmersonCAS,20,0
+EMR Utility Belt_Controls Navigator,ProTeam-UtilityBeltGroup,EmersonCAS,21,0

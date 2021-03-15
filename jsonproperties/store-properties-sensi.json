@@ -1,0 +1,9 @@
+{
+	"storePath":"CatMan/",
+	"wcStoreIdentifier" : "Sensi",
+	"outputPath":"SENSI/",
+	"storeID": "10157",
+	"supportedStores" : [
+	    { "name": "Sensi" , "wcStoreIdentifier" : "Sensi"}
+	]
+}

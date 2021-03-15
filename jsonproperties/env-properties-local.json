@@ -1,0 +1,13 @@
+{
+  "baseSharedDirectory" : "/mnt/f/CatMan/catmanspshared/",
+	"smtpHost" : "inetmail.emrsn.net",
+	"smtpPort" : 25,
+	"emailFrom" : "noreply@emrsn.com",
+	"catalogGroup" : "Roderick.Crystal@emerson.com;",
+	"baseSharedFolder4Email" : "\\\\USAZRECD0064\\catman\\websphere_spdata\\Dev5\\",
+	"productExportReportULG" : "Roderick.Crystal@emerson.com;",
+	"productImportReportULG" : "Roderick.Crystal@emerson.com;",
+	"autosolProductImportReportULG" : "Roderick.Crystal@emerson.com;",
+	"comresProductImportReportULG"  : "Roderick.Crystal@emerson.com;",
+	"catalogSummaryGroup" : "Roderick.Crystal@emerson.com;"
+}

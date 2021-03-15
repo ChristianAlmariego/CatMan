@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+      <_config:ColumnExclusionList>
+        <_config:table name="CATGPENREL" columns="SEQUENCE" />
+    </_config:ColumnExclusionList>
+
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader"
+          firstLineIsHeader="true" useHeaderAsColumnName="true" />
+
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        <!-- The type of the catalog entry -->
+        <_config:mapping xpath="catalogEntryTypeCode" value="Type" />
+        <!-- The unique reference number of the parent category -->
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/UniqueID" value="ParentGroupUniqueId" />
+        <!-- The identifier of the parent category -->
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/GroupIdentifier" value="ParentGroupIdentifier" />
+        <!-- The unique reference number of the store that owns the parent category -->
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/StoreIdentifier/UniqueID" value="ParentStoreUniqueId" />
+        <!-- The identifier of the store that owns the parent category -->
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/StoreIdentifier/ExternalIdentifier/NameIdentifier" value="ParentStoreIdentifier" />      
+        <!-- The catalog entry display sequence -->
+        <_config:mapping xpath="displaySequence" value="Sequence" />
+        <!-- The Delete indicator -->
+        <_config:mapping xpath="" value="Delete" deleteValue="1" />
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntryParentCatalogGroupMediator"
+      	componentId="com.ibm.commerce.catalog" >
+      	<_config:property name="validateCatalog" value="true" />
+      	<_config:property name="syncSalesCatalogs" value="true" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+    <!--  Catalog Entry Search Index -->
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+
+      <_config:DataMapping>
+        <!-- The unique reference number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <!-- The part number of the catalog entry -->
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntrySearchIndexMediator" componentId="com.ibm.commerce.catalog" >
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+    
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

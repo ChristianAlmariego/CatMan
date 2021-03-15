@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								MASSOCCECE.MASSOCCECE_ID
+				FROM
+								MASSOCCECE
+				JOIN 
+								CATENTRY ON (CATENTRY.CATENTRY_ID = MASSOCCECE.CATENTRY_ID_FROM)
+				JOIN 
+								CATENTRY CATENTRYTO ON (CATENTRYTO.CATENTRY_ID = MASSOCCECE.CATENTRY_ID_TO)
+				WHERE
+								CATENTRY.MARKFORDELETE = 0 AND CATENTRYTO.MARKFORDELETE = 0
+									AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+				ORDER BY
+								CATENTRY.PARTNUMBER, CATENTRYTO.PARTNUMBER
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+				SELECT
+								CATENTRY.PARTNUMBER,
+								DECODE(MASSOCCECE.MASSOCTYPE_ID, 'ACCESSORY', 'Accessory',
+																 'REPLACEMENT', 'Replacement',
+																 'UPSELL', 'UpSell',
+																 'X-SELL', 'CrossSell',
+																 MASSOCCECE.MASSOCTYPE_ID) MASSOCTYPE_ID,
+								CATENTRYTO.PARTNUMBER TARGETPARTNUMBER, STOREENT.IDENTIFIER TARGETSTOREIDENTIFIER, MASSOCCECE.RANK,
+								MASSOCCECE.MASSOC_ID, MASSOCCECE.QUANTITY, MASSOCCECE.FIELD1, MASSOCCECE.FIELD2, MASSOCCECE.FIELD3, MASSOCCECE.DATE1
+				FROM
+								MASSOCCECE
+				JOIN 
+								CATENTRY ON (CATENTRY.CATENTRY_ID = MASSOCCECE.CATENTRY_ID_FROM)
+				JOIN 
+								CATENTRY CATENTRYTO ON (CATENTRYTO.CATENTRY_ID = MASSOCCECE.CATENTRY_ID_TO)
+				JOIN
+								STOREENT ON (STOREENT.STOREENT_ID = MASSOCCECE.STORE_ID)
+				WHERE
+								MASSOCCECE.MASSOCCECE_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="MASSOCCECE_ID" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="MASSOCTYPE_ID" value="AssociationType" />
+                                <_config:ColumnMapping name="TARGETPARTNUMBER" value="TargetPartNumber" />
+                                <_config:ColumnMapping name="TARGETSTOREIDENTIFIER" value="TargetStoreIdentifier" />
+                                <_config:ColumnMapping name="RANK" value="Sequence" />
+                                <_config:ColumnMapping name="MASSOC_ID" value="SemanticSpecifier" />
+                                <_config:ColumnMapping name="QUANTITY" value="Quantity" />
+                                <_config:ColumnMapping name="FIELD1" value="Field1" />
+                                <_config:ColumnMapping name="FIELD2" value="Field2" />
+                                <_config:ColumnMapping name="FIELD3" value="Field3" />
+                                <_config:ColumnMapping name="DATE1" value="Date1" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                        <_config:column name="AssociationType" number="2"/>
+                                        <_config:column name="TargetPartNumber" number="3"/>
+                                        <_config:column name="TargetStoreIdentifier" number="4"/>
+                                        <_config:column name="Sequence" number="5"/>
+                                        <_config:column name="SemanticSpecifier" number="6"/>
+                                        <_config:column name="Quantity" number="7"/>
+                                        <_config:column name="Field1" number="8"/>
+                                        <_config:column name="Field2" number="9"/>
+                                        <_config:column name="Field3" number="10"/>
+                                        <_config:column name="Date1" number="11"/>
+                                        <_config:column name="Delete" number="12" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

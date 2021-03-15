@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+   <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <_config:ColumnExclusionList>
+        <_config:table name="CATENTRY" columns="MFNAME, MFPARTNUMBER, ONAUCTION, BUYABLE, STARTDATE, ENDDATE, URL, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, AVAILABILITYDATE, LASTORDERDATE, ENDOFSERVICEDATE, DISCONTINUEDATE" />    
+        <_config:table name="CATENTDESC" columns="NAME, SHORTDESCRIPTION, LONGDESCRIPTION, THUMBNAIL, FULLIMAGE, AUXDESCRIPTION1, AUXDESCRIPTION2, AVAILABLE, PUBLISHED, AVAILABILITYDATE, KEYWORD" />
+        <_config:table name="LISTPRICE" columns="CURRENCY, LISTPRICE" />    
+        <_config:table name="OFFERPRICE" columns="CURRENCY, PRICE" />    
+        <_config:table name="CATENTSHIP" columns="WEIGHTMEASURE, WEIGHT, LENGTH, WIDTH, HEIGHT, SIZEMEASURE, NOMINALQUANTITY, QUANTITYMULTIPLE, QUANTITYMEASURE" />    
+        <_config:table name="CATENTREL" columns="CATENTRY_ID_PARENT, CATRELTYPE_ID, CATENTRY_ID_CHILD, SEQUENCE, QUANTITY, GROUPNAME, FIELD1, FIELD2, FIELD3" />    
+        <_config:table name="CATENCALCD" columns="CALCODE_ID" />    
+        <_config:table name="CATENTSUBS" columns="SUBSCPTYPE_ID, DISALLOW_REC_ORDER" />    
+        <_config:table name="CATGPENREL" columns="CATGROUP_ID, CATALOG_ID, CATENTRY_ID, SEQUENCE, LASTUPDATE" />    
+    </_config:ColumnExclusionList>
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader" firstLineIsHeader="true" useHeaderAsColumnName="true" >
+        <_config:property name="keyColumns" value="PartNumber" />
+    </_config:DataReader>
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="CatalogEntryType" >
+      <_config:DataMapping>
+        <_config:mapping xpath="CatalogEntryIdentifier/UniqueID" value="CatalogEntryUniqueId" />
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="PartNumber" />
+        <_config:mapping xpath="CatalogEntryIdentifier/ExternalIdentifier/StoreIdentifier/ExternalIdentifier/NameIdentifier" value="StoreIdentifier"  />
+        
+        <_config:mapping xpath="catalogEntryTypeCode" value="Type" />
+        <_config:mapping xpath="ListPrice/Price/currency" value="CurrencyCode" />
+        <_config:mapping xpath="ListPrice/Price/value" value="ListPrice" />
+        
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/UniqueID" value="ParentGroupUniqueId"  />
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/GroupIdentifier" value="ParentGroupIdentifier"  />
+        <_config:mapping xpath="ParentCatalogGroupIdentifier/ExternalIdentifier/StoreIdentifier/ExternalIdentifier/NameIdentifier" value="ParentStoreIdentifier"  />
+        
+        <_config:mapping xpath="displaySequence" value="Sequence" />
+        <_config:mapping xpath="Description[0]/language" value="Language" />
+        <_config:mapping xpath="Description[0]/language" value="LanguageId" />
+        <_config:mapping xpath="Description[0]/Name" value="Name"  />
+        <_config:mapping xpath="Description[0]/ShortDescription" value="ShortDescription"   />
+        <_config:mapping xpath="Description[0]/LongDescription" value="LongDescription"   />
+        <_config:mapping xpath="Description[0]/Thumbnail" value="Thumbnail"   />
+        <_config:mapping xpath="Description[0]/Attributes/auxDescription1" value="AuxDescription1"   />
+        <_config:mapping xpath="Description[0]/FullImage" value="FullImage"   />       
+        <_config:mapping xpath="Description[0]/Attributes/auxDescription2" value="AuxDescription2"   /> 
+        <_config:mapping xpath="Description[0]/Attributes/available" value="Available"   />                 
+        <_config:mapping xpath="Description[0]/Attributes/published" value="Published"   />
+        <_config:mapping xpath="Description[0]/Attributes/availabilityDate" value="AvailabilityDate_LocaleSpecific"   />
+        <_config:mapping xpath="Description[0]/Keyword" value="Keyword"  />
+
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[23]/Name" value="manufacturerPartNumber" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[23]/StringValue/value" value="ManufacturerPartNumber"  />
+ 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[24]/Name" value="manufacturer" valueFrom="Fixed"/>        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[24]/StringValue/value" value="Manufacturer"  />
+
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[25]/Name" value="onSpecial" valueFrom="Fixed"/> 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[25]/StringValue/value" value="OnSpecial"  />  
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[26]/Name" value="buyable" valueFrom="Fixed"/>                  
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[26]/StringValue/value" value="Buyable"  />  
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[27]/Name" value="startDate" valueFrom="Fixed"/>                 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[27]/StringValue/value" value="StartDate"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[28]/Name" value="endDate" valueFrom="Fixed"/>                
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[28]/StringValue/value" value="EndDate"  />   
+
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[29]/Name" value="onAuction" valueFrom="Fixed"/>                 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[29]/StringValue/value" value="OnAuction"  /> 
+
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/Name" value="url" valueFrom="Fixed"/>        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[0]/StringValue/value" value="URL"  />
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[1]/Name" value="field1" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[1]/StringValue/value" value="Field1"  />
+ 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[2]/Name" value="field2" valueFrom="Fixed"/>         
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[2]/StringValue/value" value="Field2"  />  
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[3]/Name" value="field3" valueFrom="Fixed"/>        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[3]/StringValue/value" value="Field3"  /> 
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[4]/Name" value="field4" valueFrom="Fixed"/>          
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[4]/StringValue/value" value="Field4"  /> 
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[5]/Name" value="field5" valueFrom="Fixed"/>          
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[5]/StringValue/value" value="Field5"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[6]/Name" value="availabilityDate" valueFrom="Fixed"/>                
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[6]/StringValue/value" value="AvailabilityDate"  />  
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[7]/Name" value="lastOrderDate" valueFrom="Fixed"/>         
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[7]/StringValue/value" value="LastOrderDate"  />  
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[8]/Name" value="endOfServiceDate" valueFrom="Fixed"/> 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[8]/StringValue/value" value="EndOfServiceDate"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[9]/Name" value="discontinueDate" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[9]/StringValue/value" value="DiscontinueDate"  />   
+ 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[10]/Name" value="weightMeasure" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[10]/StringValue/value" value="WeightMeasure"  />  
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[11]/Name" value="weight" valueFrom="Fixed"/> 
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[11]/StringValue/value" value="Weight"  /> 
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[12]/Name" value="length" valueFrom="Fixed"/>  
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[12]/StringValue/value" value="Length"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[13]/Name" value="width" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[13]/StringValue/value" value="Width"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[14]/Name" value="height" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[14]/StringValue/value" value="Height"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[15]/Name" value="sizeMeasure" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[15]/StringValue/value" value="SizeMeasure"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[16]/Name" value="nominalQuantity" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[16]/StringValue/value" value="NominalQuantity"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[17]/Name" value="quantityMultiple" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[17]/StringValue/value" value="QuantityMultiple"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[18]/Name" value="quantityMeasure" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[18]/StringValue/value" value="QuantityMeasure"  />   
+        
+        <_config:mapping xpath="ParentCatalogEntryIdentifier/ExternalIdentifier/PartNumber" value="ParentPartNumber"  />   
+    
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[19]/Name" value="CATENTREL_field1" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[19]/StringValue/value" value="ParentToChildCatEntryRelField1"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[20]/Name" value="CATENTREL_field2" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[20]/StringValue/value" value="ParentToChildCatEntryRelField2"  />   
+        
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[21]/Name" value="CATENTREL_field3" valueFrom="Fixed"/>
+        <_config:mapping xpath="CatalogEntryAttributes/Attributes[21]/StringValue/value" value="ParentToChildCatEntryRelField3"  />   
+                      
+        <_config:mapping xpath="" value="Delete"   deleteValue="1"/>
+        
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.CatalogEntryMediator"
+      	componentId="com.ibm.commerce.catalog" >
+      	<_config:property name="validateCatalog" value="true" />
+      	<_config:property name="syncSalesCatalogs" value="false" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

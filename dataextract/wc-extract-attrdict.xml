@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								ATTR.ATTR_ID, ATTRDESC.LANGUAGE_ID
+				FROM
+								ATTR
+				LEFT OUTER JOIN 
+								ATTRDESC ON (ATTRDESC.ATTR_ID = ATTR.ATTR_ID)
+				WHERE
+								ATTR.STOREENT_ID = ? AND ATTRDESC.LANGUAGE_ID = ?
+				ORDER BY
+								ATTR.ATTR_ID, ATTRDESC.LANGUAGE_ID DESC
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+              <_config:Param name="langId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+				SELECT ATTR.IDENTIFIER, ATTR.ATTRTYPE_ID, ATTR.ATTRUSAGE, ATTR.SEQUENCE, DECODE(ATTR.DISPLAYABLE,1,'TRUE',0,'FALSE') DISPLAYABLE, DECODE(ATTR.SEARCHABLE,1,'TRUE',0,'FALSE') SEARCHABLE,
+						DECODE(ATTR.COMPARABLE,1,'TRUE',0,'FALSE') COMPARABLE, DECODE(ATTR.FACETABLE,1,'TRUE',0,'FALSE') FACETABLE, ATTR.STOREDISPLAY, DECODE(ATTR.MERCHANDISABLE,1,'TRUE',0,'FALSE') MERCHANDISABLE,
+						ATTR.FIELD1 ATTRFIELD1, ATTR.FIELD2 ATTRFIELD2, ATTR.FIELD2 ATTRFIELD2, 
+						ATTRDESC.LANGUAGE_ID, ATTRDESC.NAME, ATTRDESC.DESCRIPTION, ATTRDESC.DESCRIPTION2, ATTRDESC.GROUPNAME, 
+						ATTRDESC.FIELD1, ATTRDESC.NOTEINFO, ATTRDESC.QTYUNIT_ID
+				FROM ATTR
+				LEFT OUTER JOIN ATTRDESC ON (ATTRDESC.ATTR_ID = ATTR.ATTR_ID)
+				WHERE ATTR.ATTR_ID = ? AND ATTRDESC.LANGUAGE_ID = ?
+
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="ATTR_ID" />
+                <_config:Param name="LANGUAGE_ID" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="Identifier" />
+                                <_config:ColumnMapping name="ATTRTYPE_ID" value="Type" />
+                                <_config:ColumnMapping name="ATTRUSAGE" value="AttributeType" />
+                                <_config:ColumnMapping name="SEQUENCE" value="Sequence" />
+                                <_config:ColumnMapping name="DISPLAYABLE" value="Displayable" />
+                                <_config:ColumnMapping name="SEARCHABLE" value="Searchable" />
+                                <_config:ColumnMapping name="COMPARABLE" value="Comparable" />
+                                <_config:ColumnMapping name="FACETABLE" value="Facetable" />
+                                <_config:ColumnMapping name="STOREDISPLAY" value="STOREDISPLAY" />
+                                <_config:ColumnMapping name="MERCHANDISABLE" value="Merchandisable" />
+                                <_config:ColumnMapping name="ATTRFIELD1" value="AttributeField1" />
+                                <_config:ColumnMapping name="ATTRFIELD2" value="AttributeField2" />
+                                <_config:ColumnMapping name="ATTRFIELD3" value="AttributeField3" />
+                                <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                                <_config:ColumnMapping name="NAME" value="Name" />
+                                <_config:ColumnMapping name="DESCRIPTION" value="Description" />
+                                <_config:ColumnMapping name="DESCRIPTION2" value="SecondaryDescription" />
+                                <_config:ColumnMapping name="GROUPNAME" value="AssociatedKeyword" />
+                                <_config:ColumnMapping name="FIELD1" value="Field1" />
+                                <_config:ColumnMapping name="NOTEINFO" value="Footnote" />
+                                <_config:ColumnMapping name="QTYUNIT_ID" value="UnitOfMeasure" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="Identifier" number="1"/>
+                                        <_config:column name="Type" number="2"/>
+                                        <_config:column name="AttributeType" number="3"/>
+                                        <_config:column name="Sequence" number="4"/>
+                                        <_config:column name="Displayable" number="5"/>
+                                        <_config:column name="Searchable" number="6"/>
+                                        <_config:column name="Comparable" number="7"/>
+                                        <_config:column name="Facetable" number="8"/>
+                                        <_config:column name="STOREDISPLAY" number="9"/>
+                                        <_config:column name="Merchandisable" number="10"/>
+                                        <_config:column name="AttributeField1" number="11"/>
+                                        <_config:column name="AttributeField2" number="12"/>
+                                        <_config:column name="AttributeField3" number="13"/>
+                                        <_config:column name="LanguageId" number="14"/>
+                                        <_config:column name="Name" number="15"/>
+                                        <_config:column name="Description" number="16"/>
+                                        <_config:column name="SecondaryDescription" number="17"/>
+                                        <_config:column name="AssociatedKeyword" number="18"/>
+                                        <_config:column name="Field1" number="19"/>
+                                        <_config:column name="Footnote" number="20"/>
+                                        <_config:column name="UnitOfMeasure" number="21"/>
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

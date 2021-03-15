@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+        <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+                <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+                                                SELECT
+                                                        DISTINCT CATENTRY.CATENTRY_ID, CATGPENREL.CATALOG_ID
+                                                FROM
+                                                        CATENTRY, CATGPENREL
+                                                WHERE
+                                                        CATENTRY.CATENTRY_ID = CATGPENREL.CATENTRY_ID
+                                                        AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+                                                        AND CATENTRY.PARTNUMBER IN (${partNumber})
+                                                        AND CATGPENREL.CATALOG_ID IN (
+                                                                SELECT 
+                                                                        CATALOG_ID 
+                                                                FROM 
+                                                                        CATALOG 
+                                                                WHERE 
+                                                                        IDENTIFIER IN (
+                                                                                'EMR_SALES_CATALOG',
+                                                                                'CLIMATE_SALES_CATALOG',
+                                                                                'INSINKERATOR_SALES_CATALOG',
+                                                                                'SENSI_SALES_CATALOG',
+                                                                                'PROTEAM_SALES_CATALOG',
+                                                                                'FAN_SALES_CATALOG',
+                                                                                'WSV_SALES_CATALOG'))
+                                                ORDER BY
+                                                        CATENTRY.CATENTRY_ID                    
+			                ]]>
+                                </_config:SQL>
+                                <_config:Param name="storeId" valueFrom="BusinessContext" />
+                        </_config:Query>
+                </_config:DataReader>
+                <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                        <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+                                <_config:Query>
+                                        <_config:SQL>
+                                                <![CDATA[
+                                                        SELECT
+                                                                PARTNUMBER, STORENAME,
+                                                                LISTAGG(SALES_PATH, '|') WITHIN GROUP( ORDER BY SALES_PATH ) AS SALES_PATH
+                                                        FROM
+                                                                (SELECT
+                                                                        CATENTRY.PARTNUMBER,
+                                                                        CASE WHEN STOREENT.IDENTIFIER = 'InSinkErator' THEN 'ISE' ELSE STOREENT.IDENTIFIER END AS STORENAME,
+                                                                        CATGROUP.IDENTIFIER AS SALES_PATH
+                                                                FROM
+                                                                        CATENTRY
+                                                                        LEFT JOIN CATGPENREL ON CATGPENREL.CATENTRY_ID = CATENTRY.CATENTRY_ID
+                                                                        LEFT JOIN CATGROUP ON CATGROUP.CATGROUP_ID = CATGPENREL.CATGROUP_ID
+                                                                        LEFT JOIN STORECAT ON STORECAT.CATALOG_ID = CATGPENREL.CATALOG_ID
+                                                                        LEFT JOIN STOREENT ON STOREENT.STOREENT_ID = STORECAT.STOREENT_ID
+                                                                WHERE
+                                                                        CATGPENREL.CATALOG_ID = ?
+                                                                        AND CATENTRY.CATENTRY_ID = ?
+                                                                        AND CATENTRY.MARKFORDELETE = 0
+                                                                        AND CATGROUP.MARKFORDELETE = 0)
+                                                        GROUP BY
+                                                                PARTNUMBER, STORENAME
+                                                ]]>
+                                        </_config:SQL>
+                                        <_config:Param name="CATALOG_ID" />
+                                        <_config:Param name="CATENTRY_ID" />
+                                        <_config:ColumnMapping name="PARTNUMBER" value="Code" />
+                                        <_config:ColumnMapping name="STORENAME" value="Store" />
+                                        <_config:ColumnMapping name="SALES_PATH" value="Sales Catalog(s) Path" />
+                                </_config:Query>
+                                <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                        <_config:Data>
+                                                <_config:column name="Code" number="1"/>
+                                                <_config:column name="Store" number="2"/>
+                                                <_config:column name="Sales Catalog(s) Path" number="3"/>
+                                        </_config:Data>
+                                </_config:DataWriter>
+                        </_config:BusinessObjectMediator>
+                </_config:BusinessObjectBuilder>
+        </_config:DataLoader>
+</_config:DataloadBusinessObjectConfiguration>

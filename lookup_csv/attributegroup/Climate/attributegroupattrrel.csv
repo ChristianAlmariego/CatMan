@@ -1,0 +1,166 @@
+AttributeIdentifier,AttributeGroupIdentifier,ParentStoreIdentifier,Sequence,Delete
+EMR Access Portal CTA,Climate-CallToActionGroup,EmersonCAS,0,0
+EMR Check Availablity CTA,Climate-CallToActionGroup,EmersonCAS,1,0
+EMR Check Order Status CTA,Climate-CallToActionGroup,EmersonCAS,2,0
+EMR Configure CTA,Climate-CallToActionGroup,EmersonCAS,3,0
+EMR Consult an Expert CTA,Climate-CallToActionGroup,EmersonCAS,4,0
+EMR Contact Sales CTA,Climate-CallToActionGroup,EmersonCAS,5,0
+EMR Contact Us CTA,Climate-CallToActionGroup,EmersonCAS,6,0
+EMR Download Drawing CTA,Climate-CallToActionGroup,EmersonCAS,7,0
+EMR Download Software CTA,Climate-CallToActionGroup,EmersonCAS,8,0
+EMR Learn About CTA,Climate-CallToActionGroup,EmersonCAS,9,0
+EMR Request Quote CTA,Climate-CallToActionGroup,EmersonCAS,10,0
+EMR Select CTA,Climate-CallToActionGroup,EmersonCAS,11,0
+EMR Size CTA,Climate-CallToActionGroup,EmersonCAS,12,0
+EMR View Courses CTA,Climate-CallToActionGroup,EmersonCAS,13,0
+EMR Where to Buy CTA,Climate-CallToActionGroup,EmersonCAS,14,0
+EMR Email Us CTA,Climate-CallToActionGroup,EmersonCAS,15,0
+EMR Find Product Information CTA,Climate-CallToActionGroup,EmersonCAS,16,0
+EMR Watch Video CTA,Climate-CallToActionGroup,EmersonCAS,17,0
+EMR View Replacement CTA,Climate-CallToActionGroup,EmersonCAS,18,0
+EMR View Drawing CTA,Climate-CallToActionGroup,EmersonCAS,19,0
+EMR View Animation CTA,Climate-CallToActionGroup,EmersonCAS,20,0
+EMR View in OPI CTA,Climate-CallToActionGroup,EmersonCAS,21,0
+EMR View Performance Data CTA,Climate-CallToActionGroup,EmersonCAS,22,0
+EMR View in Select CTA,Climate-CallToActionGroup,EmersonCAS,23,0
+EMR Lighting Calculator CTA,Climate-CallToActionGroup,EmersonCAS,24,0
+EMR Select Online CTA,Climate-CallToActionGroup,EmersonCAS,25,0
+EMR Spare Parts CTA,Climate-CallToActionGroup,EmersonCAS,26,0
+EMR Controls Navigator CTA,Climate-CallToActionGroup,EmersonCAS,27,0
+EMR Find a Pro Installer CTA,Climate-CallToActionGroup,EmersonCAS,28,0
+EMR Request More Information CTA,Climate-CallToActionGroup,EmersonCAS,29,0
+EMR Update Professional Version CTA,Climate-CallToActionGroup,EmersonCAS,30,0
+EMR Technology Overview CTA,Climate-CallToActionGroup,EmersonCAS,31,0
+EMR Calculate Line Size CTA,Climate-CallToActionGroup,EmersonCAS,32,0
+EMR Select Line Size CTA,Climate-CallToActionGroup,EmersonCAS,33,0
+EMR Purchase Software CTA,Climate-CallToActionGroup,EmersonCAS,34,0
+EMR Download Basic Version CTA,Climate-CallToActionGroup,EmersonCAS,35,0
+EMR Download Select CTA,Climate-CallToActionGroup,EmersonCAS,36,0
+EMR View User Manual CTA,Climate-CallToActionGroup,EmersonCAS,37,0
+EMR Select Application CTA,Climate-CallToActionGroup,EmersonCAS,38,0
+EMR Certification Badge 1,Climate-CertificationBadgeGroup,EmersonCAS,0,0
+EMR Certification Badge 2,Climate-CertificationBadgeGroup,EmersonCAS,1,0
+EMR Certification Badge 3,Climate-CertificationBadgeGroup,EmersonCAS,2,0
+EMR Certification Badge 4,Climate-CertificationBadgeGroup,EmersonCAS,3,0
+EMR Certification Badge 5,Climate-CertificationBadgeGroup,EmersonCAS,4,0
+EMR Certification Badge 6,Climate-CertificationBadgeGroup,EmersonCAS,5,0
+EMR Certifications,Climate-CertificationBadgeGroup,EmersonCAS,6,0
+EMR Features,Climate-FeaturesGroup,EmersonCAS,0,0
+EMR Product Family 1,Climate-ProductFamilyGroup,EmersonCAS,1,0
+EMR Product Family 2,Climate-ProductFamilyGroup,EmersonCAS,2,0
+EMR Product Family 3,Climate-ProductFamilyGroup,EmersonCAS,3,0
+EMR Product Family 4,Climate-ProductFamilyGroup,EmersonCAS,4,0
+EMR Product Family 5,Climate-ProductFamilyGroup,EmersonCAS,5,0
+EMR Product Family 6,Climate-ProductFamilyGroup,EmersonCAS,6,0
+EMR Product Family 7,Climate-ProductFamilyGroup,EmersonCAS,7,0
+EMR Product Family 8,Climate-ProductFamilyGroup,EmersonCAS,8,0
+EMR Product Family 9,Climate-ProductFamilyGroup,EmersonCAS,9,0
+EMR Product Family 10,Climate-ProductFamilyGroup,EmersonCAS,10,0
+EMR Product Family 11,Climate-ProductFamilyGroup,EmersonCAS,11,0
+EMR Product Family 12,Climate-ProductFamilyGroup,EmersonCAS,12,0
+EMR Product Family 13,Climate-ProductFamilyGroup,EmersonCAS,13,0
+EMR Product Family 14,Climate-ProductFamilyGroup,EmersonCAS,14,0
+EMR Product Family 15,Climate-ProductFamilyGroup,EmersonCAS,15,0
+EMR Product Family 16,Climate-ProductFamilyGroup,EmersonCAS,16,0
+EMR Product Family 17,Climate-ProductFamilyGroup,EmersonCAS,17,0
+EMR Product Family 18,Climate-ProductFamilyGroup,EmersonCAS,18,0
+EMR Product Family 19,Climate-ProductFamilyGroup,EmersonCAS,19,0
+EMR Product Family 20,Climate-ProductFamilyGroup,EmersonCAS,20,0
+EMR Product Family 21,Climate-ProductFamilyGroup,EmersonCAS,21,0
+EMR Product Family 22,Climate-ProductFamilyGroup,EmersonCAS,22,0
+EMR Product Family 23,Climate-ProductFamilyGroup,EmersonCAS,23,0
+EMR Product Family 24,Climate-ProductFamilyGroup,EmersonCAS,24,0
+EMR Product Family 25,Climate-ProductFamilyGroup,EmersonCAS,25,0
+EMR Product Family 26,Climate-ProductFamilyGroup,EmersonCAS,26,0
+EMR Product Family 27,Climate-ProductFamilyGroup,EmersonCAS,27,0
+EMR Product Family 28,Climate-ProductFamilyGroup,EmersonCAS,28,0
+EMR Product Family 29,Climate-ProductFamilyGroup,EmersonCAS,29,0
+EMR Product Family 30,Climate-ProductFamilyGroup,EmersonCAS,30,0
+EMR Product Family 31,Climate-ProductFamilyGroup,EmersonCAS,31,0
+EMR Product Family 32,Climate-ProductFamilyGroup,EmersonCAS,32,0
+EMR Generic Spec 1 Label,Climate-SpecificationGroup,EmersonCAS,0,0
+EMR Generic Spec 1 Value,Climate-SpecificationGroup,EmersonCAS,1,0
+EMR Generic Spec 2 Label,Climate-SpecificationGroup,EmersonCAS,2,0
+EMR Generic Spec 2 Value,Climate-SpecificationGroup,EmersonCAS,3,0
+EMR Generic Spec 3 Label,Climate-SpecificationGroup,EmersonCAS,4,0
+EMR Generic Spec 3 Value,Climate-SpecificationGroup,EmersonCAS,5,0
+EMR Generic Spec 4 Label,Climate-SpecificationGroup,EmersonCAS,6,0
+EMR Generic Spec 4 Value,Climate-SpecificationGroup,EmersonCAS,7,0
+EMR Generic Spec 5 Label,Climate-SpecificationGroup,EmersonCAS,8,0
+EMR Generic Spec 5 Value,Climate-SpecificationGroup,EmersonCAS,9,0
+EMR Generic Spec 6 Label,Climate-SpecificationGroup,EmersonCAS,10,0
+EMR Generic Spec 6 Value,Climate-SpecificationGroup,EmersonCAS,11,0
+EMR Generic Spec 7 Label,Climate-SpecificationGroup,EmersonCAS,12,0
+EMR Generic Spec 7 Value,Climate-SpecificationGroup,EmersonCAS,13,0
+EMR Generic Spec 8 Label,Climate-SpecificationGroup,EmersonCAS,14,0
+EMR Generic Spec 8 Value,Climate-SpecificationGroup,EmersonCAS,15,0
+EMR Generic Spec 9 Label,Climate-SpecificationGroup,EmersonCAS,16,0
+EMR Generic Spec 9 Value,Climate-SpecificationGroup,EmersonCAS,17,0
+EMR Generic Spec 10 Label,Climate-SpecificationGroup,EmersonCAS,18,0
+EMR Generic Spec 10 Value,Climate-SpecificationGroup,EmersonCAS,19,0
+EMR Generic Spec 11 Label,Climate-SpecificationGroup,EmersonCAS,20,0
+EMR Generic Spec 11 Value,Climate-SpecificationGroup,EmersonCAS,21,0
+EMR Generic Spec 12 Label,Climate-SpecificationGroup,EmersonCAS,22,0
+EMR Generic Spec 12 Value,Climate-SpecificationGroup,EmersonCAS,23,0
+EMR Generic Spec 13 Label,Climate-SpecificationGroup,EmersonCAS,24,0
+EMR Generic Spec 13 Value,Climate-SpecificationGroup,EmersonCAS,25,0
+EMR Generic Spec 14 Label,Climate-SpecificationGroup,EmersonCAS,26,0
+EMR Generic Spec 14 Value,Climate-SpecificationGroup,EmersonCAS,27,0
+EMR Generic Spec 15 Label,Climate-SpecificationGroup,EmersonCAS,28,0
+EMR Generic Spec 15 Value,Climate-SpecificationGroup,EmersonCAS,29,0
+EMR Generic Spec 16 Label,Climate-SpecificationGroup,EmersonCAS,30,0
+EMR Generic Spec 16 Value,Climate-SpecificationGroup,EmersonCAS,31,0
+EMR Generic Spec 17 Label,Climate-SpecificationGroup,EmersonCAS,32,0
+EMR Generic Spec 17 Value,Climate-SpecificationGroup,EmersonCAS,33,0
+EMR Generic Spec 18 Label,Climate-SpecificationGroup,EmersonCAS,34,0
+EMR Generic Spec 18 Value,Climate-SpecificationGroup,EmersonCAS,35,0
+EMR Generic Spec 19 Label,Climate-SpecificationGroup,EmersonCAS,36,0
+EMR Generic Spec 19 Value,Climate-SpecificationGroup,EmersonCAS,37,0
+EMR Generic Spec 20 Label,Climate-SpecificationGroup,EmersonCAS,38,0
+EMR Generic Spec 20 Value,Climate-SpecificationGroup,EmersonCAS,39,0
+EMR Generic Spec 21 Label,Climate-SpecificationGroup,EmersonCAS,40,0
+EMR Generic Spec 21 Value,Climate-SpecificationGroup,EmersonCAS,41,0
+EMR Generic Spec 22 Label,Climate-SpecificationGroup,EmersonCAS,42,0
+EMR Generic Spec 22 Value,Climate-SpecificationGroup,EmersonCAS,43,0
+EMR Generic Spec 23 Label,Climate-SpecificationGroup,EmersonCAS,44,0
+EMR Generic Spec 23 Value,Climate-SpecificationGroup,EmersonCAS,45,0
+EMR Generic Spec 24 Label,Climate-SpecificationGroup,EmersonCAS,46,0
+EMR Generic Spec 24 Value,Climate-SpecificationGroup,EmersonCAS,47,0
+EMR Generic Spec 25 Label,Climate-SpecificationGroup,EmersonCAS,48,0
+EMR Generic Spec 25 Value,Climate-SpecificationGroup,EmersonCAS,49,0
+EMR Group1Header,Climate-SpecificationGroup,EmersonCAS,50,0
+EMR Group1SpecLabel,Climate-SpecificationGroup,EmersonCAS,51,0
+EMR Group1SpecValue,Climate-SpecificationGroup,EmersonCAS,52,0
+EMR Group2Header,Climate-SpecificationGroup2,EmersonCAS,0,0
+EMR Group2SpecLabel,Climate-SpecificationGroup2,EmersonCAS,1,0
+EMR Group2SpecValue,Climate-SpecificationGroup2,EmersonCAS,2,0
+EMR Group3Header,Climate-SpecificationGroup3,EmersonCAS,0,0
+EMR Group3SpecLabel,Climate-SpecificationGroup3,EmersonCAS,1,0
+EMR Group3SpecValue,Climate-SpecificationGroup3,EmersonCAS,2,0
+EMR Group4Header,Climate-SpecificationGroup4,EmersonCAS,0,0
+EMR Group4SpecLabel,Climate-SpecificationGroup4,EmersonCAS,1,0
+EMR Group4SpecValue,Climate-SpecificationGroup4,EmersonCAS,2,0
+EMR TabSequence,Climate-TabAndContentGroup,EmersonCAS,0,0
+EMR Training CTA,Climate-TrainingServicesGroup,EmersonCAS,17,0
+EMR Utility Belt_Access Portal,Climate-UtilityBeltGroup,EmersonCAS,0,0
+EMR Utility Belt_Buy Now,Climate-UtilityBeltGroup,EmersonCAS,1,0
+EMR Utility Belt_Calculate,Climate-UtilityBeltGroup,EmersonCAS,2,0
+EMR Utility Belt_Check Order Status,Climate-UtilityBeltGroup,EmersonCAS,3,0
+EMR Utility Belt_Configure,Climate-UtilityBeltGroup,EmersonCAS,4,0
+EMR Utility Belt_Contact Local Partner,Climate-UtilityBeltGroup,EmersonCAS,5,0
+EMR Utility Belt_Contact Sales,Climate-UtilityBeltGroup,EmersonCAS,6,0
+EMR Utility Belt_Contact Service,Climate-UtilityBeltGroup,EmersonCAS,7,0
+EMR Utility Belt_Contact Support,Climate-UtilityBeltGroup,EmersonCAS,8,0
+EMR Utility Belt_Contact Us,Climate-UtilityBeltGroup,EmersonCAS,9,0
+EMR Utility Belt_Download Software,Climate-UtilityBeltGroup,EmersonCAS,10,0
+EMR Utility Belt_Find a Store,Climate-UtilityBeltGroup,EmersonCAS,11,0
+EMR Utility Belt_Register Product,Climate-UtilityBeltGroup,EmersonCAS,12,0
+EMR Utility Belt_Request Quote,Climate-UtilityBeltGroup,EmersonCAS,13,0
+EMR Utility Belt_Select,Climate-UtilityBeltGroup,EmersonCAS,14,0
+EMR Utility Belt_Where to Buy,Climate-UtilityBeltGroup,EmersonCAS,15,0
+EMR Utility Belt_Visit our Blog,Climate-UtilityBeltGroup,EmersonCAS,16,0
+EMR Utility Belt_Click to Chat,Climate-UtilityBeltGroup,EmersonCAS,17,0
+EMR Utility Belt_Cross Reference and Product Information,Climate-UtilityBeltGroup,EmersonCAS,18,0
+EMR Utility Belt_MyEmerson Sign In,Climate-UtilityBeltGroup,EmersonCAS,19,0
+EMR Utility Belt_Select Online,Climate-UtilityBeltGroup,EmersonCAS,20,0
+EMR Utility Belt_Controls Navigator,Climate-UtilityBeltGroup,EmersonCAS,21,0

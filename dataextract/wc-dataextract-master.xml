@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataextract-env.xml" />
+
+        <_config:LoadOrder commitCount="0" batchSize="0">
+        <_config:property name="firstTwoLinesAreHeader" value="true" />
+
+        <!-- Extract all Attributes and Values  -->
+        <_config:LoadItem name="AttributeDictionaryAttributeAndAllowedValues" businessObjectConfigFile="wc-extract-attrdict.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrdictattr-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="PublishAttributeDictionaryAttributeAndAllowedValues" businessObjectConfigFile="wc-extract-publishattr-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrdictattr-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="AttributeDictionaryAttributeAllowedValues" businessObjectConfigFile="wc-extract-attrdictattrval-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrdictattrallowvals-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="AttributeDictionaryAttributeAllowedValuesItemLevel" businessObjectConfigFile="wc-extract-attrdictattrval-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrdictattrallowvals-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="AttributeDictionaryAttributeAllowedValuesLkup" businessObjectConfigFile="wc-extract-attrdictattrval-lkup-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrdictattrallowvals-lkup-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="PublishAttributeDictionaryAttributeAllowedValuesLkup" businessObjectConfigFile="wc-extract-publishlkup-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrdictattrallowvals-lkup-output.csv" />
+        </_config:LoadItem>
+
+        <!-- Extract all Catalog Entries  -->
+        <_config:LoadItem name="CatalogEntry" businessObjectConfigFile="wc-extract-catalogentry.xml">
+          <_config:DataOutputLocation location="${outputLocation}-output.csv" />
+        </_config:LoadItem>
+        <!-- This is the full column export and matches the OOTB definition, but export as individual files instead -->
+        <_config:LoadItem name="CatalogEntryDescription" businessObjectConfigFile="wc-extract-catalogentrydesc-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}desc-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionItemLevel" businessObjectConfigFile="wc-extract-catalogentrydesc-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}desc-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionName" businessObjectConfigFile="wc-extract-catalogentrydescname-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}name-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionNameItemLevel" businessObjectConfigFile="wc-extract-catalogentrydescname-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}name-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionShortDesc" businessObjectConfigFile="wc-extract-catalogentrydescshortdesc-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}shortdesc-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionShortDescItemLevel" businessObjectConfigFile="wc-extract-catalogentrydescshortdesc-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}shortdesc-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionLongDesc" businessObjectConfigFile="wc-extract-catalogentrydesclongdesc-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}longdesc-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionLongDescItemLevel" businessObjectConfigFile="wc-extract-catalogentrydesclongdesc-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}longdesc-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionPublished" businessObjectConfigFile="wc-extract-catalogentrydescpublished-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}published-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionPublishedItemLevel" businessObjectConfigFile="wc-extract-catalogentrydescpublished-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}published-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionKeyword" businessObjectConfigFile="wc-extract-catalogentrydesckeyword-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}keyword-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryDescriptionKeywordItemLevel" businessObjectConfigFile="wc-extract-catalogentrydesckeyword-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}keyword-output-raw.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntrySEO" businessObjectConfigFile="wc-extract-catalogentryurlkeyword-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}urlkeyword-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntrySEOItemLevel" businessObjectConfigFile="wc-extract-catalogentryurlkeyword-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}urlkeyword-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryComponent" businessObjectConfigFile="wc-extract-catalogentrycomponent.xml">
+          <_config:DataOutputLocation location="${outputLocation}Component.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryAttributeDictionaryAttributeRelationship" businessObjectConfigFile="wc-extract-attrdictcatalogentryrel-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrrel-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryAttributeDictionaryAttributeRelationshipItemLevel" businessObjectConfigFile="wc-extract-attrdictcatalogentryrel-item-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrrel-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryAttributeDictionaryAttributeRelationshipFull" businessObjectConfigFile="wc-extract-attrdictcatalogentryrel-full-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}attrrel-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryAssociation" businessObjectConfigFile="wc-extract-catalogentryassociation.xml">
+          <_config:DataOutputLocation location="${outputLocation}association-output.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntry" businessObjectConfigFile="wc-extract-partnumber.xml">
+          <_config:DataOutputLocation location="mastercatalogPartNumber.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntrySalesCategories" businessObjectConfigFile="wc-extract-default-salescategory-partnum-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}salescategories-output.csv" />
+        </_config:LoadItem>
+
+        <!-- Extract Master Sales Category  -->
+        <_config:LoadItem name="MasterSalesCategory" businessObjectConfigFile="wc-extract-master-sales-category.xml">
+          <_config:DataOutputLocation location="${outputLocation}mastersalescategory-output.csv" />
+        </_config:LoadItem>
+    </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataextract-env.xml" />
+
+        <_config:LoadOrder commitCount="0" batchSize="0">
+        <_config:property name="firstLineIsHeader" value="true" />
+       
+        <!-- Extract Base Fields  -->
+        <_config:LoadItem name="FullExportBase" businessObjectConfigFile="wc-extract-fullexport-base-runnable.xml">
+          <_config:DataOutputLocation location="${outputLocation}-full-export-base.csv" />
+        </_config:LoadItem>
+
+            <!-- Extract Special Attributes (EMR Features, EMR Country, CTA, Utility Belt -->
+        <_config:LoadItem name="FullExportAttrSpecial" businessObjectConfigFile="wc-extract-fullexport-attr-special-runnable.xml">
+            <_config:DataOutputLocation location="${outputLocation}-full-export-attr-special.csv" />
+        </_config:LoadItem>
+
+            <!-- Extract Other Attributes  -->
+        <_config:LoadItem name="FullExportAttrOthers" businessObjectConfigFile="wc-extract-fullexport-attr-others-runnable.xml">
+            <_config:DataOutputLocation location="${outputLocation}-full-export-attr-others.csv" />
+        </_config:LoadItem>
+
+        </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

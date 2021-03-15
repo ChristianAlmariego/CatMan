@@ -1,0 +1,16 @@
+{
+	"storePath":"CatManTest/Literature/",
+	"wcStoreIdentifier" : "ProTeam",
+	"outputPath":"LITERATURE/",
+	"storeID": "10154",
+	"supportedStores" : [
+	    { "name": "EMR" , "wcStoreIdentifier" : "EMR"},
+	    { "name": "FAN" , "wcStoreIdentifier" : "FAN"},
+	    { "name": "ProTeam" , "wcStoreIdentifier" : "ProTeam"},
+	    { "name": "WSV" , "wcStoreIdentifier" : "WSV"},
+	    { "name": "Climate" , "wcStoreIdentifier" : "Climate"},
+	    { "name": "ISE" , "wcStoreIdentifier" : "InSinkErator"},
+	    { "name": "Sensi" , "wcStoreIdentifier" : "Sensi"},
+	    { "name": "TEST" , "wcStoreIdentifier" : "EMR-OLD"}
+	]
+}

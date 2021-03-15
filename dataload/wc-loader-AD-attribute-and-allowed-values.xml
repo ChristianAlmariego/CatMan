@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2012 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader" >
+    <!--
+    <_config:ColumnExclusionList>
+      <_config:table name="ATTR" columns="FACETABLE" />
+    </_config:ColumnExclusionList>
+    -->
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.CSVReader" firstLineIsHeader="true" useHeaderAsColumnName="true" >
+        <_config:property name="keyColumns" value="Identifier" />
+    </_config:DataReader>
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="AttributeDictionaryAttributeType" >
+      <_config:DataMapping>
+        <_config:mapping xpath="AttributeIdentifier/ExternalIdentifier/Identifier" value="Identifier"/>
+        <_config:mapping xpath="AttributeIdentifier/UniqueID" value="AttributeUniqueId"/>
+        <_config:mapping xpath="AttributeDataType" value="Type" />
+        <_config:mapping xpath="AttributeType" value="AttributeType" />
+        <_config:mapping xpath="displaySequence" value="Sequence" />
+        <_config:mapping xpath="displayable" value="Displayable" />
+        <_config:mapping xpath="searchable" value="Searchable" />
+        <_config:mapping xpath="facetable" value="Facetable" />
+        <_config:mapping xpath="merchandisable" value="Merchandisable" />
+        <_config:mapping xpath="comparable" value="Comparable" />
+        <_config:mapping xpath="storeDisplay" value="StoreDisplay" />
+        <_config:mapping xpath="ExtendedData/Field1" value="AttributeField1" />
+        <_config:mapping xpath="ExtendedData/Field2" value="AttributeField2" />
+        <_config:mapping xpath="ExtendedData/Field3" value="AttributeField3" />
+        <!-- AttributeDescription -->
+        <_config:mapping xpath="AttributeDescription[0]/language" value="Language" />
+        <_config:mapping xpath="AttributeDescription[0]/language" value="LanguageId" />
+        <_config:mapping xpath="AttributeDescription[0]/Name" value="Name" />
+        <_config:mapping xpath="AttributeDescription[0]/Description" value="Description" />
+        <_config:mapping xpath="AttributeDescription[0]/ExtendedData/SecondaryDescription" value="SecondaryDescription" />
+        <_config:mapping xpath="AttributeDescription[0]/ExtendedData/DisplayGroupName" value="GroupName" />
+                <_config:mapping xpath="AttributeDescription[0]/ExtendedData/DisplayGroupName" value="AssociatedKeyword" />
+        <_config:mapping xpath="AttributeDescription[0]/ExtendedData/Field1" value="Field1" />
+        <_config:mapping xpath="AttributeDescription[0]/ExtendedData/Footnote" value="Footnote" />
+        <_config:mapping xpath="AttributeDescription[0]/ExtendedData/UnitOfMeasure" value="UnitOfMeasure" />
+        <!-- AttributeDescription in French -->
+        <_config:mapping xpath="AttributeDescription[1]/language" value="-2" valueFrom="Fixed" />
+        <_config:mapping xpath="AttributeDescription[1]/Name" value="NameFrench" />
+        <_config:mapping xpath="AttributeDescription[1]/Description" value="DescriptionFrench" />
+        <_config:mapping xpath="AttributeDescription[1]/ExtendedData/SecondaryDescription" value="SecondaryDescriptionFrench" />
+        <_config:mapping xpath="AttributeDescription[1]/ExtendedData/DisplayGroupName" value="GroupNameFrench" />
+                <_config:mapping xpath="AttributeDescription[1]/ExtendedData/DisplayGroupName" value="AssociatedKeywordFrench" />
+        <_config:mapping xpath="AttributeDescription[1]/ExtendedData/Field1" value="Field1French" />
+        <_config:mapping xpath="AttributeDescription[1]/ExtendedData/Footnote" value="FootnoteFrench" />
+        <_config:mapping xpath="AttributeDescription[1]/ExtendedData/UnitOfMeasure" value="UnitOfMeasureFrench" />
+        <!-- AllowedValue -->
+        <_config:mapping xpath="AllowedValue[0]/identifier" value="AllowedValue1" />
+        <_config:mapping xpath="AllowedValue[0]/displaySequence" value="1.0" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[0]/Value" value="AllowedValue1" />
+        <_config:mapping xpath="AllowedValue[0]/ExtendedValue/ValueUsage" value="1" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[1]/identifier" value="AllowedValue2" />
+        <_config:mapping xpath="AllowedValue[1]/displaySequence" value="2.0" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[1]/Value" value="AllowedValue2" />
+        <_config:mapping xpath="AllowedValue[1]/ExtendedValue/ValueUsage" value="1" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[2]/identifier" value="AllowedValue3" />
+        <_config:mapping xpath="AllowedValue[2]/displaySequence" value="3.0" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[2]/Value" value="AllowedValue3" />
+        <_config:mapping xpath="AllowedValue[2]/ExtendedValue/ValueUsage" value="1" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[3]/identifier" value="AllowedValue4" />
+        <_config:mapping xpath="AllowedValue[3]/displaySequence" value="4.0" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[3]/Value" value="AllowedValue4" />
+        <_config:mapping xpath="AllowedValue[3]/ExtendedValue/ValueUsage" value="1" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[4]/identifier" value="AllowedValue5" />
+        <_config:mapping xpath="AllowedValue[4]/displaySequence" value="5.0" valueFrom="Fixed" />
+        <_config:mapping xpath="AllowedValue[4]/Value" value="AllowedValue5" />
+        <_config:mapping xpath="AllowedValue[4]/ExtendedValue/ValueUsage" value="1" valueFrom="Fixed" />
+        <_config:mapping xpath="" value="Delete" deleteValue="1" />
+        <_config:mapping xpath="FacetProperties/AllowMultipleFacetValueSelection" value="FacetableMultiSelect" />
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.AttributeDictionaryAttributeMediator" componentId="com.ibm.commerce.catalog" >
+                <_config:property name="allowChangeAttributeType" value="true" />
+                <_config:property name="validateAttribute" value="true" />
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+    <!--  Attribute Dictionary Attribute Search Index
+    <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.BaseBusinessObjectBuilder"
+      packageName="com.ibm.commerce.catalog.facade.datatypes.CatalogPackage" dataObjectType="AttributeDictionaryAttributeType" >
+
+      <_config:DataMapping>
+        <_config:mapping xpath="AttributeIdentifier/ExternalIdentifier/Identifier" value="Identifier" />
+        <_config:mapping xpath="AttributeIdentifier/UniqueID" value="AttributeUniqueId" />
+
+        <_config:mapping xpath="searchable" value="Searchable" />
+        <_config:mapping xpath="merchandisable" value="Merchandisable" />
+        <_config:mapping xpath="facetable" value="Facetable" />
+      </_config:DataMapping>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.catalog.dataload.mediator.AttributeDictionaryAttributeSearchIndexMediator" componentId="com.ibm.commerce.catalog" >
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+    -->
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

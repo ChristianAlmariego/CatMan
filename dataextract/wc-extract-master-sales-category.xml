@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+
+ 	NOTE: CATGROUPID is different on the toolkit & dev environment.
+	 toolkit catgroupid: 20503 |  dev catgroupid:14502 	  
+-->
+
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+						select
+    						cg.catgroup_id, cgrel.catgroup_id_parent
+    					from catgroup cg
+							left join catalog clg on cg.member_id = clg.member_id
+							left join catgrprel cgrel on (cg.catgroup_id = cgrel.catgroup_id_child)
+    					where cg.markfordelete = 0
+        				and cg.catgroup_id NOT IN
+            				(select catgroup.catgroup_id
+                			--catgroup.identifier, catalog.identifier as catalogidentifier 
+                			from catgroup 
+                			left join catalog on catalog.member_id = catgroup.member_id
+                			where catgroup.identifier in
+                				(select identifier from catgroup
+                    			group by identifier having count(identifier) > 1)
+            			and catalog.identifier = 'EMR_SALES_CATALOG')
+						and cg.identifier NOT IN ('ETC','FANS','M-EMR','ProTeam','WSV') 
+    					order by cg.identifier
+                    ]]>
+              </_config:SQL>    
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+									select
+    										case clg.identifier
+        									when 'EmersonCAS' then 'TRUE'
+        									else 'FALSE'
+        									end master_catalog,
+    									cg.identifier,
+    									--cgrel.catgroup_id_parent,
+    									cg2.identifier as parent_identifier,
+    									cgdesc.name as name_us,
+    									caturl.urlkeyword as url_keyword,
+    									seo.title as page_title, seo.meta_desc as meta_description,
+    									catgroupfacet.facetattr_identfier as facet_management,
+   										case UPPER(st.identifier) 
+											when 'INSINKERATOR' then 'ISE'
+											when 'EMR-OLD' then 'TEST'
+											when 'EMERSONCAS' then catstore.ancestor_identifier
+											else UPPER(st.identifier)
+											end store,
+    									cgdesc.shortdescription as short_description,
+    									case cgdesc.published
+        									when 1 then 'TRUE'
+        									else 'FALSE'
+        									end Published
+    									from catgroup cg
+        								left join catalog clg on cg.member_id = clg.member_id
+        								left join catgrprel cgrel on (cg.catgroup_id = cgrel.catgroup_id_child)
+        								left join catgroup cg2 on cg2.catgroup_id = cgrel.catgroup_id_parent
+        								left join catgrpdesc cgdesc on (cg.catgroup_id = cgdesc.catgroup_id and cgdesc.language_id = -1)
+        								left join storeent st on st.member_id = cg.member_id
+        								left join (
+											select catgroup_id_child as catgroup_id, ancestor_id, 
+											case catgroup.identifier 
+												when 'M-Automation-Solutions' then 'EMR'
+												when 'M-Commercial-Residential-Solutions' then 'EMR'
+												when 'M-Insinkerator' then 'ISE'
+												when 'M-Sensi' then 'SENSI'
+												when 'M-TEST' then 'TEST'
+												when 'FANS' then 'FAN'
+												else UPPER(catgroup.identifier)
+												end ancestor_identifier 
+											from
+											(    select catgroup_id_child, catgroup_id_parent, parentpath, parentlevel, ancestor_id from
+												(select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel, SYS_CONNECT_BY_PATH(catgroup_id_parent,'/') as parentpath, CONNECT_BY_ROOT catgroup_id_parent as ancestor_id, catalog_id
+													from catgrprel start with 
+															catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN ('M-Automation-Solutions','M-Commercial-Residential-Solutions','WSV','FANS','ProTeam')) connect by prior 
+															catgroup_id_child = catgroup_id_parent)
+													where catalog_id = 10001 and catgroup_id_child NOT IN (37004,37008) AND catgroup_id_parent NOT IN (37004,37008)
+												UNION
+												select catgroup_id_child, catgroup_id_parent, parentpath, parentlevel, ancestor from
+												(select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel, SYS_CONNECT_BY_PATH(catgroup_id_parent,'/') as parentpath, CONNECT_BY_ROOT catgroup_id_parent as ancestor, catalog_id
+													from catgrprel start with 
+															catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN ('M-Insinkerator','M-Sensi','M-TEST')) connect by prior 
+															catgroup_id_child = catgroup_id_parent)
+													where catalog_id = 10001
+												UNION
+												select catgroup_id as catgroup_id_child, 14502 as catgroup_id_parent, 
+												'/' as parentpath, 1 as parentlevel, 14502 as ancestor_id from catgroup where catgroup_id IN (14502,14503)
+												UNION
+												select catgroup_id as catgroup_id_child, 37004 as catgroup_id_parent, 
+													'/' as parentpath, 1 as parentlevel, 37004 as ancestor_id from catgroup where catgroup_id IN (37004)
+												UNION
+												select catgroup_id as catgroup_id_child, 37008 as catgroup_id_parent, 
+													'/' as parentpath, 1 as parentlevel, 37008 as ancestor_id from catgroup where catgroup_id IN (37008)
+												UNION
+												select catgroup_id as catgroup_id_child, 42501 as catgroup_id_parent, 
+													'/' as parentpath, 1 as parentlevel, 42501 as ancestor_id from catgroup where catgroup_id IN (42501)
+											)
+											left join catgroup on catgroup.catgroup_id = ancestor_id
+										) catstore on catstore.catgroup_id = cg.catgroup_id 
+										left join (
+            								select seourl.seourl_id, seourl.tokenvalue, seourlkeyword.urlkeyword
+                							from seourl 
+                							left join seourlkeyword on (seourl.seourl_id = seourlkeyword.seourl_id and seourlkeyword.language_id = -1 and seourlkeyword.status=1)
+            								where seourl.tokenname = 'CategoryToken'
+        									) caturl on caturl.tokenvalue = cg.catgroup_id    
+        								left join (
+             								select seopagedef.seopagedef_id, seopagedef.pagename, seopagedefdesc.title, seopagedefdesc.meta_desc
+                							from seopagedef
+             							left join seopagedefdesc on (seopagedefdesc.seopagedef_id = seopagedef.seopagedef_id and seopagedefdesc.language_id = -1)
+                							where seopagedef.pagename like 'CATEGORY_PAGE%'
+        									) seo on seo.pagename = 'CATEGORY_PAGE_' || cg.catgroup_id
+        								left join (
+            								select catgroup_id, storeent_id, LISTAGG(facetattr_identifier, '|') within group (order by facetattr_identifier) AS facetattr_identfier FROM
+                							(select fctcat.catgroup_id,
+                    						case srchattr.identifier
+                        					when '_cat.ManufacturerName' then 'Manufacturer' 
+                        					else attr.identifier
+                        					end facetattr_identifier,
+                    						storeent.storeent_id
+                    						from facetcatgrp fctcat
+                    					left join catgroup on catgroup.catgroup_id = fctcat.catgroup_id
+                    					left join facet on facet.facet_id = fctcat.facet_id
+                    					left join attr on facet.attr_id = attr.attr_id
+                    					left join srchattr on facet.srchattr_id = srchattr.srchattr_id
+                    					left join storeent on storeent.storeent_id = fctcat.storeent_id
+                    				where 
+                        				fctcat.displayable = 1
+                        				and srchattr.identifier NOT IN ('_cat.ParentCatalogGroup')
+                    				order by fctcat.catgroup_id, fctcat.sequence) 
+            						group by catgroup_id, storeent_id
+            							) catgroupfacet on (catgroupfacet.catgroup_id = cg.catgroup_id AND catgroupfacet.storeent_id = st.storeent_id)
+    								where cg.catgroup_id = ? and cgrel.catgroup_id_parent = ?
+										
+                                        ]]>
+                                        </_config:SQL>                
+			   
+                <_config:Param name="CATGROUP_ID" />
+				 <_config:Param name="CATGROUP_ID_PARENT" />
+                                <_config:ColumnMapping name="MASTER_CATALOG" value="Master Catalog" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="Identifier" />
+                                <_config:ColumnMapping name="PARENT_IDENTIFIER" value="Parent Identifier" />
+                                <_config:ColumnMapping name="NAME_US" value="Name US" />
+                                <_config:ColumnMapping name="URL_KEYWORD" value="URL keyword" />
+                                <_config:ColumnMapping name="PAGE_TITLE" value="Page title" />
+                                <_config:ColumnMapping name="META_DESCRIPTION" value="Meta description" />
+                                <_config:ColumnMapping name="FACET_MANAGEMENT" value="Facet Management" />
+                                <_config:ColumnMapping name="STORE" value="STORE" />
+                                <_config:ColumnMapping name="SHORT_DESCRIPTION" value="Short Description" />
+                                <_config:ColumnMapping name="PUBLISHED" value="Published" />
+
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="Master Catalog" number="1"/>
+                                        <_config:column name="Identifier" number="2"/>
+                                        <_config:column name="Parent Identifier" number="3"/>
+                                        <_config:column name="Name US" number="4"/>
+                                        <_config:column name="URL keyword" number="5"/>
+                                        <_config:column name="Page title" number="6"/>
+                                        <_config:column name="Meta description" number="7"/>
+                                        <_config:column name="Facet Management" number="8"/>       
+                                        <_config:column name="STORE" number="9"/>       
+                                        <_config:column name="Short Description" number="10"/> 
+                                        <_config:column name="Published" number="11"/>        
+            
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

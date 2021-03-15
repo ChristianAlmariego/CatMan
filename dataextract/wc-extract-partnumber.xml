@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT DISTINCT
+								CATGPENREL.CATENTRY_ID
+				FROM
+								CATGPENREL
+				JOIN 
+								CATGROUP ON (CATGROUP.CATGROUP_ID = CATGPENREL.CATGROUP_ID)
+				JOIN 
+								CATENTRY ON (CATENTRY.CATENTRY_ID = CATGPENREL.CATENTRY_ID)
+				WHERE
+								CATENTRY.MARKFORDELETE = 0 AND CATGROUP.MARKFORDELETE = 0
+									AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+									AND CATGPENREL.CATALOG_ID = ?
+				ORDER BY
+								CATGPENREL.CATENTRY_ID
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+              <_config:Param name="catalogId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+					SELECT 
+                              CATENTRY.PARTNUMBER , CATGROUP.IDENTIFIER , SEOURLKEYWORD.URLKEYWORD, CATENTRYPARENT.PARENT_PARTNUMBER
+                    FROM 
+                              CATENTRY 
+                    INNER JOIN 
+                              CATENTDESC  ON CATENTRY.CATENTRY_ID = CATENTDESC.CATENTRY_ID 
+                    INNER JOIN 
+                              CATGPENREL ON CATGPENREL.CATENTRY_ID = CATENTRY.CATENTRY_ID
+                    INNER JOIN 
+                              CATGROUP ON CATGROUP.CATGROUP_ID = CATGPENREL.CATGROUP_ID
+                   LEFT JOIN
+                        (  SELECT CATENTRY.CATENTRY_ID, CATENTREL.CATRELTYPE_ID,
+                        CATENTRYPARENT.CATENTRY_ID AS PARENT_ID, CATENTRYPARENT.PARTNUMBER AS PARENT_PARTNUMBER, CATENTRYPARENT.CATENTTYPE_ID AS PARENT_TYPE
+                        FROM CATENTREL
+                        LEFT JOIN CATENTRY ON CATENTREL.CATENTRY_ID_CHILD = CATENTRY.CATENTRY_ID
+                        LEFT JOIN CATENTRY CATENTRYPARENT ON CATENTREL.CATENTRY_ID_PARENT = CATENTRYPARENT.CATENTRY_ID
+                        ) CATENTRYPARENT ON CATENTRY.CATENTRY_ID = CATENTRYPARENT.CATENTRY_ID
+
+                    LEFT JOIN 
+                              SEOURL on SEOURL.TOKENVALUE = to_char(?)
+                    LEFT JOIN 
+                              SEOURLKEYWORD on (SEOURLKEYWORD.SEOURL_ID = SEOURL.SEOURL_ID AND SEOURLKEYWORD.LANGUAGE_ID = ?)
+                    WHERE 
+                              (CATENTDESC.LANGUAGE_ID = ? 
+                              AND CATGPENREL.CATALOG_ID = ?)
+                              AND CATGPENREL.CATENTRY_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="CATENTRY_ID" />
+                <_config:Param name="langId" valueFrom="BusinessContext" />                        
+                <_config:Param name="langId" valueFrom="BusinessContext" />                  
+                <_config:Param name="catalogId" valueFrom="BusinessContext" />
+                <_config:Param name="CATENTRY_ID" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="IDENTIFIER" value="Master Path" />
+                                <_config:ColumnMapping name="URLKEYWORD" value="UrlKeyword" />
+                                 <_config:ColumnMapping name="PARENT_PARTNUMBER" value="Parent" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                        <_config:column name="Master Path" number="2"/>
+                                        <_config:column name="UrlKeyword" number="3"/>
+                                         <_config:column name="Parent" number="4"/>
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

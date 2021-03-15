@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                       select catentry.catentry_id
+                        from catentry
+                            left join
+                              (select (catentryparent.partnumber || ' | ' || catentry.partnumber) AS orderkey, catentry.catentry_id,
+                                catentryparent.catentry_id as parent_id, catentryparent.catenttype_id as parent_type
+                                from catentrel
+                                left join catentry on catentrel.catentry_id_child = catentry.catentry_id
+                                left join catentry catentryparent on catentrel.catentry_id_parent = catentryparent.catentry_id
+                                where catentrel.catreltype_id = 'PRODUCT_ITEM'
+                            ) catentryparent on catentry.catentry_id = catentryparent.catentry_id
+                           inner join
+                                (select catgpenrel.catentry_id, catgpenrel.catgroup_id, catgroup.identifier AS MASTER_PATH from catgpenrel
+                                    left join catgroup on catgroup.catgroup_id = catgpenrel.catgroup_id
+                                        where catgroup.catgroup_id IN
+                                        (
+                                            select catgroup_id_child from
+                                            (
+                                                select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel from catgrprel start with
+                                                catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN (${platform})) connect by prior
+                                                catgroup_id_child = catgroup_id_parent
+                                            ) cattree
+                                            left join catgroup on cattree.catgroup_id_parent = catgroup.catgroup_id
+                                            where catgroup.markfordelete = 0
+                                            UNION
+                                            select catgroup_id as catgroup_id_child from catgroup
+                                                where catgroup_id IN (select catgroup_id from catgroup where identifier IN (${platform}))
+                                        )
+                                    order by catgpenrel.catentry_id, catgroup.identifier
+                                ) catentrymaster on catentry.catentry_id = catentrymaster.catentry_id
+                            where catentry.markfordelete = 0
+                            order by
+                                case
+                                    when (catentryparent.orderkey IS NULL AND catentry.catenttype_id IN ('ProductBean','PackageBean','BundleBean'))
+                                        then (catentry.mfname || ' | ' || catentry.partnumber)
+                                    when (catentryparent.orderkey IS NULL AND catentry.catenttype_id IN ('ItemBean'))
+                                        then (catentry.mfname || ' | ' || 'ZZZ' || ' | ' || catentry.partnumber)
+                                    else (catentry.mfname || ' | ' || catentryparent.orderkey)
+                                end ASC
+
+                    ]]>
+              </_config:SQL>
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+                <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+                         select catentry.catentry_id, catentry.partnumber, catentry.mfname, catentdesc.shortdescription,
+                            case when catentry.onspecial = 0 THEN 'false' ELSE 'true' END AS onspecial,
+                            catentdesc.fullimage, catentdesc.keyword, catentry.mfpartnumber, catentdesc.name,
+                            case when catentry.buyable = 0 THEN 'false' ELSE 'true' END AS buyable,
+                            case catentdesc.published
+                                when 1 then 'true'
+                                when 0 then 'false'
+                            else 'false' END as displaytocustomer,
+                            seopagedefdesc.title, seopagedefdesc.meta_desc as METADESC, seopagedefdesc.meta_keyword as METAKEYWORD,
+                            catentdesc.longdescription,
+                            case when catentry.catenttype_id = 'ItemBean' then 'SKU'
+                                when catentry.catenttype_id = 'ProductBean' then 'Product'
+                                when catentry.catenttype_id = 'BundleBean' then 'Bundle'
+                                when catentry.catenttype_id = 'PackageBean' then 'Static Kit'
+                                when catentry.catenttype_id = 'DynamicKitBean' then 'Dynamic Kit'
+                                end as cattype,
+                            case catentsubs.disallow_rec_order
+                                when 1 then 'false'
+                                when 0 then 'true'
+                                else ''
+                                end as recurringorderitem,
+                            catclsfcod.code as UNSPSC, catentry.FIELD4 as HiddenCategory,
+                            catentry.STARTDATE as AnnouncementDate,
+                            catentry.ENDDATE as WithdrawalDate,
+                            catentryparent.parent_partnumber,
+                            catentrymaster.master_path,
+                            catentrysales.storename, catentrysales.sales_path,
+                            catentrycountry.EMRCountry,
+                            catentrytabsequence.EMRTabSequence
+                        --select count(catentry.catentry_id)
+                        from catentry
+                            left join catentdesc on (catentry.catentry_id = catentdesc.catentry_id and catentdesc.language_id = ?)
+                            left join catentsubs on catentry.catentry_id = catentsubs.catentry_id
+                            left join catclsfcod on catentry.catentry_id = catclsfcod.catentry_id
+                            left join seopagedef on seopagedef.pagename = CONCAT('PRODUCT_PAGE_' , catentry.catentry_id)
+                            left join seopagedefdesc on (seopagedefdesc.seopagedef_id = seopagedef.seopagedef_id and seopagedefdesc.language_id = ?)
+                            left join
+                                  (select (catentryparent.partnumber || ' | ' || catentry.partnumber) AS orderkey, catentry.catentry_id,
+                                    catentryparent.catentry_id as parent_id, catentryparent.partnumber as parent_partnumber, catentryparent.catenttype_id as parent_type
+                                    from catentrel
+                                    left join catentry on catentrel.catentry_id_child = catentry.catentry_id
+                                    left join catentry catentryparent on catentrel.catentry_id_parent = catentryparent.catentry_id
+                                    where catentrel.catreltype_id = 'PRODUCT_ITEM'
+                                ) catentryparent on catentry.catentry_id = catentryparent.catentry_id
+                            inner join
+                                (select catgpenrel.catentry_id, catgpenrel.catgroup_id, catgroup.identifier AS MASTER_PATH from catgpenrel
+                                    left join catgroup on catgroup.catgroup_id = catgpenrel.catgroup_id
+                                        where catgroup.catgroup_id IN
+                                        (
+                                            select catgroup_id_child from
+                                            (
+                                                select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel from catgrprel start with
+                                                catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN (${platform})) connect by prior
+                                                catgroup_id_child = catgroup_id_parent
+                                            ) cattree
+                                            left join catgroup on cattree.catgroup_id_parent = catgroup.catgroup_id
+                                            where catgroup.markfordelete = 0
+                                            UNION
+                                            select catgroup_id as catgroup_id_child from catgroup
+                                                where catgroup_id IN (select catgroup_id from catgroup where identifier IN (${platform}))
+                                        )
+                                    order by catgpenrel.catentry_id, catgroup.identifier
+                                ) catentrymaster on catentry.catentry_id = catentrymaster.catentry_id
+                            left join
+                                (select catentry_id, storename, LISTAGG(SALES_PATH, '|') within group (order by SALES_PATH) AS SALES_PATH from
+                                    (select catgpenrel.catentry_id, catgpenrel.catgroup_id,
+                                        case when storeent.identifier = 'InSinkErator' then 'ISE' else storeent.identifier end as STORENAME,
+                                        catgroup.identifier AS SALES_PATH from catgpenrel
+                                        left join catgroup on catgroup.catgroup_id = catgpenrel.catgroup_id
+                                        left join storecat on storecat.catalog_id = catgpenrel.catalog_id
+                                        left join storeent on storeent.storeent_id = storecat.storeent_id
+                                        where catgpenrel.catalog_id in (select catalog_id from catalog where identifier IN (${salescatalog}))
+                                        and catgroup.markfordelete = 0
+                                        order by catgpenrel.catentry_id, catgroup.identifier) group by catentry_id, storename
+                                ) catentrysales on catentry.catentry_id = catentrysales.catentry_id
+                            left join
+                                (select catentry_id, LISTAGG(attributevalue,'|') within group (order by multivalorderseq) AS EMRCountry from
+                                    (select catentryattr.catentry_id, attrvaldesc.value as attributevalue, catentryattr.sequence as multivalorderseq
+                                        from catentryattr
+                                            left join attr on catentryattr.attr_id = attr.attr_id
+                                            left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                                            left join (select * from attrvaldesc where attrvaldesc.language_id = -1) attrvaldesc
+                                                on attrvaldesc.attrval_id = attrval.attrval_id
+                                        where
+                                            attrvaldesc.language_id IS NOT NULL
+                                            and attr.identifier = 'EMR Country'
+                                        order by catentryattr.catentry_id) group by catentry_id
+                                 ) catentrycountry on catentry.catentry_id = catentrycountry.catentry_id
+                            left join
+                                (select catentry_id, LISTAGG(attributevalue,'|') within group (order by multivalorderseq) AS EMRTabSequence from
+                                    (select catentryattr.catentry_id, attrvaldesc.value as attributevalue, catentryattr.sequence as multivalorderseq
+                                        from catentryattr
+                                            left join attr on catentryattr.attr_id = attr.attr_id
+                                            left join attrval on catentryattr.attrval_id = attrval.attrval_id
+                                            left join (select * from attrvaldesc where attrvaldesc.language_id = -1) attrvaldesc
+                                                on attrvaldesc.attrval_id = attrval.attrval_id
+                                        where
+                                            attrvaldesc.language_id IS NOT NULL
+                                            and attr.identifier = 'EMR TabSequence'
+                                        order by catentryattr.catentry_id) group by catentry_id
+                                 ) catentrytabsequence on catentry.catentry_id = catentrytabsequence.catentry_id
+                            where catentry.markfordelete = 0 and catentry.catentry_id = ?
+                    ]]>
+              </_config:SQL>
+                    <_config:Param name="langId" valueFrom="BusinessContext" />
+                    <_config:Param name="langId" valueFrom="BusinessContext" />
+                    <_config:Param name="CATENTRY_ID" />
+                        <_config:ColumnMapping name="CATENTRY_ID" value="CATENTRY_ID" />
+                        <_config:ColumnMapping name="PARTNUMBER" value="PARTNUMBER" />
+                        <_config:ColumnMapping name="STORENAME" value="STORENAME" />
+                        <_config:ColumnMapping name="MASTER_PATH" value="MASTER_PATH" />
+                        <_config:ColumnMapping name="SALES_PATH" value="SALES_PATH" />
+                        <_config:ColumnMapping name="CATTYPE" value="CATTYPE" />
+                        <_config:ColumnMapping name="PARENT_PARTNUMBER" value="PARENT_PARTNUMBER" />
+                        <_config:ColumnMapping name="MFPARTNUMBER" value="MFPARTNUMBER" />
+                        <_config:ColumnMapping name="NAME" value="NAME" />
+                        <_config:ColumnMapping name="KEYWORD" value="KEYWORD" />
+                        <_config:ColumnMapping name="LONGDESCRIPTION" value="LONGDESCRIPTION" />
+                        <_config:ColumnMapping name="MFNAME" value="MFNAME" />
+                        <_config:ColumnMapping name="ONSPECIAL" value="ONSPECIAL" />
+                        <_config:ColumnMapping name="RECURRINGORDERITEM" value="RECURRINGORDERITEM" />
+                        <_config:ColumnMapping name="BUYABLE" value="BUYABLE" />
+                        <_config:ColumnMapping name="DISPLAYTOCUSTOMER" value="DISPLAYTOCUSTOMER" />
+                        <_config:ColumnMapping name="TITLE" value="TITLE" />
+                        <_config:ColumnMapping name="METADESC" value="METADESC" />
+                        <_config:ColumnMapping name="ANNOUNCEMENTDATE" value="ANNOUNCEMENTDATE" />
+                        <_config:ColumnMapping name="WITHDRAWALDATE" value="WITHDRAWALDATE" />
+                        <_config:ColumnMapping name="UNSPSC" value="UNSPSC" />
+                        <_config:ColumnMapping name="HIDDENCATEGORY" value="HIDDENCATEGORY" />
+                        <_config:ColumnMapping name="EMRCOUNTRY" value="EMRCOUNTRY" />
+                        <_config:ColumnMapping name="EMRTABSEQUENCE" value="EMRTABSEQUENCE" />
+                </_config:Query>
+
+                <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                    <_config:Data>
+                        <_config:column name="CATENTRY_ID" number="1"/>
+                        <_config:column name="PARTNUMBER" number="2"/>
+                        <_config:column name="STORENAME" number="3"/>
+                        <_config:column name="MASTER_PATH" number="4"/>
+                        <_config:column name="SALES_PATH" number="5"/>
+                        <_config:column name="CATTYPE" number="6"/>
+                        <_config:column name="PARENT_PARTNUMBER" number="7"/>
+                        <_config:column name="MFPARTNUMBER" number="8"/>
+                        <_config:column name="NAME" number="9"/>
+                        <_config:column name="KEYWORD" number="10"/>
+                        <_config:column name="LONGDESCRIPTION" number="11"/>
+                        <_config:column name="MFNAME" number="12"/>
+                        <_config:column name="ONSPECIAL" number="13"/>
+                        <_config:column name="RECURRINGORDERITEM" number="14"/>
+                        <_config:column name="BUYABLE" number="15"/>
+                        <_config:column name="DISPLAYTOCUSTOMER" number="16"/>
+                        <_config:column name="TITLE" number="17"/>
+                        <_config:column name="METADESC" number="18"/>
+                        <_config:column name="ANNOUNCEMENTDATE" number="19"/>
+                        <_config:column name="WITHDRAWALDATE" number="20"/>
+                        <_config:column name="UNSPSC" number="21"/>
+                        <_config:column name="HIDDENCATEGORY" number="22"/>
+                        <_config:column name="EMRCOUNTRY" number="23"/>
+                        <_config:column name="EMRTABSEQUENCE" number="24"/>
+                    </_config:Data>
+                </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

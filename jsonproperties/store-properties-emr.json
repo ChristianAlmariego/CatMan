@@ -1,0 +1,16 @@
+{
+	"storePath":"CatMan/",
+	"storePath_checker":"CatMan/Checker/",
+	"outputPath":"EMR/",
+	"storeID": "20151",
+	"supportedStores" : [
+	    { "name": "EMR" , "wcStoreIdentifier" : "EMR"},
+	    { "name": "FAN" , "wcStoreIdentifier" : "FAN"},
+	    { "name": "ProTeam" , "wcStoreIdentifier" : "ProTeam"},
+	    { "name": "WSV" , "wcStoreIdentifier" : "WSV"},
+	    { "name": "Climate" , "wcStoreIdentifier" : "Climate"},
+	    { "name": "ISE" , "wcStoreIdentifier" : "InSinkErator"},
+	    { "name": "Sensi" , "wcStoreIdentifier" : "Sensi"},
+	    { "name": "TEST" , "wcStoreIdentifier" : "EMR-OLD"}
+	]
+}

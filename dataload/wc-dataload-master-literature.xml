@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataload-env.xml" />
+
+        <_config:LoadOrder commitCount="1000" batchSize="500" dataLoadMode="Replace">
+        <_config:property name="firstTwoLinesAreHeader" value="true" />
+
+        <_config:LoadItem name="CatalogEntry" businessObjectConfigFile="wc-loader-catalog-entry.xml">
+          <_config:DataSourceLocation location="${outputLocation}catentry-output${batchfile}.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryName" businessObjectConfigFile="wc-loader-catalog-entry-name.xml">
+          <_config:DataSourceLocation location="${outputLocation}catentryname-output${batchfile}.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryPublished" businessObjectConfigFile="wc-loader-catalog-entry-published.xml">
+          <_config:DataSourceLocation location="${outputLocation}catentrypublished-output${batchfile}.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="AttrDictAttrAllowedValues" businessObjectConfigFile="wc-loader-attribute-allowed-values.xml">
+          <_config:DataSourceLocation location="${outputLocation}attrdictattrallowvals-output${batchfile}.csv" />
+        </_config:LoadItem>
+        <_config:LoadItem name="CatalogEntryAttrRel" businessObjectConfigFile="wc-loader-catalog-entry-attr-rel.xml">
+          <_config:DataSourceLocation location="${outputLocation}catentryattrrel-output${batchfile}.csv" />
+        </_config:LoadItem>
+    </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

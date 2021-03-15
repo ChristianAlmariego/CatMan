@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader" >
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+    				SELECT COLLIMGMAPAREA.COLLIMGMAPAREA_ID
+    				FROM COLLATERAL, COLLIMGMAPAREA
+    				WHERE STOREENT_ID = ? AND COLLATERAL.COLLATERAL_ID = COLLIMGMAPAREA.COLLATERAL_ID
+    				ORDER BY COLLATERAL.COLLATERAL_ID, COLLIMGMAPAREA.COLLIMGMAPAREA_ID
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator" >
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+					SELECT COLLATERAL.NAME, LANGUAGE_ID, COORDINATES, TITLE, ALT, SHAPE, SEQUENCE, TARGET, COLLIMGMAPAREA.URL, HTMLDEF, 
+					   COLLIMGMAPAREA.FIELD1, COLLIMGMAPAREA.FIELD2, COLLIMGMAPAREA.FIELD3, COLLIMGMAPAREA.FIELD4, COLLIMGMAPAREA.FIELD5
+					FROM COLLIMGMAPAREA JOIN COLLATERAL ON (COLLIMGMAPAREA.COLLATERAL_ID = COLLATERAL.COLLATERAL_ID)
+					WHERE COLLIMGMAPAREA.COLLIMGMAPAREA_ID = ?
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="COLLIMGMAPAREA_ID" />
+    	      
+    	      <_config:ColumnMapping name="NAME" value="contentName" />
+    	      <_config:ColumnMapping name="LANGUAGE_ID" value="languageId" />
+    	      <_config:ColumnMapping name="COORDINATES" value="coordinates" />
+    	      <_config:ColumnMapping name="TITLE" value="title" />
+    	      <_config:ColumnMapping name="ALT" value="altText" />
+    	      <_config:ColumnMapping name="SHAPE" value="shape" />
+    	      <_config:ColumnMapping name="SEQUENCE" value="sequence" />
+    	      <_config:ColumnMapping name="TARGET" value="target" />
+    	      <_config:ColumnMapping name="URL" value="url" >
+					    <_config:ValueHandler className="com.ibm.commerce.foundation.dataload.config.ConvertToExternalIdentifierValueHandler" >
+						    <_config:Parameter name="productId" value="SELECT PARTNUMBER FROM CATENTRY WHERE CATENTRY_ID = ?" valueFrom="Fixed" />
+						    <_config:Parameter name="categoryId" value="SELECT IDENTIFIER FROM CATGROUP WHERE CATGROUP_ID = ?" valueFrom="Fixed" />
+					    </_config:ValueHandler>
+    	      </_config:ColumnMapping>
+    	      <_config:ColumnMapping name="HTMLDEF" value="htmlDefinition" >
+					    <_config:ValueHandler className="com.ibm.commerce.foundation.dataload.config.ConvertToExternalIdentifierValueHandler" >
+						    <_config:Parameter name="productId" value="SELECT PARTNUMBER FROM CATENTRY WHERE CATENTRY_ID = ?" valueFrom="Fixed" />
+						    <_config:Parameter name="categoryId" value="SELECT IDENTIFIER FROM CATGROUP WHERE CATGROUP_ID = ?" valueFrom="Fixed" />
+					    </_config:ValueHandler>
+    	      </_config:ColumnMapping>
+    	      <_config:ColumnMapping name="FIELD1" value="field1" />
+    	      <_config:ColumnMapping name="FIELD2" value="field2" />
+    	      <_config:ColumnMapping name="FIELD3" value="field3" />
+    	      <_config:ColumnMapping name="FIELD4" value="field4" />
+    	      <_config:ColumnMapping name="FIELD5" value="field5" />
+    	    </_config:Query>
+        
+   		<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+      		<_config:Data>
+	     		  <_config:column number="1" name="contentName" />
+	      		<_config:column number="2" name="languageId" />
+	      		<_config:column number="3" name="coordinates" />
+	      		<_config:column number="4" name="title" />
+	      		<_config:column number="5" name="altText" />
+	      		<_config:column number="6" name="shape" />
+	      		<_config:column number="7" name="sequence" />
+	      		<_config:column number="8" name="target" />
+	      		<_config:column number="9" name="url" />
+	      		<_config:column number="10" name="htmlDefinition" />
+	      		<_config:column number="11" name="field1" />
+	      		<_config:column number="12" name="field2" />
+	      		<_config:column number="13" name="field3" />
+	      		<_config:column number="14" name="field4" />
+	      		<_config:column number="15" name="field5" />
+	      		<_config:column number="16" name="delete" value="0" />
+	    	</_config:Data>
+    	</_config:DataWriter>
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

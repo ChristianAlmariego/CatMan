@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+
+
+-->
+
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+
+                              SELECT 
+						CATENTRY.CATENTRY_ID, CATGPENREL.CATGROUP_ID
+				FROM
+								CATGPENREL
+				JOIN 
+								CATGROUP ON (CATGROUP.CATGROUP_ID = CATGPENREL.CATGROUP_ID)
+				JOIN 
+								CATENTRY ON (CATENTRY.CATENTRY_ID = CATGPENREL.CATENTRY_ID)
+				JOIN
+								STOREENT ON (STOREENT.MEMBER_ID = CATGROUP.MEMBER_ID)
+				WHERE 
+                   STOREENT.STOREENT_ID = ? AND  CATENTRY.MARKFORDELETE = 0 AND 
+						  CATGPENREL.CATENTRY_ID IN (
+               SELECT  CATENTRY.CATENTRY_ID
+				FROM
+								CATGPENREL
+				JOIN 
+								CATGROUP ON (CATGROUP.CATGROUP_ID = CATGPENREL.CATGROUP_ID)
+				JOIN 
+								CATENTRY ON (CATENTRY.CATENTRY_ID = CATGPENREL.CATENTRY_ID)
+				JOIN
+								STOREENT ON (STOREENT.MEMBER_ID = CATGROUP.MEMBER_ID)
+				WHERE 
+                                                                 
+						  CATGPENREL.CATGROUP_ID IN (
+
+                                        select catgroup_id_child from
+                                        (
+                                        select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel from catgrprel start with
+                                        catgroup_id_parent IN (select catgroup_id from catgroup where identifier IN ('M-Automation-Solutions')) connect by prior
+                                        catgroup_id_child = catgroup_id_parent
+                                        ) cattree
+                                        left join catgroup on cattree.catgroup_id_parent = catgroup.catgroup_id
+                                        where catgroup.markfordelete = 0
+                                        UNION
+                                        select catgroup_id as catgroup_id_child from catgroup
+                                        where catgroup_id IN (select catgroup_id from catgroup where identifier IN ('M-Automation-Solutions')) AND catgroup.markfordelete = 0) 
+              
+              )
+              
+                                        
+                    ]]>
+              </_config:SQL>
+               <_config:Param name="storeId" valueFrom="BusinessContext" />         
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+		  SELECT 
+						CATENTRY.CATENTRY_ID,	CATENTRY.PARTNUMBER, CATGROUP.IDENTIFIER GROUPIDENTIFIER, STOREENT.IDENTIFIER STOREIDENTIFIER, CATGPENREL.SEQUENCE
+				FROM
+								CATGPENREL
+				JOIN 
+								CATGROUP ON (CATGROUP.CATGROUP_ID = CATGPENREL.CATGROUP_ID)
+				JOIN 
+								CATENTRY ON (CATENTRY.CATENTRY_ID = CATGPENREL.CATENTRY_ID)
+				JOIN
+								STOREENT ON (STOREENT.MEMBER_ID = CATGROUP.MEMBER_ID)
+				WHERE 
+                                                 STOREENT.STOREENT_ID = ? AND  CATENTRY.MARKFORDELETE = 0 AND 
+						  CATGPENREL.CATENTRY_ID = ? AND CATGPENREL.CATGROUP_ID = ?
+              
+             
+                                        ]]>
+                                        </_config:SQL>
+
+                             <_config:Param name="storeId" valueFrom="BusinessContext" />         
+                             <_config:Param name="CATENTRY_ID" />
+                               <_config:Param name="CATGROUP_ID" />
+
+                                <_config:ColumnMapping name="PARTNUMBER" value="Code" />
+                                <_config:ColumnMapping name="GROUPIDENTIFIER" value="Sales Category Identifier" />
+                                <_config:ColumnMapping name="STOREIDENTIFIER" value="Store" />
+                                <_config:ColumnMapping name="SEQUENCE" value="Sequence" /> 
+             </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="Code" number="1"/>
+                                        <_config:column name="Sales Category Identifier" number="2"/>      
+                                          <_config:column name="Store" number="3"/>
+                                        <_config:column name="Sequence" number="4"/>
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

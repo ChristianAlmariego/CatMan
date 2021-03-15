@@ -1,0 +1,29 @@
+GroupIdentifier,ParentGroupIdentifier,ParentStoreIdentifier,Sequence,LanguageId,Name,ShortDescription,Delete
+Badges,,ProTeam,1,,,,1
+Product Descriptions,,ProTeam,2,-1,Product Description,Product Description,1
+Specifications,,ProTeam,3,-1,Specifications,Specifications,1
+Product Features Attributes,Specifications,ProTeam,1,-1,Product Features,Product Features,1
+Ratings,Specifications,ProTeam,2,,,,1
+Products Dimensions,Specifications,ProTeam,3,-1,Product Dimensions,Product Dimensions,1
+Tools Accessories,Specifications,ProTeam,4,-1,Tools and Accessories,Tools and Accessories,1
+Misc Specifications,Specifications,ProTeam,5,,,,1
+Whats in the Box,,ProTeam,4,-1,What's in the box,What's in the box,1
+Product Literature,,ProTeam,5,,,,1
+Videos,,ProTeam,6,,,,1
+ProTeam-CallToActionGroup,,ProTeam,3,-1,CallToActionGroup,Call To Action Group,0
+ProTeam-CarouselBadgeGroup,,ProTeam,3,-1,CarouselBadgeGroup,Carousel Overlay Action Group,0
+ProTeam-CertificationBadgeGroup,,ProTeam,3,-1,CertificationBadgeGroup,Certification Action Group,0
+ProTeam-DocumentsDrawingsGroup,,ProTeam,5,-1,DocumentsDrawingsGroup,Documents And Drawings Group,0
+ProTeam-FeaturesGroup,,ProTeam,3,-1,FeaturesGroup,Features Action Group,0
+ProTeam-MobileAppsGroup,,ProTeam,7,-1,MobileAppsGroup,Mobile Apps Group,0
+ProTeam-ProductFamilyGroup,,ProTeam,3,-1,ProductFamilyGroup,Product Family Group,0
+ProTeam-RatingsReviewsGroup,,ProTeam,8,-1,RatingsReviewsGroup,Ratings And Reviews Group,0
+ProTeam-RelatedProductsGroup,,ProTeam,9,-1,RelatedProductsGroup,Related Products Group,0
+ProTeam-SpecificationGroup,,ProTeam,4,-1,SpecificationGroup,Specification Action Group,0
+ProTeam-SpecificationGroup2,,ProTeam,4,-1,SpecificationGroup2,Specification Group 2,0
+ProTeam-SpecificationGroup3,,ProTeam,4,-1,SpecificationGroup3,Specification Group 3,0
+ProTeam-SpecificationGroup4,,ProTeam,4,-1,SpecificationGroup4,Specification Group 4,0
+ProTeam-TabAndContentGroup,,ProTeam,3,-1,TabAndContentGroup,Tab And Content Action Group,0
+ProTeam-TrainingServicesGroup,,ProTeam,6,-1,TrainingServicesGroup,Training And Services Group,0
+ProTeam-UtilityBeltGroup,,ProTeam,11,-1,UtilityBeltGroup,Utility Belt Action Group,0
+ProTeam-WhatsIncludedGroup,,ProTeam,10,-1,WhatsIncludedGroup,What's Included Group,0

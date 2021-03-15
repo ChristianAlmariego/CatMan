@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataextract-env.xml" />
+
+        <_config:LoadOrder commitCount="0" batchSize="0">
+        <_config:property name="firstLineIsHeader" value="true" />
+       
+        <!-- Extract all Sales Category of Automation Solution  -->        
+        <_config:LoadItem name="CatalogEntryParentCatalogGroupRelationshipAutoSol" businessObjectConfigFile="wc-extract-autosol-salescat-sequencing.xml">
+          <_config:DataOutputLocation location="${outputLocation}AutoSol_SalesSeq.csv" />
+        </_config:LoadItem>
+
+        <!-- Extract all Sales Category of Commercial & Residential  -->        
+        <_config:LoadItem name="CatalogEntryParentCatalogGroupRelationshipComRes" businessObjectConfigFile="wc-extract-comres-salescat-sequencing.xml">
+          <_config:DataOutputLocation location="${outputLocation}ComRes_SalesSeq.csv" />
+        </_config:LoadItem>
+
+
+    </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

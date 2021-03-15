@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader" >
+    	    <_config:Query>
+    	      <_config:SQL>
+	    	    <![CDATA[
+    				SELECT ATCHRELDSC_ID
+    				FROM ATCHRELDSC JOIN ATCHREL ON (ATCHREL.ATCHREL_ID = ATCHRELDSC.ATCHREL_ID)
+    				  JOIN ATCHTGT ON (ATCHTGT.ATCHTGT_ID = ATCHREL.ATCHTGT_ID)
+    				  JOIN ATCHOBJTYP ON (ATCHOBJTYP.ATCHOBJTYP_ID = ATCHREL.ATCHOBJTYP_ID)
+    				  JOIN COLLATERAL ON (COLLATERAL.COLLATERAL_ID = ATCHREL.BIGINTOBJECT_ID)
+    				WHERE COLLATERAL.STOREENT_ID = ? AND ATCHOBJTYP.IDENTIFIER = 'COLLATERAL'
+    				ORDER BY ATCHREL.ATCHTGT_ID, ATCHREL.ATCHREL_ID, LANGUAGE_ID
+    		    ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="storeId" valueFrom="BusinessContext" />
+    	    </_config:Query>
+    </_config:DataReader>
+
+    <_config:BusinessObjectBuilder>
+      <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator" >
+
+    	    <_config:Query>
+    	      <_config:SQL>
+    	    	<![CDATA[
+					SELECT ATCHTGT.IDENTIFIER AS TARGET_IDENTIFIER, ATCHOBJTYP.IDENTIFIER AS OBJTYPE_IDENTIFIER, 
+					   ATCHREL.BIGINTOBJECT_ID, ATCHRLUS.IDENTIFIER AS USAGE_IDENTIFIER,
+					   ATCHRELDSC.NAME, ATCHRELDSC.SHORTDESCRIPTION, ATCHRELDSC.LONGDESCRIPTION, ATCHRELDSC.LANGUAGE_ID
+					FROM ATCHRELDSC JOIN ATCHREL ON (ATCHREL.ATCHREL_ID = ATCHRELDSC.ATCHREL_ID) 
+					  JOIN ATCHTGT ON (ATCHTGT.ATCHTGT_ID = ATCHREL.ATCHTGT_ID)
+					  JOIN ATCHOBJTYP ON (ATCHOBJTYP.ATCHOBJTYP_ID = ATCHREL.ATCHOBJTYP_ID)
+					  JOIN ATCHRLUS ON (ATCHRLUS.ATCHRLUS_ID = ATCHREL.ATCHRLUS_ID)
+					WHERE ATCHRELDSC_ID IN (?) 
+    	   		 ]]>
+    	      </_config:SQL>
+    	      <_config:Param name="ATCHRELDSC_ID" />
+
+    	      <_config:ColumnMapping name="TARGET_IDENTIFIER" value="attachmentIdentifier" />
+    	      <_config:ColumnMapping name="OBJTYPE_IDENTIFIER" value="objectType" />
+    	      <_config:ColumnMapping name="BIGINTOBJECT_ID" value="contentName" >
+	      		<_config:ValueHandler className="com.ibm.commerce.foundation.dataload.config.ResolveValueBasedOnSQLHandler" >
+	      			<_config:Parameter name="sqlBasedOnKey" value="objectType" valueFrom="Fixed" />
+	      			<_config:Parameter name="COLLATERAL" value="SELECT NAME FROM COLLATERAL WHERE COLLATERAL_ID = ?" valueFrom="Fixed" />
+	      		</_config:ValueHandler>
+    	      </_config:ColumnMapping>
+    	      <_config:ColumnMapping name="USAGE_IDENTIFIER" value="usageName" />
+    	      <_config:ColumnMapping name="NAME" value="relationName" />
+    	      <_config:ColumnMapping name="SHORTDESCRIPTION" value="relationShortDescription" />
+    	      <_config:ColumnMapping name="LONGDESCRIPTION" value="relationLongDescription" />
+    	      <_config:ColumnMapping name="LANGUAGE_ID" value="languageId" />
+    	    </_config:Query>
+        
+   		<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+      		<_config:Data>
+	      		<_config:column number="1" name="contentName" />
+	     		  <_config:column number="2" name="attachmentIdentifier" />
+	      		<_config:column number="3" name="usageName" />
+	      		<_config:column number="4" name="relationName" />
+	      		<_config:column number="5" name="relationShortDescription" />
+	      		<_config:column number="6" name="relationLongDescription" />
+	      		<_config:column number="7" name="languageId" />
+						<_config:column number="8" name="delete" value="0" />
+	    	</_config:Data>
+    	</_config:DataWriter>
+      </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

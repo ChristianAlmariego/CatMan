@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+		<_config:Query>
+			<_config:SQL>
+				<![CDATA[
+				select PARTNUMBER from catentry where
+					catentry_id in (
+						select catentry_id from catentdesc
+							where language_id in (select language_id from language where country = '${countryCode}')
+							and published = 0
+							and catentry_id 
+								in (select catentry_id from catentryattr where attrval_id 
+									in (select attrval_id from attrvaldesc where language_id = -1 and attr_id 
+										in (select attr_id from attr where identifier = 'EMR Country') and value = '${countryCode}'))
+							group by catentry_id
+							having count(catentry_id) > 1)
+				]]>
+			</_config:SQL>         
+		</_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+					<_config:Query>
+						<_config:SQL>
+							<![CDATA[
+								SELECT 
+									PARTNUMBER, CATENTTYPE_ID 
+								FROM
+									CATENTRY
+								WHERE
+									PARTNUMBER = ?
+							]]>
+						</_config:SQL> 
+							
+						<_config:Param name="PARTNUMBER" />
+							
+						<_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+						<_config:ColumnMapping name="CATENTTYPE_ID" value="CatEntryTypeId" />
+					</_config:Query>
+
+					<_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+						<_config:Data>
+							<_config:column name="PartNumber" number="1"/>
+							<_config:column name="CatEntryTypeId" number="2"/>
+						</_config:Data>
+					</_config:DataWriter>
+
+        		</_config:BusinessObjectMediator>
+    	</_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/wc-dataload.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+        <_config:DataLoadEnvironment configFile="${envPath}wc-dataload-env.xml" />
+
+        <_config:LoadOrder commitCount="1000" batchSize="500" maxError="500000" dataLoadMode="Replace">
+          <_config:property name="firstTwoLinesAreHeader" value="true" />
+
+          <_config:LoadItem name="CatalogEntry" businessObjectConfigFile="wc-loader-catalog-entry.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentry-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryMasterCategory" businessObjectConfigFile="wc-loader-catalog-entry-catgrp-rel.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrycatgrprel-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryAnnouncementDate" businessObjectConfigFile="wc-loader-catalog-entry-announcement-date.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryannouncementdate-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryWithdrawalDate" businessObjectConfigFile="wc-loader-catalog-entry-withdrawal-date.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrywithdrawdate-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryOnSpecial" businessObjectConfigFile="wc-loader-catalog-entry-on-special.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryonspecial-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryForPurchase" businessObjectConfigFile="wc-loader-catalog-entry-for-purchase.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryforpurchase-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryPrice" businessObjectConfigFile="wc-loader-catalog-entry-price.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryprice-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryURL" businessObjectConfigFile="wc-loader-catalog-entry-url.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryurl-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntrySubs" businessObjectConfigFile="wc-loader-catalog-entry-subs.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrysubs-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryRecOrder" businessObjectConfigFile="wc-loader-catalog-entry-rec-order.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryrecorder-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryPublished" businessObjectConfigFile="wc-loader-catalog-entry-published.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrypublished-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryName" businessObjectConfigFile="wc-loader-catalog-entry-name.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryname-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryLongDesc" businessObjectConfigFile="wc-loader-catalog-entry-long-desc.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrylongdesc-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryKeyword" businessObjectConfigFile="wc-loader-catalog-entry-keyword.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrykeyword-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="AttrDictAttrAllowedValues" businessObjectConfigFile="wc-loader-attribute-allowed-values.xml">
+            <_config:DataSourceLocation location="${outputLocation}attrdictattrallowvals-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryAttrRel" businessObjectConfigFile="wc-loader-catalog-entry-attr-rel.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryattrrel-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryAttrRelSingle" businessObjectConfigFile="wc-loader-catalog-entry-attr-rel-single.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryattrrel-single-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryAssoc" businessObjectConfigFile="wc-loader-catalog-entry-assoc.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryassoc-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryMAssoc" businessObjectConfigFile="wc-loader-catalog-entry-assoc.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrycomp-massoc-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryComponent" businessObjectConfigFile="wc-loader-catalog-entry-component.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrycomponent-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryClassificationCode" businessObjectConfigFile="wc-loader-catalog-entry-classification-code.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryclassificationcode-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryHiddenFamilyCategory" businessObjectConfigFile="wc-loader-catalog-entry-hidden-family-category.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryhiddenfamilycategory-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryCatEntRelSeq" businessObjectConfigFile="wc-loader-catalog-entry-catent-rel-seq.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentrycatentrelseq-output${batchfile}.csv" />
+          </_config:LoadItem>
+          <_config:LoadItem name="CatalogEntryHideAttributes" businessObjectConfigFile="wc-loader-catalog-entry-attr-rel.xml">
+            <_config:DataSourceLocation location="${outputLocation}catentryattrrel-hide-output${batchfile}.csv" />
+          </_config:LoadItem>
+    </_config:LoadOrder>
+
+</_config:DataLoadConfiguration>

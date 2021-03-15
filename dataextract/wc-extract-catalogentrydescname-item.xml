@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								CATENTRY.CATENTRY_ID, CATENTDESC.LANGUAGE_ID
+				FROM
+								CATENTRY
+				JOIN 
+								CATENTDESC ON (CATENTDESC.CATENTRY_ID = CATENTRY.CATENTRY_ID)
+				WHERE
+								CATENTRY.MARKFORDELETE = 0
+									AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+									AND CATENTDESC.LANGUAGE_ID = ?
+									AND CATENTRY.PARTNUMBER IN (${partNumber})
+									AND (CATENTDESC.NAME IS NOT NULL OR CATENTDESC.THUMBNAIL IS NOT NULL 
+									OR CATENTDESC.FULLIMAGE IS NOT NULL OR CATENTDESC.AUXDESCRIPTION1 IS NOT NULL
+									OR CATENTDESC.AUXDESCRIPTION2 IS NOT NULL)
+				ORDER BY
+								CATENTRY.PARTNUMBER, CATENTDESC.LANGUAGE_ID DESC
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+              <_config:Param name="langId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+                SELECT
+                                CATENTRY.PARTNUMBER, CATENTDESC.LANGUAGE_ID, CATENTDESC.NAME,
+                                CATENTDESC.SHORTDESCRIPTION, CATENTDESC.LONGDESCRIPTION,
+                                CATENTDESC.THUMBNAIL, CATENTDESC.FULLIMAGE, CATENTDESC.AUXDESCRIPTION1,
+                                CATENTDESC.AUXDESCRIPTION2, CATENTDESC.AVAILABLE, CATENTDESC.PUBLISHED,
+                                CATENTDESC.AVAILABILITYDATE, CATENTDESC.KEYWORD
+                FROM
+                                CATENTRY
+                JOIN
+                                CATENTDESC ON (CATENTDESC.CATENTRY_ID = CATENTRY.CATENTRY_ID)
+                WHERE
+                                CATENTRY.CATENTRY_ID = ? AND CATENTDESC.LANGUAGE_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="CATENTRY_ID" />
+                <_config:Param name="LANGUAGE_ID" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                                <_config:ColumnMapping name="NAME" value="Name" />
+                                <_config:ColumnMapping name="THUMBNAIL" value="Thumbnail" />
+                                <_config:ColumnMapping name="FULLIMAGE" value="FullImage" />
+                                <_config:ColumnMapping name="AUXDESCRIPTION1" value="AuxDescription1" />
+                                <_config:ColumnMapping name="AUXDESCRIPTION2" value="AuxDescription2" />
+                                <_config:ColumnMapping name="AVAILABLE" value="Available" />
+                                <_config:ColumnMapping name="AVAILABILITYDATE" value="AvailabilityDate" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                        <_config:column name="LanguageId" number="2"/>
+                                        <_config:column name="Name" number="3"/>
+                                        <_config:column name="Thumbnail" number="4"/>
+                                        <_config:column name="FullImage" number="5"/>
+                                        <_config:column name="AuxDescription1" number="6"/>
+                                        <_config:column name="AuxDescription2" number="7"/>
+                                        <_config:column name="Available" number="8"/>
+                                        <_config:column name="AvailabilityDate" number="9"/>
+                                        <_config:column name="Delete" number="10" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

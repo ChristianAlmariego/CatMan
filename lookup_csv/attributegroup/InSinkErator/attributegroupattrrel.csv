@@ -1,0 +1,184 @@
+AttributeIdentifier,AttributeGroupIdentifier,ParentStoreIdentifier,Sequence,Delete
+EMR Certification Badge 1,InSinkErator-CertificationBadgeGroup,EmersonCAS,0,0
+EMR Certification Badge 2,InSinkErator-CertificationBadgeGroup,EmersonCAS,1,0
+EMR Certification Badge 3,InSinkErator-CertificationBadgeGroup,EmersonCAS,2,0
+EMR Certification Badge 4,InSinkErator-CertificationBadgeGroup,EmersonCAS,3,0
+EMR Certification Badge 5,InSinkErator-CertificationBadgeGroup,EmersonCAS,4,0
+EMR Certification Badge 6,InSinkErator-CertificationBadgeGroup,EmersonCAS,5,0
+EMR Certifications,InSinkErator-CertificationBadgeGroup,EmersonCAS,6,0
+EMR Access Portal CTA,InSinkErator-CallToActionGroup,EmersonCAS,0,0
+EMR Check Availablity CTA,InSinkErator-CallToActionGroup,EmersonCAS,4,0
+EMR Check Order Status CTA,InSinkErator-CallToActionGroup,EmersonCAS,5,0
+EMR Configure CTA,InSinkErator-CallToActionGroup,EmersonCAS,6,0
+EMR Consult an Expert CTA,InSinkErator-CallToActionGroup,EmersonCAS,7,0
+EMR Contact Sales CTA,InSinkErator-CallToActionGroup,EmersonCAS,8,0
+EMR Contact Us CTA,InSinkErator-CallToActionGroup,EmersonCAS,9,0
+EMR Download Drawing CTA,InSinkErator-CallToActionGroup,EmersonCAS,11,0
+EMR Download Software CTA,InSinkErator-CallToActionGroup,EmersonCAS,12,0
+EMR Learn About CTA,InSinkErator-CallToActionGroup,EmersonCAS,13,0
+EMR Request Quote CTA,InSinkErator-CallToActionGroup,EmersonCAS,14,0
+EMR Select CTA,InSinkErator-CallToActionGroup,EmersonCAS,15,0
+EMR Size CTA,InSinkErator-CallToActionGroup,EmersonCAS,16,0
+EMR View Courses CTA,InSinkErator-CallToActionGroup,EmersonCAS,19,0
+EMR Where to Buy CTA,InSinkErator-CallToActionGroup,EmersonCAS,20,0
+EMR Email Us CTA,InSinkErator-CallToActionGroup,EmersonCAS,21,0
+EMR Find Product Information CTA,InSinkErator-CallToActionGroup,EmersonCAS,22,0
+EMR Watch Video CTA,InSinkErator-CallToActionGroup,EmersonCAS,23,0
+EMR Find a Pro Installer CTA,InSinkErator-CallToActionGroup,EmersonCAS,24,0
+EMR View Replacement CTA,InSinkErator-CallToActionGroup,EmersonCAS,25,0
+EMR View Drawing CTA,InSinkErator-CallToActionGroup,EmersonCAS,26,0
+EMR View Animation CTA,InSinkErator-CallToActionGroup,EmersonCAS,27,0
+EMR View in OPI CTA,InSinkErator-CallToActionGroup,EmersonCAS,29,0
+EMR View in Select CTA,InSinkErator-CallToActionGroup,EmersonCAS,30,0
+EMR View Performance Data CTA,InSinkErator-CallToActionGroup,EmersonCAS,31,0
+EMR Lighting Calculator CTA,InSinkErator-CallToActionGroup,EmersonCAS,34,0
+EMR Select Online CTA,InSinkErator-CallToActionGroup,EmersonCAS,35,0
+EMR Spare Parts CTA,InSinkErator-CallToActionGroup,EmersonCAS,36,0
+EMR Controls Navigator CTA,InSinkErator-CallToActionGroup,EmersonCAS,39,0
+EMR Request More Information,InSinkErator-CallToActionGroup,EmersonCAS,40,0
+EMR Update Professional Version,InSinkErator-CallToActionGroup,EmersonCAS,41,0
+EMR Technology Overview,InSinkErator-CallToActionGroup,EmersonCAS,42,0
+EMR Calculate Line Size,InSinkErator-CallToActionGroup,EmersonCAS,43,0
+EMR Select Line Size,InSinkErator-CallToActionGroup,EmersonCAS,44,0
+EMR Purchase Software,InSinkErator-CallToActionGroup,EmersonCAS,45,0
+EMR Download Basic Version,InSinkErator-CallToActionGroup,EmersonCAS,46,0
+EMR Training CTA,InSinkErator-TrainingServicesGroup,EmersonCAS,17,0
+EMR Generic Spec 1 Label,InSinkErator-SpecificationGroup,EmersonCAS,0,0
+EMR Generic Spec 1 Value,InSinkErator-SpecificationGroup,EmersonCAS,1,0
+EMR Generic Spec 2 Label,InSinkErator-SpecificationGroup,EmersonCAS,2,0
+EMR Generic Spec 2 Value,InSinkErator-SpecificationGroup,EmersonCAS,3,0
+EMR Generic Spec 3 Label,InSinkErator-SpecificationGroup,EmersonCAS,4,0
+EMR Generic Spec 3 Value,InSinkErator-SpecificationGroup,EmersonCAS,5,0
+EMR Generic Spec 4 Label,InSinkErator-SpecificationGroup,EmersonCAS,6,0
+EMR Generic Spec 4 Value,InSinkErator-SpecificationGroup,EmersonCAS,7,0
+EMR Generic Spec 5 Label,InSinkErator-SpecificationGroup,EmersonCAS,8,0
+EMR Generic Spec 5 Value,InSinkErator-SpecificationGroup,EmersonCAS,9,0
+EMR Generic Spec 6 Label,InSinkErator-SpecificationGroup,EmersonCAS,10,0
+EMR Generic Spec 6 Value,InSinkErator-SpecificationGroup,EmersonCAS,11,0
+EMR Generic Spec 7 Label,InSinkErator-SpecificationGroup,EmersonCAS,12,0
+EMR Generic Spec 7 Value,InSinkErator-SpecificationGroup,EmersonCAS,13,0
+EMR Generic Spec 8 Label,InSinkErator-SpecificationGroup,EmersonCAS,14,0
+EMR Generic Spec 8 Value,InSinkErator-SpecificationGroup,EmersonCAS,15,0
+EMR Generic Spec 9 Label,InSinkErator-SpecificationGroup,EmersonCAS,16,0
+EMR Generic Spec 9 Value,InSinkErator-SpecificationGroup,EmersonCAS,17,0
+EMR Generic Spec 10 Label,InSinkErator-SpecificationGroup,EmersonCAS,18,0
+EMR Generic Spec 10 Value,InSinkErator-SpecificationGroup,EmersonCAS,19,0
+EMR Generic Spec 11 Label,InSinkErator-SpecificationGroup,EmersonCAS,20,0
+EMR Generic Spec 11 Value,InSinkErator-SpecificationGroup,EmersonCAS,21,0
+EMR Generic Spec 12 Label,InSinkErator-SpecificationGroup,EmersonCAS,22,0
+EMR Generic Spec 12 Value,InSinkErator-SpecificationGroup,EmersonCAS,23,0
+EMR Generic Spec 13 Label,InSinkErator-SpecificationGroup,EmersonCAS,24,0
+EMR Generic Spec 13 Value,InSinkErator-SpecificationGroup,EmersonCAS,25,0
+EMR Generic Spec 14 Label,InSinkErator-SpecificationGroup,EmersonCAS,26,0
+EMR Generic Spec 14 Value,InSinkErator-SpecificationGroup,EmersonCAS,27,0
+EMR Generic Spec 15 Label,InSinkErator-SpecificationGroup,EmersonCAS,28,0
+EMR Generic Spec 15 Value,InSinkErator-SpecificationGroup,EmersonCAS,29,0
+EMR Generic Spec 16 Label,InSinkErator-SpecificationGroup,EmersonCAS,30,0
+EMR Generic Spec 16 Value,InSinkErator-SpecificationGroup,EmersonCAS,31,0
+EMR Generic Spec 17 Label,InSinkErator-SpecificationGroup,EmersonCAS,32,0
+EMR Generic Spec 17 Value,InSinkErator-SpecificationGroup,EmersonCAS,33,0
+EMR Generic Spec 18 Label,InSinkErator-SpecificationGroup,EmersonCAS,34,0
+EMR Generic Spec 18 Value,InSinkErator-SpecificationGroup,EmersonCAS,35,0
+EMR Generic Spec 19 Label,InSinkErator-SpecificationGroup,EmersonCAS,36,0
+EMR Generic Spec 19 Value,InSinkErator-SpecificationGroup,EmersonCAS,37,0
+EMR Generic Spec 20 Label,InSinkErator-SpecificationGroup,EmersonCAS,38,0
+EMR Generic Spec 20 Value,InSinkErator-SpecificationGroup,EmersonCAS,39,0
+EMR Generic Spec 21 Label,InSinkErator-SpecificationGroup,EmersonCAS,40,0
+EMR Generic Spec 21 Value,InSinkErator-SpecificationGroup,EmersonCAS,41,0
+EMR Generic Spec 22 Label,InSinkErator-SpecificationGroup,EmersonCAS,42,0
+EMR Generic Spec 22 Value,InSinkErator-SpecificationGroup,EmersonCAS,43,0
+EMR Generic Spec 23 Label,InSinkErator-SpecificationGroup,EmersonCAS,44,0
+EMR Generic Spec 23 Value,InSinkErator-SpecificationGroup,EmersonCAS,45,0
+EMR Generic Spec 24 Label,InSinkErator-SpecificationGroup,EmersonCAS,46,0
+EMR Generic Spec 24 Value,InSinkErator-SpecificationGroup,EmersonCAS,47,0
+EMR Generic Spec 25 Label,InSinkErator-SpecificationGroup,EmersonCAS,48,0
+EMR Generic Spec 25 Value,InSinkErator-SpecificationGroup,EmersonCAS,49,0
+EMR Group1Header,InSinkErator-SpecificationGroup,EmersonCAS,50,0
+EMR Group1SpecLabel,InSinkErator-SpecificationGroup,EmersonCAS,51,0
+EMR Group1SpecValue,InSinkErator-SpecificationGroup,EmersonCAS,52,0
+EMR Group2Header,InSinkErator-SpecificationGroup2,EmersonCAS,0,0
+EMR Group2SpecLabel,InSinkErator-SpecificationGroup2,EmersonCAS,1,0
+EMR Group2SpecValue,InSinkErator-SpecificationGroup2,EmersonCAS,2,0
+EMR Group3Header,InSinkErator-SpecificationGroup3,EmersonCAS,0,0
+EMR Group3SpecLabel,InSinkErator-SpecificationGroup3,EmersonCAS,1,0
+EMR Group3SpecValue,InSinkErator-SpecificationGroup3,EmersonCAS,2,0
+EMR Group4Header,InSinkErator-SpecificationGroup4,EmersonCAS,0,0
+EMR Group4SpecLabel,InSinkErator-SpecificationGroup4,EmersonCAS,1,0
+EMR Group4SpecValue,InSinkErator-SpecificationGroup4,EmersonCAS,2,0
+EMR Utility Belt_Access Portal,InSinkErator-UtilityBeltGroup,EmersonCAS,0,0
+EMR Utility Belt_Buy Now,InSinkErator-UtilityBeltGroup,EmersonCAS,3,0
+EMR Utility Belt_Calculate,InSinkErator-UtilityBeltGroup,EmersonCAS,4,0
+EMR Utility Belt_Check Order Status,InSinkErator-UtilityBeltGroup,EmersonCAS,5,0
+EMR Utility Belt_Click to Chat,InSinkErator-UtilityBeltGroup,EmersonCAS,6,0
+EMR Utility Belt_Configure,InSinkErator-UtilityBeltGroup,EmersonCAS,7,0
+EMR Utility Belt_Contact Local Partner,InSinkErator-UtilityBeltGroup,EmersonCAS,8,0
+EMR Utility Belt_Contact Sales,InSinkErator-UtilityBeltGroup,EmersonCAS,9,0
+EMR Utility Belt_Contact Service,InSinkErator-UtilityBeltGroup,EmersonCAS,10,0
+EMR Utility Belt_Contact Support,InSinkErator-UtilityBeltGroup,EmersonCAS,11,0
+EMR Utility Belt_Contact Us,InSinkErator-UtilityBeltGroup,EmersonCAS,12,0
+EMR Utility Belt_Download Software,InSinkErator-UtilityBeltGroup,EmersonCAS,14,0
+EMR Utility Belt_Find a Store,InSinkErator-UtilityBeltGroup,EmersonCAS,15,0
+EMR Utility Belt_Register Product,InSinkErator-UtilityBeltGroup,EmersonCAS,16,0
+EMR Utility Belt_Request Quote,InSinkErator-UtilityBeltGroup,EmersonCAS,18,0
+EMR Utility Belt_Select,InSinkErator-UtilityBeltGroup,EmersonCAS,19,0
+EMR Utility Belt_Visit our Blog,InSinkErator-UtilityBeltGroup,EmersonCAS,21,0
+EMR Utility Belt_Where to Buy,InSinkErator-UtilityBeltGroup,EmersonCAS,22,0
+EMR Utility Belt_Cross Reference and Product Information,InSinkErator-UtilityBeltGroup,EmersonCAS,23,0
+EMR Utility Belt_MyEmerson Sign In,InSinkErator-UtilityBeltGroup,EmersonCAS,24,0
+EMR Utility Belt_Select Online,InSinkErator-UtilityBeltGroup,EmersonCAS,25,0
+EMR Utility Belt_Controls Navigator,InSinkErator-UtilityBeltGroup,EmersonCAS,26,0
+EMR Features,InSinkErator-FeaturesGroup,EmersonCAS,0,0
+EMR TabSequence,InSinkErator-TabAndContentGroup,EmersonCAS,0,0
+EMR Product Family 1,InSinkErator-ProductFamilyGroup,EmersonCAS,1,0
+EMR Product Family 2,InSinkErator-ProductFamilyGroup,EmersonCAS,2,0
+EMR Product Family 3,InSinkErator-ProductFamilyGroup,EmersonCAS,3,0
+EMR Product Family 4,InSinkErator-ProductFamilyGroup,EmersonCAS,4,0
+EMR Product Family 5,InSinkErator-ProductFamilyGroup,EmersonCAS,5,0
+EMR Product Family 6,InSinkErator-ProductFamilyGroup,EmersonCAS,6,0
+EMR Product Family 7,InSinkErator-ProductFamilyGroup,EmersonCAS,7,0
+EMR Product Family 8,InSinkErator-ProductFamilyGroup,EmersonCAS,8,0
+EMR Product Family 9,InSinkErator-ProductFamilyGroup,EmersonCAS,9,0
+EMR Product Family 10,InSinkErator-ProductFamilyGroup,EmersonCAS,10,0
+EMR Product Family 11,InSinkErator-ProductFamilyGroup,EmersonCAS,11,0
+EMR Product Family 12,InSinkErator-ProductFamilyGroup,EmersonCAS,12,0
+EMR Product Family 13,InSinkErator-ProductFamilyGroup,EmersonCAS,13,0
+EMR Product Family 14,InSinkErator-ProductFamilyGroup,EmersonCAS,14,0
+EMR Product Family 15,InSinkErator-ProductFamilyGroup,EmersonCAS,15,0
+EMR Product Family 16,InSinkErator-ProductFamilyGroup,EmersonCAS,16,0
+EMR Product Family 17,InSinkErator-ProductFamilyGroup,EmersonCAS,17,0
+EMR Product Family 18,InSinkErator-ProductFamilyGroup,EmersonCAS,18,0
+EMR Product Family 19,InSinkErator-ProductFamilyGroup,EmersonCAS,19,0
+EMR Product Family 20,InSinkErator-ProductFamilyGroup,EmersonCAS,20,0
+EMR Product Family 21,InSinkErator-ProductFamilyGroup,EmersonCAS,21,0
+EMR Product Family 22,InSinkErator-ProductFamilyGroup,EmersonCAS,22,0
+EMR Product Family 23,InSinkErator-ProductFamilyGroup,EmersonCAS,23,0
+EMR Product Family 24,InSinkErator-ProductFamilyGroup,EmersonCAS,24,0
+EMR Product Family 25,InSinkErator-ProductFamilyGroup,EmersonCAS,25,0
+EMR Product Family 26,InSinkErator-ProductFamilyGroup,EmersonCAS,26,0
+EMR Product Family 27,InSinkErator-ProductFamilyGroup,EmersonCAS,27,0
+EMR Product Family 28,InSinkErator-ProductFamilyGroup,EmersonCAS,28,0
+EMR Product Family 29,InSinkErator-ProductFamilyGroup,EmersonCAS,29,0
+EMR Product Family 30,InSinkErator-ProductFamilyGroup,EmersonCAS,30,0
+EMR Product Family 31,InSinkErator-ProductFamilyGroup,EmersonCAS,31,0
+EMR Product Family 32,InSinkErator-ProductFamilyGroup,EmersonCAS,32,0
+EMR Buy Now CTA,InSinkErator-CallToActionGroup,EmersonCAS,1,1
+EMR Calculate CTA,InSinkErator-CallToActionGroup,EmersonCAS,2,1
+EMR Chat Now CTA,InSinkErator-CallToActionGroup,EmersonCAS,3,1
+EMR Download Device File CTA,InSinkErator-CallToActionGroup,EmersonCAS,10,1
+EMR Training CTA,InSinkErator-CallToActionGroup,EmersonCAS,17,1
+EMR View Compatibility CTA,InSinkErator-CallToActionGroup,EmersonCAS,18,1
+EMR View Online Help CTA,InSinkErator-CallToActionGroup,EmersonCAS,28,1
+EMR View Services CTA,InSinkErator-CallToActionGroup,EmersonCAS,32,1
+EMR All Services CTA,InSinkErator-CallToActionGroup,EmersonCAS,33,1
+EMR Search Cross Reference CTA,InSinkErator-CallToActionGroup,EmersonCAS,37,1
+EMR Advise CTA,InSinkErator-CallToActionGroup,EmersonCAS,38,1
+EMR Utility Belt_Access Training,InSinkErator-UtilityBeltGroup,EmersonCAS,1,1
+EMR Utility Belt_Advise,InSinkErator-UtilityBeltGroup,EmersonCAS,2,1
+EMR Utility Belt_Download App,InSinkErator-UtilityBeltGroup,EmersonCAS,13,1
+EMR Utility Belt_Request Demo,InSinkErator-UtilityBeltGroup,EmersonCAS,17,1
+EMR Utility Belt_Size,InSinkErator-UtilityBeltGroup,EmersonCAS,20,1
+EMR Utility Belt_Support and Warranty Information,InSinkErator-UtilityBeltGroup,EmersonCAS,23,1
+EMR Utility Belt_Cross Reference and Product Information,InSinkErator-UtilityBeltGroup,EmersonCAS,24,1
+EMR Utility Belt_MyEmerson Sign In,InSinkErator-UtilityBeltGroup,EmersonCAS,25,1
+EMR Utility Belt_Select Online,InSinkErator-UtilityBeltGroup,EmersonCAS,26,1
+EMR Utility Belt_Controls Navigator,InSinkErator-UtilityBeltGroup,EmersonCAS,27,1

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+      =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataloadBusinessObjectConfiguration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../WC/xml/config/xsd/wc-dataload-businessobject.xsd"
+        xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoader className="com.ibm.commerce.foundation.dataload.BusinessObjectLoader">
+    <_config:DataReader className="com.ibm.commerce.foundation.dataload.datareader.UniqueIdReader">
+            <_config:Query>
+              <_config:SQL>
+                    <![CDATA[
+				SELECT
+								CATENTRY.CATENTRY_ID, CATENTDESC.LANGUAGE_ID
+				FROM
+								CATENTRY
+				JOIN 
+								CATENTDESC ON (CATENTDESC.CATENTRY_ID = CATENTRY.CATENTRY_ID)
+				WHERE
+								CATENTRY.MARKFORDELETE = 0
+									AND CATENTRY.MEMBER_ID = (SELECT MEMBER_ID FROM STOREENT WHERE STOREENT_ID = ?)
+									AND CATENTDESC.LANGUAGE_ID IN (-1,?)
+									AND CATENTRY.CATENTRY_ID IN (SELECT CATENTRY_ID
+										FROM CATGPENREL
+										JOIN (SELECT CATGROUP_ID, 0 LVL
+										FROM CATTOGRP
+										WHERE CATALOG_ID = 10001 AND CATGROUP_ID IN (SELECT CATGROUP_ID FROM CATGROUP WHERE IDENTIFIER IN (${catGroupId}))
+										UNION
+										SELECT DISTINCT CATGROUP_ID_CHILD CATGROUP_ID, 0 LVL
+										FROM CATGRPREL
+										WHERE CATALOG_ID = 10001 AND CATGROUP_ID_CHILD IN (SELECT CATGROUP_ID FROM CATGROUP WHERE IDENTIFIER IN (${catGroupId}))
+										UNION
+										SELECT DISTINCT CATGROUP_ID_CHILD CATGROUP_ID, LEVEL LVL
+										FROM CATGRPREL
+										WHERE CATALOG_ID = 10001
+										START WITH CATGROUP_ID_PARENT IN (SELECT CATGROUP_ID FROM CATGROUP WHERE IDENTIFIER IN (${catGroupId}))
+										CONNECT BY PRIOR CATGROUP_ID_CHILD = CATGROUP_ID_PARENT) CGU ON (CATGPENREL.CATGROUP_ID = CGU.CATGROUP_ID))
+									AND (CATENTDESC.NAME IS NOT NULL OR CATENTDESC.SHORTDESCRIPTION IS NOT NULL OR CATENTDESC.LONGDESCRIPTION IS NOT NULL
+									OR CATENTDESC.THUMBNAIL IS NOT NULL OR CATENTDESC.FULLIMAGE IS NOT NULL OR CATENTDESC.AUXDESCRIPTION1 IS NOT NULL
+									OR CATENTDESC.AUXDESCRIPTION2 IS NOT NULL OR CATENTDESC.KEYWORD IS NOT NULL)
+				ORDER BY
+								CATENTRY.PARTNUMBER, CATENTDESC.LANGUAGE_ID DESC
+                    ]]>
+              </_config:SQL>
+              <_config:Param name="storeId" valueFrom="BusinessContext" />
+              <_config:Param name="langId" valueFrom="BusinessContext" />
+            </_config:Query>
+
+    </_config:DataReader>
+        <_config:BusinessObjectBuilder className="com.ibm.commerce.foundation.dataload.businessobjectbuilder.PassThroughBusinessObjectBuilder">
+                <_config:BusinessObjectMediator className="com.ibm.commerce.foundation.dataload.businessobjectmediator.AssociatedObjectMediator">
+
+                        <_config:Query>
+                                <_config:SQL>
+                                        <![CDATA[
+                SELECT
+                                CATENTRY.PARTNUMBER, CATENTDESC.LANGUAGE_ID, CATENTDESC.NAME,
+                                CATENTDESC.SHORTDESCRIPTION, CATENTDESC.LONGDESCRIPTION,
+                                CATENTDESC.THUMBNAIL, CATENTDESC.FULLIMAGE, CATENTDESC.AUXDESCRIPTION1,
+                                CATENTDESC.AUXDESCRIPTION2, CATENTDESC.AVAILABLE, CATENTDESC.PUBLISHED,
+                                CATENTDESC.AVAILABILITYDATE, CATENTDESC.KEYWORD,
+                                SEO.URLKEYWORD, SEOPAGEDEFDESC.TITLE, SEOPAGEDEFDESC.META_DESC,
+								catentrymaster.master_path
+                                
+                FROM
+                                CATENTRY
+      										    inner join
+										        (select catgpenrel.catentry_id, catgpenrel.catgroup_id, catgroup.identifier AS MASTER_PATH from catgpenrel 
+										            left join catgroup on catgroup.catgroup_id = catgpenrel.catgroup_id
+										            where catgroup.catgroup_id IN
+										            (
+										              select catgroup_id_child from
+										                (
+										                    select catgroup_id_child, catgroup_id_parent, LEVEL AS parentlevel from catgrprel start with
+										                        catgroup_id_parent IN (select catgroup_id from catgroup where catgroup_id IN (?)) connect by prior
+										                        catgroup_id_child = catgroup_id_parent
+										                )   cattree
+										                left join catgroup on cattree.catgroup_id_parent = catgroup.catgroup_id
+										                where catgroup.markfordelete = 0
+										              UNION
+										              select catgroup_id as catgroup_id_child from catgroup
+										                where catgroup_id IN (select catgroup_id from catgroup where catgroup_id IN (?))
+										            ) 
+										            order by catgpenrel.catentry_id, catgroup.identifier
+										        ) catentrymaster on catentry.catentry_id = catentrymaster.catentry_id
+                JOIN
+                                CATENTDESC ON (CATENTDESC.CATENTRY_ID = CATENTRY.CATENTRY_ID)
+                LEFT OUTER JOIN
+						        (SELECT SEOURL.TOKENVALUE, SEOURLKEYWORD.LANGUAGE_ID, SEOURLKEYWORD.URLKEYWORD FROM
+				                SEOURL
+				                JOIN 
+				                SEOURLKEYWORD ON (SEOURLKEYWORD.SEOURL_ID = SEOURL.SEOURL_ID AND SEOURLKEYWORD.STATUS = 1 AND SEOURLKEYWORD.STOREENT_ID = ?) WHERE SEOURL.TOKENNAME = 'ProductToken') SEO ON (SEO.TOKENVALUE = CATENTRY.CATENTRY_ID || '' AND SEO.LANGUAGE_ID = CATENTDESC.LANGUAGE_ID)
+				LEFT OUTER JOIN 
+								SEOPAGEDEF ON (SEOPAGEDEF.PAGENAME = 'PRODUCT_PAGE_' || CATENTRY.CATENTRY_ID)
+				LEFT OUTER JOIN 
+								SEOPAGEDEFDESC ON (SEOPAGEDEFDESC.SEOPAGEDEF_ID = SEOPAGEDEF.SEOPAGEDEF_ID AND SEOPAGEDEFDESC.LANGUAGE_ID = CATENTDESC.LANGUAGE_ID)
+                WHERE
+                                CATENTRY.CATENTRY_ID = ? AND CATENTDESC.LANGUAGE_ID = ?
+                                        ]]>
+                                        </_config:SQL>
+                <_config:Param name="catGroupIdParent" value="14501" /> 
+                <_config:Param name="catGroupIdParent" value="14501" />   
+                <_config:Param name="storeId" valueFrom="BusinessContext" />
+                <_config:Param name="CATENTRY_ID" />
+                <_config:Param name="LANGUAGE_ID" />
+                                <_config:ColumnMapping name="PARTNUMBER" value="PartNumber" />
+                                <_config:ColumnMapping name="LANGUAGE_ID" value="LanguageId" />
+                                <_config:ColumnMapping name="MASTER_PATH" value="FullPath" />
+                                <_config:ColumnMapping name="NAME" value="Name" />
+                                <_config:ColumnMapping name="SHORTDESCRIPTION" value="ShortDescription" />
+                                <_config:ColumnMapping name="LONGDESCRIPTION" value="LongDescription" />
+                                <_config:ColumnMapping name="THUMBNAIL" value="Thumbnail" />
+                                <_config:ColumnMapping name="FULLIMAGE" value="FullImage" />
+                                <_config:ColumnMapping name="AUXDESCRIPTION1" value="AuxDescription1" />
+                                <_config:ColumnMapping name="AUXDESCRIPTION2" value="AuxDescription2" />
+                                <_config:ColumnMapping name="AVAILABLE" value="Available" />
+                                <_config:ColumnMapping name="PUBLISHED" value="Published" />
+                                <_config:ColumnMapping name="AVAILABILITYDATE" value="AvailabilityDate" />
+                                <_config:ColumnMapping name="KEYWORD" value="Keyword" />
+                                <_config:ColumnMapping name="URLKEYWORD" value="URLKeyword" />
+                                <_config:ColumnMapping name="TITLE" value="PageTitle" />
+                                <_config:ColumnMapping name="META_DESC" value="MetaDescription" />
+            </_config:Query>
+
+                        <_config:DataWriter className="com.ibm.commerce.foundation.dataload.datawriter.CSVWriter">
+                                <_config:Data>
+                                        <_config:column name="PartNumber" number="1"/>
+                                        <_config:column name="LanguageId" number="2"/>
+                                        <_config:column name="FullPath" number="3"/> 
+                                        <_config:column name="Name" number="4"/>
+                                        <_config:column name="ShortDescription" number="5"/>
+                                        <_config:column name="LongDescription" number="6"/>
+                                        <_config:column name="Thumbnail" number="7"/>
+                                        <_config:column name="FullImage" number="8"/>
+                                        <_config:column name="AuxDescription1" number="9"/>
+                                        <_config:column name="AuxDescription2" number="10"/>
+                                        <_config:column name="Available" number="11"/>
+                                        <_config:column name="Published" number="12"/>
+                                        <_config:column name="AvailabilityDate" number="13"/>
+                                        <_config:column name="Keyword" number="14"/>
+                                        <_config:column name="URLKeyword" number="15"/>
+                                        <_config:column name="PageTitle" number="16"/>
+                                        <_config:column name="MetaDescription" number="17"/>
+                                        <_config:column name="Delete" number="18" value="" />
+                                </_config:Data>
+                        </_config:DataWriter>
+
+          </_config:BusinessObjectMediator>
+    </_config:BusinessObjectBuilder>
+  </_config:DataLoader>
+
+</_config:DataloadBusinessObjectConfiguration>

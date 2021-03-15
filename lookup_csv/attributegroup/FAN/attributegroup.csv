@@ -1,0 +1,17 @@
+GroupIdentifier,ParentGroupIdentifier,ParentStoreIdentifier,Sequence,LanguageId,Name,ShortDescription,Delete
+FAN-CallToActionGroup,,FAN,3,-1,CallToActionGroup,Call To Action Group,0
+FAN-CarouselBadgeGroup,,FAN,3,-1,CarouselBadgeGroup,Carousel Overlay Action Group,0
+FAN-CertificationBadgeGroup,,FAN,3,-1,CertificationBadgeGroup,Certification Action Group,0
+FAN-DocumentsDrawingsGroup,,FAN,5,-1,DocumentsDrawingsGroup,Documents And Drawings Group,0
+FAN-FeaturesGroup,,FAN,3,-1,FeaturesGroup,Features Action Group,0
+FAN-MobileAppsGroup,,FAN,7,-1,MobileAppsGroup,Mobile Apps Group,0
+FAN-ProductFamilyGroup,,FAN,3,-1,ProductFamilyGroup,Product Family Group,0
+FAN-RatingsReviewsGroup,,FAN,8,-1,RatingsReviewsGroup,Ratings And Reviews Group,0
+FAN-RelatedProductsGroup,,FAN,9,-1,RelatedProductsGroup,Related Products Group,0
+FAN-SpecificationGroup,,FAN,4,-1,SpecificationGroup,Specification Action Group,0
+FAN-SpecificationGroup2,,FAN,4,-1,SpecificationGroup2,Specification Group 2,0
+FAN-SpecificationGroup3,,FAN,4,-1,SpecificationGroup3,Specification Group 3,0
+FAN-SpecificationGroup4,,FAN,4,-1,SpecificationGroup4,Specification Group 4,0
+FAN-TabAndContentGroup,,FAN,3,-1,TabAndContentGroup,Tab And Content Action Group,0
+FAN-TrainingServicesGroup,,FAN,6,-1,TrainingServicesGroup,Training And Services Group,0
+FAN-UtilityBeltGroup,,FAN,10,-1,UtilityBeltGroup,Utility Belt Action Group,0

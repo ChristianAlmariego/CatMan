@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2013 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:DataLoadConfiguration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../../../xml/config/xsd/wc-dataload.xsd" 
+	xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+  <_config:DataLoadEnvironment configFile="${envPath}wc-dataload-env.xml" />
+
+  <_config:LoadOrder commitCount="1" batchSize="1" maxError="100000" dataLoadMode="Replace">
+  	   <_config:property name="firstTwoLinesAreHeader" value="false" />
+  	   
+  	   <_config:LoadItem name="AttributeGroup" businessObjectConfigFile="wc-loader-attr-group.xml" >
+  	        <_config:DataSourceLocation location="${outputLocation}attributegroup.csv" />
+  	   </_config:LoadItem>
+
+  	   <_config:LoadItem name="AttributeGroupAttrRel" businessObjectConfigFile="wc-loader-attr-group-attr-rel.xml" >
+  	        <_config:DataSourceLocation location="${outputLocation}attributegroupattrrel.csv" />
+  	   </_config:LoadItem>
+
+	   </_config:LoadOrder> 
+
+</_config:DataLoadConfiguration>

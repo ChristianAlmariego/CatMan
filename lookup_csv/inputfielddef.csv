@@ -1,0 +1,27 @@
+Store,Spec Name,Attribute Name,Type,Defined Values,MAXLENGTH,MAX_OCCURRENCE,MIN_OCCURRENCE,Character Limit,Identifier,Sequence,Displayable,Searchable,Comparable,Facetable,Merchandisable,MultiLang,Attribute Type
+EMR,Catalog Entry Spec,Name,STRING,No,127,1,0,10,Name,2,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,String
+EMR,Catalog Entry Spec,Short description,STRING,No,254,1,0,10,Short description,0,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,String
+EMR,Catalog Entry Spec,Long description,RICH_TEXT,No,1000000,1,0,10,Long description,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Keyword,STRING,No,127,1,0,10,Keyword,0,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Keyword US,STRING,No,127,1,0,10,Keyword US,0,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Manufacturer,STRING,No,64,1,1,10,Manufacturer,3,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,String
+EMR,Catalog Entry Spec,Manufacturer part number,STRING,No,60,1,1,10,Manufacturer part number,0,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,String
+EMR,Catalog Entry Spec,URL,URL,No,3000,1,0,10,URL,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,String
+EMR,Catalog Entry Spec,Parent,STRING,No,64,1,0,10,Parent,0,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,Recurring order item,FLAG,Yes,10,1,0,10,Recurring order item,0,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,Subscription item,FLAG,Yes,10,1,0,10,Subscription item,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,For Purchase,FLAG,Yes,10,1,0,10,For Purchase,0,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,On Special,FLAG,Yes,10,1,0,10,On Special,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,Page title,STRING,No,3000,1,0,10,Page title,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Image alt text,STRING,No,3000,1,0,10,Image alt text,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Meta description,STRING,No,3000,1,0,10,Meta description,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Display to customers US,FLAG,Yes,10,1,1,10,Display to customers US,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,String Enumeration
+EMR,Catalog Entry Spec,Thumbnail,URL,No,254,1,0,10,Thumbnail,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Full image,URL,No,254,1,0,10,Full image,0,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,String
+EMR,Catalog Entry Spec,Full Path,STRING,No,3000,1,1,10,Full Path,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,Catalog Entry Type,STRING,No,3000,1,1,10,Catalog Entry Type,0,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,Store,STRING,No,3000,1,1,10,Store,0,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,String Enumeration
+EMR,Catalog Entry Spec,Announcement Date,,No,50,1,0,10,Announcement Date,0,,,,,,,String
+EMR,Catalog Entry Spec,Withdrawal Date,,No,50,1,0,10,Withdrawal Date,0,,,,,,,String
+WSV,Catalog Entry Spec,Short Description,STRING,No,254,1,0,10,Short Description,0,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,String
+WSV,Catalog Entry Spec,Long Description,RICH_TEXT,No,1000000,1,0,10,Long Description,0,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,String

@@ -1,0 +1,10 @@
+{
+	"storePath":"CatMan/",
+	"wcStoreIdentifier" : "InSinkErator",
+	"outputPath":"ISE/",
+	"storeID": "10156",
+	"supportedStores" : [
+	    { "name": "ISE" , "wcStoreIdentifier" : "InSinkErator"}
+	   
+	]
+}

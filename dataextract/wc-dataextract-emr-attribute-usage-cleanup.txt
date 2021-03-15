@@ -1,0 +1,50 @@
+EMR 1.0 Pressure Drop Capacity|1.0" Pressure Drop Capacity
+EMR A-IHL Series Moisture Indicators|A-IHL Series Moisture Indicators
+EMR AFP|AFP
+EMR Accessory Type|Accessory Type
+EMR Air Preparation Sub Type|Air Preparation Sub Type
+EMR Alarm Switch|Air Preparation Sub Type
+EMR Alarm relay|Alarm Switch
+EMR Analog Inputs|Alarm relay
+EMR Approx. Change Time|Analog Inputs
+EMR Approx. Run Time|Approx. Change Time
+EMR Atmospheric Pressure|Atmospheric Pressure
+EMR Attic Application|Attic Application
+EMR Auxiliary Switch Included|Auxiliary Switch Included
+EMR Auxiliary output|Auxiliary output
+EMR Available Alarm Configurations|Available Alarm Configurations
+EMR Baffles|Baffles
+EMR Bi-Directional|Bi-Directional
+EMR Board Mount|Board Mount
+EMR Body Material|Body Material
+EMR Bulb Style|Bulb Style
+EMR CANBus|CANBus
+EMR CE marking|CE marking
+EMR CFM at 60Hz|CFM at 60Hz
+EMR COP|COP
+EMR Cable Style|Cable Style
+EMR Capillary Tube Length|Capillary Tube Length
+EMR Carbide Element|Carbide Element
+EMR Catalog Number|Catalog Number
+EMR Coil Current|Coil Current
+EMR Compatability|Compatability
+EMR Competitive Cross Reference|Competitive Cross Reference
+EMR Compliancy|Compliancy
+EMR Compressor Speed|Compressor Speed
+EMR Connecting cable|Connecting cable
+EMR Connection|Connection
+EMR Control Circuit Rating|Control Circuit Rating
+EMR Control input|Control input
+EMR Control range|Control range
+EMR Cooling Capacity kW|Cooling Capacity (kW)
+EMR Cooling Capacity min max kW|Cooling Capacity [min-max] (kW)
+EMR Cubic Inches|Cubic Inches
+EMR Cut-In|Cut-In
+EMR Cut-Out|Cut-Out
+EMR Cylinder and Actuators Sub Type|Cylinder and Actuators Sub Type
+EMR Cylinders|Cylinders
+EMR De-Energized Position|De-Energized Position
+EMR Decibel - dBA|Decibel - dBA
+EMR Defrost Method|Defrost Method
+EMR Digital Outputs|Digital Outputs
+EMR Dip switche for address set|Dip switche for address set
